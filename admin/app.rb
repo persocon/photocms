@@ -33,6 +33,7 @@ module PhotoCms
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :contents, '/contents'
     role.project_module :categories, '/categories'
     role.project_module :tags, '/tags'
     role.project_module :contents, '/contents'
