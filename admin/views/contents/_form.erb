@@ -1,3 +1,4 @@
+<%= @content.inspect %>
 <% error = @content.errors.key?(:title) && @content.errors[:title].count > 0 %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :title, :class => 'control-label' %>
@@ -30,14 +31,21 @@
     <span class='help-inline'><%= error ? f.error_message_on(:published) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
-<% error = @content.errors.key?(:type) && @content.errors[:type].count > 0 %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :type, :class => 'control-label' %>
+  <%= f.label :date, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :type, :class => 'form-control input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:type) : "Ex: a simple text" %></span>
+    <%= date = @content.created_at ? @content.created_at.strftime("%d/%m/%Y - %H:%M:%S") : DateTime.now.strftime("%d/%m/%Y - %H:%M:%S") %>
   </div>
 </fieldset>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :updated, :class => 'control-label' %>
+  <div class='controls'>
+    <%= updated = @content.updated_at ? @content.updated_at.strftime("%d/%m/%Y - %H:%M:%S") : DateTime.now.strftime("%d/%m/%Y - %H:%M:%S") %>
+  </div>
+</fieldset>
+
+<% error = @content.errors.key?(:type) && @content.errors[:type].count > 0 %>
+<%= f.hidden_field :type, :value => 'post' %>
 
 
 <div class="form-actions">

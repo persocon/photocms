@@ -11,8 +11,13 @@ PhotoCms::Admin.controllers :contents do
     render 'contents/new'
   end
 
-  post :create do
+  post :create do    
     @content = Content.new(params[:content])
+    #get current_user ID
+    @content.account_id = current_account.id
+    
+    @content.created_at = @content.updated_at = DateTime.now
+    
     if (@content.save rescue false)
       @title = pat(:create_title, :model => "content #{@content.id}")
       flash[:success] = pat(:create_success, :model => 'Content')
@@ -39,6 +44,7 @@ PhotoCms::Admin.controllers :contents do
     @title = pat(:update_title, :model => "content #{params[:id]}")
     @content = Content[params[:id]]
     if @content
+      @content.updated_at = DateTime.now
       if @content.modified! && @content.update(params[:content])
         flash[:success] = pat(:update_success, :model => 'Content', :id =>  "#{params[:id]}")
         params[:save_and_continue] ?
