@@ -45,13 +45,30 @@
 </fieldset>
 
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :categories, :class => 'control-label' %>
+  <div class='controls'>
+    <ul>
+      <% @categories.each_with_index do |cat, index| %>
+          <li>
+            <% checked = @content.categories.include? cat %>
+            <%= check_box_tag 'categories[]', :value => cat.id, :checked => checked  %>
+            <%= cat.title %>
+          </li>
+      <% end %>
+    </ul>
+    
+    
+  </div>
+</fieldset>
+
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :tags, :class => 'control-label' %>
   <div class='controls'>
       <input 
         type="text" 
         name="tags" 
         value="<%= @content.tags.map {|k,vs| k.title }.join(", ") %>"
-        class="form-control input-sm input-with-feedback" />
+        class="form-control input-xlarge input-with-feedback" />
   </div>
 </fieldset>
 

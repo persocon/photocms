@@ -8,6 +8,7 @@ PhotoCms::Admin.controllers :contents do
   get :new do
     @title = pat(:new_title, :model => 'content')
     @content = Content.new
+    @categories = Category.all
     render 'contents/new'
   end
 
@@ -19,6 +20,10 @@ PhotoCms::Admin.controllers :contents do
     @content.created_at = @content.updated_at = DateTime.now
     
     if (@content.save rescue false)
+      
+      @content.add_tags(params[:tags])
+      @content.add_categories(params[:categories])
+      
       @title = pat(:create_title, :model => "content #{@content.id}")
       flash[:success] = pat(:create_success, :model => 'Content')
       params[:save_and_continue] ? redirect(url(:contents, :index)) : redirect(url(:contents, :edit, :id => @content.id))
@@ -31,6 +36,7 @@ PhotoCms::Admin.controllers :contents do
 
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "content #{params[:id]}")
+    @categories = Category.all
     @content = Content[params[:id]]
     if @content
       render 'contents/edit'
@@ -46,6 +52,7 @@ PhotoCms::Admin.controllers :contents do
     if @content
       
       @content.add_tags(params[:tags])
+      @content.add_categories(params[:categories])
       
       @content.updated_at = DateTime.now
       if @content.modified! && @content.update(params[:content])

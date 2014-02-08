@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    create_table :contents_categories do
+    create_table :categories_contents do
 
       foreign_key :content_id, :contents
       foreign_key :category_id, :categories
@@ -9,6 +9,6 @@ Sequel.migration do
   end
 
   down do
-    drop_table :contents_categories
+    drop_table :categories_contents
   end
 end

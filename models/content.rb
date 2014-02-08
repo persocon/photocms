@@ -23,6 +23,17 @@ class Content < Sequel::Model
 		end
 	end
 	
+	def add_categories(categories)
+		if categories.present?
+			self.remove_all_categories
+			categories.each do |category|
+				 self.add_category(category.to_i)
+			end
+		else
+			self.remove_all_categories
+		end
+	end
+	
 	private
 	
 	def slugfy
