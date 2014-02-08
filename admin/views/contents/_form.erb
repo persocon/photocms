@@ -44,6 +44,17 @@
   </div>
 </fieldset>
 
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :tags, :class => 'control-label' %>
+  <div class='controls'>
+      <input 
+        type="text" 
+        name="tags" 
+        value="<%= @content.tags.map {|k,vs| k.title }.join(", ") %>"
+        class="form-control input-sm input-with-feedback" />
+  </div>
+</fieldset>
+
 <% error = @content.errors.key?(:type) && @content.errors[:type].count > 0 %>
 <%= f.hidden_field :type, :value => 'post' %>
 

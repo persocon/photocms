@@ -44,6 +44,12 @@ PhotoCms::Admin.controllers :contents do
     @title = pat(:update_title, :model => "content #{params[:id]}")
     @content = Content[params[:id]]
     if @content
+      #try to move this to model
+      @tags = Tag.create_for_content(params[:tags])
+      @content.remove_all_tags
+      @tags.each do |tag|
+      	 @content.add_tag(tag.id)
+      end
       @content.updated_at = DateTime.now
       if @content.modified! && @content.update(params[:content])
         flash[:success] = pat(:update_success, :model => 'Content', :id =>  "#{params[:id]}")
