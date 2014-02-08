@@ -11,6 +11,18 @@ class Content < Sequel::Model
 		slugfy
 	end
 	
+	def add_tags(tags)
+		if tags.present?
+			@tags = Tag.create_for_content(tags)
+			self.remove_all_tags
+			@tags.each do |tag|
+				 self.add_tag(tag.id)
+			end
+		else
+			self.remove_all_tags
+		end
+	end
+	
 	private
 	
 	def slugfy
