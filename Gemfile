@@ -14,6 +14,7 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
+gem 'stringex'
 gem 'carrierwave'
 gem 'carrierwave-sequel', :require => 'carrierwave/sequel'
 gem 'mini_magick'
