@@ -51,6 +51,7 @@ class Uploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded.
   #
   # process :resize_to_fit => [740, 580]
+  
 
   ##
   # Create different versions of your uploaded files
@@ -61,6 +62,14 @@ class Uploader < CarrierWave::Uploader::Base
   #     process :resize_to_fill => [230, 85]
   #   end
   # end
+  version :thumb do
+    process :resize_to_fill => [100, 100]
+    version :thumb50 do
+      process :resize_to_fill => [50, 50]
+    end
+  end
+  
+  
   ##
   # White list of extensions which are allowed to be uploaded:
   #
