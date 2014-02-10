@@ -27,10 +27,10 @@ gem 'sequel'
 # Test requirements
 
 # Padrino Stable Gem
-#gem 'padrino', '0.12.0'
+gem 'padrino', '0.12.0'
 
 # Or Padrino Edge
- gem 'padrino', :github => 'padrino/padrino-framework'
+# gem 'padrino', :github => 'padrino/padrino-framework'
 
 # Or Individual Gems
 # %w(core gen helpers cache mailer admin).each do |g|
