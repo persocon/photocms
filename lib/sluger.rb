@@ -13,7 +13,7 @@ class Sluger
 	private
 
 	def find_slugs(instance, to_slug)
-		num_of_slugs = instance.class.select(:slug).where(Sequel.like(:slug, "#{to_slug.to_url}%")).all.count.to_int
+		num_of_slugs = instance.class.select(:title).where(:title => instance.title).all.count.to_int
 		#check if num_of_slugs returned something
 		if num_of_slugs > 0
 			return "#{to_slug.to_url}-#{num_of_slugs}"
