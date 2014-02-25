@@ -48,12 +48,16 @@
   <%= f.label :categories, :class => 'control-label' %>
   <div class='controls'>
     <ul>
+      
       <% @categories.each_with_index do |cat, index| %>
+        <% unless cat.parent_id %>
           <li>
             <% checked = @content.categories.include? cat %>
             <%= check_box_tag 'categories[]', :value => cat.id, :checked => checked  %>
             <%= cat.title %>
+            <%= TreeHelper.do_something(cat.children, @content.categories) %>
           </li>
+        <% end %>
       <% end %>
     </ul>
     

@@ -8,11 +8,13 @@ PhotoCms::Admin.controllers :categories do
   get :new do
     @title = pat(:new_title, :model => 'category')
     @category = Category.new
+    @categories = Category.all
     render 'categories/new'
   end
 
   post :create do
     @category = Category.new(params[:category])
+
     if (@category.save rescue false)
       @title = pat(:create_title, :model => "category #{@category.id}")
       flash[:success] = pat(:create_success, :model => 'Category')
@@ -27,6 +29,7 @@ PhotoCms::Admin.controllers :categories do
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "category #{params[:id]}")
     @category = Category[params[:id]]
+    @categories = Category.all
     if @category
       render 'categories/edit'
     else
@@ -38,6 +41,7 @@ PhotoCms::Admin.controllers :categories do
   put :update, :with => :id do
     @title = pat(:update_title, :model => "category #{params[:id]}")
     @category = Category[params[:id]]
+
     if @category
       if @category.modified! && @category.update(params[:category])
         flash[:success] = pat(:update_success, :model => 'Category', :id =>  "#{params[:id]}")
