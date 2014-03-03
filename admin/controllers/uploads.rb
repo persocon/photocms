@@ -15,20 +15,9 @@ PhotoCms::Admin.controllers :uploads do
     
     if params[:upload][:file].has_key? "base64"
       
-      base64 = params[:upload][:file][:base64]
-      base64 = base64.split(',')
-      base64 = Base64.decode64(base64[1])
-      
-      tempfile = Tempfile.new("RackMultipart")
-      tempfile.binmode
-      tempfile.write(base64)
-      tempfile.rewind
-      
-      uploaded_file = Uploader.new(:tempfile => tempfile, :content_type => params[:upload][:file][:type], :filename => params[:upload][:file][:filename], :original_filename => params[:upload][:file][:filename])
+      params[:upload][:file] = ImageHelper.base64ToImage(params)
       
       params[:upload][:file].delete("base64")
-      
-      params[:upload][:file] = uploaded_file.model
       
     end
     
