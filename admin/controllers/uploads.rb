@@ -11,12 +11,39 @@ PhotoCms::Admin.controllers :uploads do
     render 'uploads/new'
   end
 
-  post :create do
+  post :create, :provides => [:html, :json] do
+    
+    if params[:upload][:file].has_key? "base64"
+      
+      base64 = params[:upload][:file][:base64]
+      base64 = base64.split(',')
+      base64 = Base64.decode64(base64[1])
+      
+      tempfile = Tempfile.new("RackMultipart")
+      tempfile.binmode
+      tempfile.write(base64)
+      tempfile.rewind
+      
+      uploaded_file = Uploader.new(:tempfile => tempfile, :content_type => params[:upload][:file][:type], :filename => params[:upload][:file][:filename], :original_filename => params[:upload][:file][:filename])
+      
+      params[:upload][:file].delete("base64")
+      
+      params[:upload][:file] = uploaded_file.model
+      
+    end
+    
     @upload = Upload.new(params[:upload])
+    
     if (@upload.save rescue false)
-      @title = pat(:create_title, :model => "upload #{@upload.id}")
-      flash[:success] = pat(:create_success, :model => 'Upload')
-      params[:save_and_continue] ? redirect(url(:uploads, :index)) : redirect(url(:uploads, :edit, :id => @upload.id))
+      
+      case content_type
+        when :html
+          @title = pat(:create_title, :model => "upload #{@upload.id}")
+          flash[:success] = pat(:create_success, :model => 'Upload')
+          params[:save_and_continue] ? redirect(url(:uploads, :index)) : redirect(url(:uploads, :edit, :id => @upload.id))
+        when :json
+          @upload.file.to_json
+      end
     else
       @title = pat(:create_title, :model => 'upload')
       flash.now[:error] = pat(:create_error, :model => 'upload')

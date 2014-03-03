@@ -1,11 +1,14 @@
 <% error = @upload.errors.key?(:file) && @upload.errors[:file].count > 0 %>
-<% if @upload.file %>
-  <img src="<%= @upload.file.thumb %>" />
-<% end %>
+<figure id="image-uploaded">
+  <% if @upload.file %>
+  
+    <img src="<%= @upload.file.thumb %>" />
+  <% end %>
+</figure>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :file, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.file_field :file, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <%= f.file_field :file, :class => 'form-control input-xlarge input-with-feedback image-upload', :autofocus => true %>
     <span class='help-inline'><%= error ? f.error_message_on(:file) : "Ex: a simple text" %></span>
   </div>
 </fieldset>

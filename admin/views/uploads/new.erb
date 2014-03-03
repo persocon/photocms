@@ -7,3 +7,42 @@
     <%= partial 'uploads/form', :locals => { :f => f } %>
  <% end %>
 </div>
+
+<script>
+    var files = [];
+    
+    $("input[type=file]").change(function(event) {
+      $.each(event.target.files, function(index, file) {
+        var reader = new FileReader();
+        reader.onload = function(event) {  
+          object = {};
+          object.filename = file.name;
+          object.type = file.type;
+          object.base64 = event.target.result;
+          files.push(object);
+        };  
+        reader.readAsDataURL(file);
+      });
+    });
+    
+    $("form").submit(function(form) {
+        
+      var authenticity_token = $("input[name='authenticity_token']").val();
+      
+      $.each(files, function(index, file) {
+        $.ajax({url: "/admin/uploads/create.json",
+              type: 'POST',
+              data: {upload: {file: file}, authenticity_token: authenticity_token},
+              success: function(data, status, xhr) {
+                  var thumb = data.file.thumb.url;
+                  $('figure#image-uploaded').html("<img src='"+thumb+"' />");
+                  $('input').each(function(){
+                      $(this).attr('disabled', 'disabled');
+                  });
+              }
+        });      
+      });
+      files = [];
+      form.preventDefault();
+    });
+</script>

@@ -11,15 +11,18 @@
     <%= favicon_tag "favicon.ico" %>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel=stylesheet />
     <%= stylesheet_link_tag 'bootstrap', 'application' %>
+    <%= javascript_include_tag 'jquery-1.11.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application %>
+    <%= javascript_include_tag  'handlebars-v1.3.0', 'underscore-1.6.0', 'backbone-1.1.2', 'jquery-ujs', :application %>
+
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class=navbar-inner>
-        <div class=container>
+    <div class="navbar navbar-fixed-top" role="navigation">
+      <div class="navbar-inner">
+        <div class="container">
           <%= link_to 'Padrino', url(:base, :index), :class => 'navbar-brand', :title => 'Padrino Admin' %>
           <ul class="nav navbar-nav pull-right">
-            <li class=navbar-edit-account><%= link_to tag_icon(:user), url(:accounts, :edit, :id => current_account.id), :title => pat(:profile), :class => 'navbar-nav-link' %></li>
-            <li class=navbar-logout>
+            <li class="navbar-edit-account"><%= link_to tag_icon(:user), url(:accounts, :edit, :id => current_account.id), :title => pat(:profile), :class => 'navbar-nav-link' %></li>
+            <li class="navbar-logout">
               <%= button_to(:logout, url(:sessions, :destroy), :method => :delete, :class => 'navbar-nav-form') { content_tag :button, tag_icon(:off), :type => :submit, :title => pat(:logout), :class => 'navbar-nav-form-link' } %>
             </li>
           </ul>
@@ -29,7 +32,7 @@
               <% if request.path_info =~ /^#{project_module.path}/ %>
                 <li class="navbar-module active">
               <% else %>
-                <li class=navbar-module>
+                <li class="navbar-module">
               <% end %>
                 <%= link_to project_module.human_name, url(project_module.path) %>
                 </li>
@@ -46,6 +49,49 @@
         <div class='main-wrapper-push'></div>
       </div>
     </div>
+    
+    <div class="modal fade" id="imageLibrary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#upload" data-toggle="tab">Upload</a></li>
+              <li><a href="#library" data-toggle="tab">Library</a></li>
+              <li><a href="#onThisPost" data-toggle="tab">On this post</a></li>
+            </ul>
+    
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="upload">
+                <% form_for :upload, url(:uploads, :create),:remote => true, :class => 'form-horizontal' do |f| %>
+                   <fieldset class='control-group's>
+                     <%= f.label :file, :class => 'control-label' %>
+                     <div class='controls'>
+                       <%= f.file_field :file, :class => 'form-control input-xlarge input-with-feedback' %>
+                     </div>
+                   </fieldset>
+                   <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+                <% end %>
+              </div>
+              <div class="tab-pane" id="library">
+    
+              </div>
+              <div class="tab-pane" id="onThisPost">
+    
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <div class='footer-wrapper container'>
@@ -57,8 +103,6 @@
           <li><%= link_to tag_icon(:twitter, 'twitter'), 'http://twitter.com/padrinorb', :target => :_blank, :class => 'footer-links-link' %></li>
         </ul>
       </div>
-    </footer>
-
-    <%= javascript_include_tag 'jquery-1.9.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application %>
+    </footer>    
   </body>
 </html>
