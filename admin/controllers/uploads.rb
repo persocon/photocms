@@ -29,7 +29,10 @@ PhotoCms::Admin.controllers :uploads do
           flash[:success] = pat(:create_success, :model => 'Upload')
           params[:save_and_continue] ? redirect(url(:uploads, :index)) : redirect(url(:uploads, :edit, :id => @upload.id))
         when :json
-          @upload.file.to_json
+          {
+            "id" => @upload.id,
+            "files" => @upload.file
+          }.to_json
       end
     else
       @title = pat(:create_title, :model => 'upload')
