@@ -10,9 +10,9 @@
     <title><%= @title.present? ? "#{@title} | Padrino Admin" : "Padrino Admin" %></title>
     <%= favicon_tag "favicon.ico" %>
     <link href='http://fonts.googleapis.com/css?family=Varela' rel=stylesheet />
-    <%= stylesheet_link_tag 'bootstrap', 'application' %>
+    <%= stylesheet_link_tag 'bootstrap', 'application', 'dropzone' %>
     <%= javascript_include_tag 'jquery-1.11.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application %>
-    <%= javascript_include_tag  'handlebars-v1.3.0', 'underscore-1.6.0', 'backbone-1.1.2', 'jquery-ujs', :application %>
+    <%= javascript_include_tag  'handlebars-v1.3.0', 'underscore-1.6.0', 'backbone-1.1.2', 'jquery-ujs', 'dropzone', :application %>
 
   </head>
   <body>
@@ -55,7 +55,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel">Image Library</h4>
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs">
@@ -67,14 +67,14 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane active" id="upload">
-                <% form_for :upload, url(:uploads, :create),:remote => true, :class => 'form-horizontal' do |f| %>
-                   <fieldset class='control-group's>
+                <% form_for :upload, url(:uploads, :create),:remote => true, :class => 'form-horizontal dropzone' do |f| %>
+                   <!-- <fieldset class='control-group's>
                      <%= f.label :file, :class => 'control-label' %>
                      <div class='controls'>
                        <%= f.file_field :file, :class => 'form-control input-xlarge input-with-feedback' %>
                      </div>
                    </fieldset>
-                   <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+                   <%= f.submit pat(:save), :class => 'btn btn-primary' %> -->
                 <% end %>
               </div>
               <div class="tab-pane" id="library">

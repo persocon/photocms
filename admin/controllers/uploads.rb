@@ -12,13 +12,11 @@ PhotoCms::Admin.controllers :uploads do
   end
 
   post :create, :provides => [:html, :json] do
-    
-    if params[:upload][:file].has_key? "base64"
-      
-      params[:upload][:file] = ImageHelper.base64ToImage(params)
-      
-      params[:upload][:file].delete("base64")
-      
+
+    case content_type
+      when :json
+        params[:file][:name] = "upload[file]"
+        params[:upload] = {:file => params[:file]}
     end
     
     @upload = Upload.new(params[:upload])
