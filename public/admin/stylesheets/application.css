@@ -351,3 +351,6 @@ body.modal-open,
 {
     margin-right: 0px;
 }
+#imageLibrary .tab-content {
+  padding-top: 10px
+}

@@ -4,6 +4,7 @@ module PhotoCms
     register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Admin::AccessControl
+    register CompassInitializer
 
     ##
     # Application configuration options

@@ -9,6 +9,7 @@ PhotoCms::Admin.controllers :contents do
     @title = pat(:new_title, :model => 'content')
     @content = Content.new
     @categories = Category.all
+    @uploads_all = Upload.all
     render 'contents/new'
   end
 
@@ -38,6 +39,7 @@ PhotoCms::Admin.controllers :contents do
     @title = pat(:edit_title, :model => "content #{params[:id]}")
     @categories = Category.all
     @content = Content[params[:id]]
+    @uploads_all = Upload.all
     if @content
       render 'contents/edit'
     else
