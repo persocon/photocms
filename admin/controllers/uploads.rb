@@ -1,8 +1,31 @@
 PhotoCms::Admin.controllers :uploads do
-  get :index do
-    @title = "Uploads"
-    @uploads = Upload.all
-    render 'uploads/index'
+  get :index, :provides => [:html, :json] do
+    case content_type
+      when :html
+        @title = "Uploads"
+        @uploads = Upload.all
+        render 'uploads/index'
+      when :json
+        @uploads = Upload.all
+        hash = Array.new
+        @uploads.each do |upload|
+          onThePost = ""
+          if upload.contents
+            x = upload.contents_dataset.where({:id => params[:id]}).first
+            if x
+              onThePost = true
+            end
+          end
+          hash << {
+            :id => upload.id,
+            :filename => upload.file.url.split("/").last,
+            :file => upload.file,
+            :thumb => upload.file.thumb,
+            :onThePost => onThePost
+          }
+        end
+        hash.to_json
+    end
   end
 
   get :new do
@@ -30,8 +53,11 @@ PhotoCms::Admin.controllers :uploads do
           params[:save_and_continue] ? redirect(url(:uploads, :index)) : redirect(url(:uploads, :edit, :id => @upload.id))
         when :json
           {
-            "id" => @upload.id,
-            "files" => @upload.file
+            :id => @upload.id,
+            :filename => @upload.file.url.split("/").last,
+            :file => @upload.file,
+            :thumb => @upload.file.thumb,
+            :onThePost => true
           }.to_json
       end
     else

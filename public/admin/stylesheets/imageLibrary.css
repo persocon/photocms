@@ -11,6 +11,8 @@ Syntax error: Undefined variable: "$primary".
 8: 			&.active
 9: 				.img-thumbnail
 10: 					background: $active
+11: 	#library, #onThisPost
+12: 		ul
 
 Backtrace:
 /Users/persocon/photo-cms/admin/stylesheets/imageLibrary.sass:7
@@ -121,4 +123,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$primary\".\A         on line 7 of /Users/persocon/photo-cms/admin/stylesheets/imageLibrary.sass\A \A 2: 	.tab-content\A 3: 		a\A 4: 			display: inline-block\A 5: 			&:hover\A 6: 				.img-thumbnail\A 7: 					background: $primary\A 8: 			&.active\A 9: 				.img-thumbnail\A 10: 					background: $active"; }
+  content: "Syntax error: Undefined variable: \"$primary\".\A         on line 7 of /Users/persocon/photo-cms/admin/stylesheets/imageLibrary.sass\A \A 2: 	.tab-content\A 3: 		a\A 4: 			display: inline-block\A 5: 			&:hover\A 6: 				.img-thumbnail\A 7: 					background: $primary\A 8: 			&.active\A 9: 				.img-thumbnail\A 10: 					background: $active\A 11: 	#library, #onThisPost\A 12: 		ul"; }

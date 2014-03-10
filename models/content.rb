@@ -35,4 +35,15 @@ class Content < Sequel::Model
 		end
 	end
 	
+	def add_uploads(uploads)
+		if uploads.present?
+			self.remove_all_uploads
+			uploads.each do |upload|
+				 self.add_upload(upload.to_i)
+			end
+		else
+			self.remove_all_uploads
+		end
+	end
+	
 end

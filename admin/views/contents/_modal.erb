@@ -15,32 +15,262 @@
 		<!-- Tab panes -->
 		<div class="tab-content">
 		  <div class="tab-pane active" id="upload">
-			<% form_for :upload, url(:uploads, :create),:remote => true, :class => 'form-horizontal dropzone' do |f| %>
-			   <!-- <fieldset class='control-group's>
-				 <%= f.label :file, :class => 'control-label' %>
-				 <div class='controls'>
-				   <%= f.file_field :file, :class => 'form-control input-xlarge input-with-feedback' %>
-				 </div>
-			   </fieldset>
-			   <%= f.submit pat(:save), :class => 'btn btn-primary' %> -->
+			<% form_for :upload, url(:uploads, :create),:remote => true, :class => 'form-horizontal my-dropzone' do |f| %>
+			   <div class="dz-message dz-default"></div>
 			<% end %>
 		  </div>
 		  <div class="tab-pane" id="library">
-			<% @uploads_all.each do |upload| %>
-				<a href="#<%= upload.id %>">
-					<img src="<%= upload.file.thumb.thumb50 %>" class="img-thumbnail" />
-				</a>
-			<% end %>
+			
 		  </div>
 		  <div class="tab-pane" id="onThisPost">
-
+				
 		  </div>
 		</div>
 	  </div>
 	  <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 	  </div>
 	</div>
   </div>
 </div>
+<script id="lib-single-template" type="text/x-handlebars-template">
+	<figure>
+		<img src="{{ thumb.file.url }}" class="img-thumbnail" />
+	</figure>
+	<p>
+	
+		{{log onThePost}}
+		<a href="#{{ id }}" class="btn btn-block btn-xs {{#if onThePost}} btn-danger active{{ else }} btn-success {{/if}}">
+			{{#if onThePost}}
+				<span>Remove</span>
+			{{ else }}
+				<span>Add</span>
+			{{/if}}
+		</a>
+	</p>
+</script>
+<script id="single-template" type="text/x-handlebars-template">
+	<figure>
+		<img src="{{ thumb.file.url }}" class="img-thumbnail" />
+	</figure>
+	<p>
+		<a href="#{{ id }}" class="btn btn-block btn-xs btn-danger active">
+			<span>Remove</span>
+		</a>
+	</p>
+</script>
+<script id="input-template" type="text/x-handlebars-template">
+	<input type="hidden" value="{{ id }}" name="uploads[]" />
+</script>
+<script>
+	window.App = {
+	  Models: {},
+	  Collections: {},
+	  Views: {},
+	  Router: {}
+	};
+	
+	window.template = function(id) {
+	  return Handlebars.compile( $('#' + id).html() );
+	}
+	
+	window.
+
+	App.Models.Image = Backbone.Model.extend({
+		defaults: {
+			"id" : "",
+			"filename": "",
+			"thumb": "",
+			"onThePost": ""
+		}
+	});
+	
+	App.Collections.Library = Backbone.Collection.extend({
+		model: App.Models.Image,
+		url: '<%= url(:uploads, :index) %>'
+	});
+	
+	App.Collections.OnThisPost = Backbone.Collection.extend({
+		model: App.Models.Image
+	});
+	App.Collections.InputHidden = Backbone.Collection.extend({
+		model: App.Models.Image
+	})
+	
+	App.Views.Single = Backbone.View.extend({
+	  tagName: 'li',
+	  template: template('single-template'),
+	  initialize: function(){
+		this.model.on('remove', this.unrender, this);
+	  },
+	  render: function(){
+		this.$el.html( this.template( this.model.toJSON() ) );
+		return this;
+	  },
+	  unrender: function(){
+	  	model = this.model.toJSON();
+	  	
+	  	LibCollection = Lib.where({id: model.id});
+	  	LibCollection[0].set({"onThePost": ""});
+	  	
+	  	iph = InputHidden.where({id: model.id});
+	  	InputHidden.remove(iph[0]);
+	  	
+		OnThisPost.remove(this.model);
+		
+		this.$el.remove();
+	  },
+	  events: {
+	  	  'click a.active': 'removeFromPost'
+	  },
+	  removeFromPost: function(e){
+		  e.preventDefault();
+		  this.unrender();
+	  }
+	});
+
+	App.Views.LibrarySingle = Backbone.View.extend({
+	  tagName: 'li',
+	  template: template('lib-single-template'),
+	  initialize: function(){
+		this.model.on('change:onThePost', this.render, this );  
+	  },
+	  render: function(){
+		this.$el.html( this.template( this.model.toJSON() ) );
+		return this;
+	  },
+	  events: {
+		  'click a': 'addToPost',
+		  'click a.active': 'removeFromPost'
+	  },
+	  addToPost: function(e){
+		  e.preventDefault();
+		  
+		  this.model.set({"onThePost": true});
+		  
+		  otp = this.model.clone();
+		  iph = this.model.clone();
+		  
+		  OnThisPost.add(otp);
+		  InputHidden.add(iph);
+	  },
+	  removeFromPost: function(e){
+		  e.preventDefault();
+		  
+		  otp = OnThisPost.where({id: this.model.attributes.id});
+		  iph = InputHidden.where({id: this.model.attributes.id});
+		  
+		  OnThisPost.remove(otp[0]);
+		  InputHidden.remove(iph[0]);
+		  
+		  this.model.set({"onThePost": ""});
+	  }
+	});
+	
+	App.Views.InputSingle = Backbone.View.extend({
+	  template: template('input-template'),
+	  initialize: function(){
+	  	this.model.on('remove', this.unrender, this);
+	  },
+	  render: function(){
+		this.$el.html( this.template( this.model.toJSON() ) );
+		return this;
+	  },
+	  unrender: function(){
+		this.remove();
+	  }
+	});
+	
+	App.Views.Library = Backbone.View.extend({
+	  tagName: 'ul',
+	  initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.render();
+		
+		$('#library').html(this.el);
+		
+	  },
+	  render: function(){
+		this.collection.each( this.addOne, this );
+		return this;
+	  },
+	  addOne: function(post){
+		var photo = new App.Views.LibrarySingle({ model: post });
+		this.$el.append( photo.render().el );
+	  }
+	});
+	
+	App.Views.OnThisPost = Backbone.View.extend({
+	  tagName: 'ul',
+	  initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.render();
+		
+		$('#onThisPost').html(this.el);
+		
+	  },
+	  render: function(){
+		this.collection.each( this.addOne, this );
+		return this;
+	  },
+	  addOne: function(post){
+		var photo = new App.Views.Single({ model: post });
+		this.$el.append( photo.render().el );
+	  }
+	});
+	
+	App.Views.Inputs = Backbone.View.extend({
+	  initialize: function(){
+		this.collection.on('add', this.addOne, this);
+		this.render();
+		
+		$('#uploads_hidden').html(this.el);
+		
+	  },
+	  render: function(){
+		this.collection.each( this.addOne, this );
+		return this;
+	  },
+	  addOne: function(post){
+		var photo = new App.Views.InputSingle({ model: post });
+		this.$el.append( photo.render().el );
+	  }
+	});
+	
+	var Lib = new App.Collections.Library();
+	var OnThisPost = new App.Collections.OnThisPost();
+	var InputHidden = new App.Collections.InputHidden();
+	
+	<% if @content.id %>
+	
+		Lib.fetch({data: {id: <%= @content.id %> } }).then(function(){
+			new App.Views.Library({ collection: Lib });
+		});
+		
+		OnThisPost.url = '<%= url(:contents, :uploads, :id => @content.id) %>';
+		OnThisPost.fetch({data: {id: <%= @content.id %> } }).then(function(){
+			new App.Views.OnThisPost({ collection: OnThisPost });
+		});
+		
+		InputHidden.url = '<%= url(:contents, :uploads, :id => @content.id) %>';
+		InputHidden.fetch({data: {id: <%= @content.id %> } }).then(function(){
+			new App.Views.Inputs({ collection: InputHidden });
+		});
+	<% else %>
+		Lib.fetch().then(function(){
+			new App.Views.Library({ collection: Lib });
+		});
+		
+	<% end %>
+</script>
+<script>
+// DROPZONE CONFIG
+var myDropzone = new Dropzone(".my-dropzone");
+myDropzone.on("complete", function(file) {
+	var item = $.parseJSON(file.xhr.response);
+	var itemModel = new App.Models.Image(item);
+	OnThisPost.add(itemModel);
+	InputHidden.add(itemModel);
+	Lib.add(itemModel);
+});
+</script>

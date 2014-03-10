@@ -1,4 +1,22 @@
 PhotoCms::Admin.controllers :contents do
+  
+  get :uploads, :with => :id do
+    
+    content = Content[params[:id]]
+    @uploads = content.uploads
+    hash = Array.new
+    @uploads.each do |upload|
+      hash << {
+        :id => upload.id,
+        :filename => upload.file.url.split("/").last,
+        :file => upload.file,
+        :thumb => upload.file.thumb
+      }
+    end
+    hash.to_json
+    
+  end
+  
   get :index do
     @title = "Contents"
     @contents = Content.all
@@ -24,6 +42,7 @@ PhotoCms::Admin.controllers :contents do
       
       @content.add_tags(params[:tags])
       @content.add_categories(params[:categories])
+      @content.add_uploads(params[:uploads])
       
       @title = pat(:create_title, :model => "content #{@content.id}")
       flash[:success] = pat(:create_success, :model => 'Content')
@@ -55,6 +74,7 @@ PhotoCms::Admin.controllers :contents do
       
       @content.add_tags(params[:tags])
       @content.add_categories(params[:categories])
+      @content.add_uploads(params[:uploads])
       
       @content.updated_at = DateTime.now
       if @content.modified! && @content.update(params[:content])
