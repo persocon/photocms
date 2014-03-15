@@ -7,4 +7,12 @@ class Upload < Sequel::Model
    def before_create
       self.created_at = Time.now
    end
+   
+   def before_destroy
+      remove_associations
+   end
+   
+   def remove_associations
+      self.remove_all_contents
+   end
 end

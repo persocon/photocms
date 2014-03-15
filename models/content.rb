@@ -12,6 +12,10 @@ class Content < Sequel::Model
 		sluger.slugfy(self)
 	end
 	
+	def before_destroy
+		remove_associations
+	end
+	
 	def add_tags(tags)
 		if tags.present?
 			@tags = Tag.create_for_content(tags)
@@ -44,6 +48,12 @@ class Content < Sequel::Model
 		else
 			self.remove_all_uploads
 		end
+	end
+	
+	def remove_associations
+		self.remove_all_uploads
+		self.remove_all_categories
+		self.remove_all_tags
 	end
 	
 end

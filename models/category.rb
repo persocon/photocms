@@ -11,5 +11,14 @@ class Category < Sequel::Model
 		sluger = Sluger.new
 		sluger.slugfy(self)
 	end
+	
+	def before_destroy
+		remove_associations
+	end
+	
+	def remove_associations
+		self.remove_all_contents
+		self.remove_all_children
+	end
 
 end
