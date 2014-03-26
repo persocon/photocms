@@ -60,6 +60,11 @@
           <li><%= link_to tag_icon(:twitter, 'twitter'), 'http://twitter.com/padrinorb', :target => :_blank, :class => 'footer-links-link' %></li>
         </ul>
       </div>
-    </footer>    
+    </footer> 
+    <% if @js %>
+      <% @js.each do |javascript| %>
+        <%= javascript_include_tag  javascript, :application %>
+      <% end %>
+    <% end %>
   </body>
 </html>
