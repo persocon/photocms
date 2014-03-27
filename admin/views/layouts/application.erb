@@ -12,8 +12,15 @@
     <link href='http://fonts.googleapis.com/css?family=Varela' rel=stylesheet />
     <%= stylesheet_link_tag 'bootstrap', 'application', 'dropzone', 'admin' %>
     <%= javascript_include_tag 'jquery-1.11.0.min', (Padrino.env == :production ? 'bootstrap/bootstrap.min' : %w[bootstrap/affix bootstrap/alert bootstrap/button bootstrap/carousel bootstrap/collapse bootstrap/dropdown  bootstrap/tooltip bootstrap/transition  bootstrap/modal bootstrap/popover bootstrap/scrollspy bootstrap/tab]), :application %>
-    <%= javascript_include_tag  'handlebars-v1.3.0', 'underscore-1.6.0', 'backbone-1.1.2', 'jquery-ujs', 'dropzone', :application %>
 
+    <%= javascript_include_tag  'handlebars-v1.3.0', 'underscore-1.6.0', 'backbone-1.1.2', 'dropzone', :application %>
+    
+    <% if @js %>
+      <% @js.each do |javascript| %>
+        <%= javascript_include_tag  javascript %>
+      <% end %>
+    <% end %>
+    
   </head>
   <body>
     <div class="navbar navbar-fixed-top" role="navigation">
@@ -61,10 +68,5 @@
         </ul>
       </div>
     </footer> 
-    <% if @js %>
-      <% @js.each do |javascript| %>
-        <%= javascript_include_tag  javascript, :application %>
-      <% end %>
-    <% end %>
   </body>
 </html>

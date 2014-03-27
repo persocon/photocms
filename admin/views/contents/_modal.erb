@@ -70,11 +70,9 @@
 	  Router: {}
 	};
 	
-	window.template = function(id) {
+	window.Template = function(id) {
 	  return Handlebars.compile( $('#' + id).html() );
 	}
-	
-	window.
 
 	App.Models.Image = Backbone.Model.extend({
 		defaults: {
@@ -99,7 +97,7 @@
 	
 	App.Views.Single = Backbone.View.extend({
 	  tagName: 'li',
-	  template: template('single-template'),
+	  template: Template('single-template'),
 	  initialize: function(){
 		this.model.on('remove', this.unrender, this);
 	  },
@@ -131,7 +129,7 @@
 
 	App.Views.LibrarySingle = Backbone.View.extend({
 	  tagName: 'li',
-	  template: template('lib-single-template'),
+	  template: Template('lib-single-template'),
 	  initialize: function(){
 		this.model.on('change:onThePost', this.render, this );  
 	  },
@@ -168,7 +166,7 @@
 	});
 	
 	App.Views.InputSingle = Backbone.View.extend({
-	  template: template('input-template'),
+	  template: Template('input-template'),
 	  initialize: function(){
 	  	this.model.on('remove', this.unrender, this);
 	  },

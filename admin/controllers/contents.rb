@@ -30,6 +30,23 @@ PhotoCms::Admin.controllers :contents do
     @uploads_all = Upload.all
     render 'contents/new'
   end
+  
+  get :sort do
+    @title = pat(:sort_title, :model => 'content')
+    @contents = Content.all
+    @js = ['rightjs/right', 'rightjs/right-sortable']
+    render 'contents/sort'
+  end
+  
+  put :sort do
+    @content = Content[params[:id]]
+    if @content
+      @content.sort = params[:position]
+      if @content.modified! && @content.save
+        p "FOI"
+      end
+    end
+  end
 
   post :create do    
     @content = Content.new(params[:content])

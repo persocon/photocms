@@ -1,6 +1,7 @@
 <ul class="nav nav-tabs">
   <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:contents, :index) %></li>
   <li> <%= link_to tag_icon(:plus, pat(:new)), url(:contents, :new) %></li>
+  <li> <%= link_to tag_icon(:'align-justify', pat(:sort)), url(:contents, :sort) %></li>
 </ul>
 <div class=tabs-content>
   <table id=list class="table table-striped table-hover table-condensed">

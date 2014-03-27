@@ -1,0 +1,27 @@
+@import "compass"
+
+.sortable
+	+pie-clearfix
+	.item
+		padding: 10px
+		margin: 2px
+		background: #CFCEBD
+		position: relative
+		font-size: 14px
+		color: #333
+		float: left
+		+inline-block
+		width: 120px
+		+border-radius(5px)
+		+single-transition(transform, 1s, ease)
+		&.dragging
+			+rotateZ(2deg)
+		p
+			overflow: hidden
+		.handle	
+			position: absolute
+			right: .35em
+			top: -0.12em
+			font-size: 150%
+			font-weight: bold
+			cursor: move	
