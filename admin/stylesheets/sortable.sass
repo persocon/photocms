@@ -2,6 +2,12 @@
 
 .sortable
 	+pie-clearfix
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
 	.item
 		padding: 10px
 		margin: 2px
@@ -12,9 +18,10 @@
 		float: left
 		+inline-block
 		width: 120px
+		height: 150px
 		+border-radius(5px)
 		+single-transition(transform, 1s, ease)
-		&.dragging
+		&.sortable-dragging
 			+rotateZ(2deg)
 		p
 			overflow: hidden
@@ -25,3 +32,7 @@
 			font-size: 150%
 			font-weight: bold
 			cursor: move	
+	.sortable-placeholder
+		@extend .item
+		border: 1px dashed #CCC
+		background: none

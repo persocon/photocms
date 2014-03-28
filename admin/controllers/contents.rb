@@ -19,7 +19,7 @@ PhotoCms::Admin.controllers :contents do
   
   get :index do
     @title = "Contents"
-    @contents = Content.all
+    @contents = Content.order(:sort).all
     render 'contents/index'
   end
 
@@ -33,19 +33,19 @@ PhotoCms::Admin.controllers :contents do
   
   get :sort do
     @title = pat(:sort_title, :model => 'content')
-    @contents = Content.all
-    @js = ['rightjs/right', 'rightjs/right-sortable']
+    @contents = Content.order(:sort).all
+    p @contents
+    @js = ['jquery.sortable.min']
     render 'contents/sort'
   end
   
   put :sort do
-    @content = Content[params[:id]]
-    if @content
-      @content.sort = params[:position]
-      if @content.modified! && @content.save
-        p "FOI"
-      end
+    params[:sort].each_with_index do |item, index|
+      content = Content[item]
+      content.sort = index
+      content.save
     end
+    redirect(url(:contents, :sort))
   end
 
   post :create do    

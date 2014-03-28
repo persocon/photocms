@@ -4,27 +4,31 @@
 	<li class=active> <%= link_to tag_icon(:'align-justify', pat(:sort)), url(:contents, :sort) %></li>
 </ul>
 <div class=tabs-content>
-	<div class="row">
-	<%= session[:csrf] %>
-		<div class="col-md-12">
-			<ul id="sortable" class="sortable list-unstyled">
-				<% @contents.each do |content| %>
-					<li class="item bg-success" id="<%= content.id %>">
-						<img src="<%= content.uploads.first.file.thumb %>" />
-						<p><%= content.title %></p>
-					</li>
-				<% end %>
-			</ul>
+	<% form_for :content, url(:contents, :sort), :method => :put, :class => 'form-horizontal' do |f| %>
+		<div class="row">
+			<div class="col-md-12">
+				<ul id="sortable" class="sortable list-unstyled">
+					<% @contents.each do |content| %>
+						<li class="item bg-success" id="<%= content.id %>">
+							<img src="<%= content.uploads.first.file.thumb %>" />
+							<p><%= content.title %></p>
+							<input type="hidden" name="sort[]" value="<%= content.id %>" />
+						</li>
+					<% end %>
+				</ul>
+			</div>
 		</div>
-	</div>
+		<div class="row">
+			<br />
+			<div class="col-md-12">
+				<%= f.submit pat(:save), :class => 'btn btn-primary' %>
+				&nbsp;
+				<%= link_to pat(:cancel), url(:contents, :index), :class => 'btn btn-default' %>
+			</div>
+		</div>
+	<% end %>
 </div>
 
 <script>
-	new Sortable('sortable', {
-	  itemCss: "li.item",
-	  url: "<%= url(:contents, :sort) %>?authenticity_token=<%=session[:csrf]%>",
-		onFinish: function(event) {
-			console.log(event.index+1);
-		}
-	});
+	$('#sortable').sortable();
 </script>
