@@ -1,1 +1,85 @@
-.box{border:1px solid #ccc;height:250px;padding:10px}.box .box-content{height:200px;overflow-x:hidden;overflow-y:auto}
+/*
+Syntax error: Undefined mixin 'border-radius'.
+        on line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass, in `border-radius'
+        from line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass
+
+1: .box
+2: 	border: 1px solid #CCC
+3: 	height: 250px
+4: 	padding: 10px
+5: 	margin: 10px 0
+6: 	+border-radius(5px)
+7: 	.box-content
+8: 		height: 200px
+9: 		overflow-x: hidden
+10: 		overflow-y: auto
+
+Backtrace:
+/Users/persocon/photo-cms/admin/stylesheets/boxes.sass:6:in `border-radius'
+/Users/persocon/photo-cms/admin/stylesheets/boxes.sass:6
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/tree/root_node.rb:20:in `render'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/engine.rb:315:in `_render'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/engine.rb:262:in `render'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sass-3.2.14/lib/sass/plugin/rack.rb:51:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/base.rb:50:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/xss_header.rb:18:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/base.rb:50:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/base.rb:50:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/path_traversal.rb:16:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/json_csrf.rb:18:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/base.rb:50:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/base.rb:50:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-protection-1.5.2/lib/rack/protection/frame_options.rb:31:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/padrino-core-0.12.0/lib/padrino-core/reloader/rack.rb:22:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/padrino-core-0.12.0/lib/padrino-core/logger.rb:398:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sinatra-1.4.4/lib/sinatra/show_exceptions.rb:21:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sinatra-1.4.4/lib/sinatra/base.rb:2004:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sinatra-1.4.4/lib/sinatra/base.rb:1469:in `block in call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sinatra-1.4.4/lib/sinatra/base.rb:1778:in `synchronize'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/sinatra-1.4.4/lib/sinatra/base.rb:1469:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/padrino-core-0.12.0/lib/padrino-core/router.rb:82:in `block in call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/padrino-core-0.12.0/lib/padrino-core/router.rb:75:in `each'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/padrino-core-0.12.0/lib/padrino-core/router.rb:75:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.0@photocms/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/persocon/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+/Users/persocon/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+/Users/persocon/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass, in `border-radius'\A         from line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass\A \A 1: .box\A 2: 	border: 1px solid #CCC\A 3: 	height: 250px\A 4: 	padding: 10px\A 5: 	margin: 10px 0\A 6: 	+border-radius(5px)\A 7: 	.box-content\A 8: 		height: 200px\A 9: 		overflow-x: hidden\A 10: 		overflow-y: auto"; }

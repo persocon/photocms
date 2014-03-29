@@ -19,7 +19,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="box">
-      <div class="box-content" data-who="contents">
+      <div class="box-content" data-who="content">
         <% @contents.each do |content| %>
           <div class="checkbox">
             <label>
@@ -32,17 +32,55 @@
         <% end %>
       </div>
       <div class="box-action-btn">
-        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="contents">Add</a>
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="content">Add</a>
       </div>
     </div>
+    
+    <div class="box">
+      <div class="box-content" data-who="category">
+        <% @categories.each do |category| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%=category.id%>" name="category[id]">
+              <input type="hidden" value="content" name="category[type]" />
+              <input type="hidden" value="<%= category.title %>" name="category[title]" />
+              <%= category.title %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="box-action-btn">
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="category">Add</a>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="box-content" data-who="tag">
+        <% @tags.each do |tag| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%=tag.id%>" name="tag[id]">
+              <input type="hidden" value="content" name="tag[type]" />
+              <input type="hidden" value="<%= tag.title %>" name="tag[title]" />
+              <%= tag.title %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="box-action-btn">
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="tag">Add</a>
+      </div>
+    </div>
+    
   </div>
   <div class="col-md-9">
     <div class="dd" id="menu">
-        <ol class="dd-list">
+        <ol class="dd-list" id="menu-first">
             <% menu = JSON.parse(@menu.data)
               menu.each do |item| %>
                 <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>'>
                   <div class='dd-handle'><%= item["title"] %></div>
+                  <div class="dd-remove"><span class="icon icon-remove"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
                 </li>
             <% end %>
@@ -65,9 +103,11 @@
   &nbsp;
   <%= link_to pat(:cancel), url(:menus, :index), :class => 'btn btn-default' %>
 </div>
+
 <script id="entry-template" type="text/x-handlebars-template">
   <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-title='{{ title }}'>
     <div class='dd-handle'>{{ title }}</div>
+    <div class="dd-remove"><span class="icon icon-remove"></span></div>
   </li>
 </script>
 <script>
@@ -97,17 +137,36 @@ updateOutput($('#menu').data('output', $('#menu_data')));
 $('.box-action-btn .btn-add').click( function(event){
   event.preventDefault();
   var who = $(this).attr('data-action-for');
-  // var obj = [];
+  console.log(who);
   $('.box-content[data-who="'+who+'"] input[type="checkbox"]:checked').each(function(){
     var id = $(this).val();
-    var type = $(this).parent().find('input[type="hidden"][name="content[type]"]').val();
-    var title = $(this).parent().find('input[type="hidden"][name="content[title]"]').val();
-    // obj.push({id: id, type: type, title: title});
+    var type = $(this).parent().find('input[type="hidden"][name="'+who+'[type]"]').val();
+    var title = $(this).parent().find('input[type="hidden"][name="'+who+'[title]"]').val();
+    
     var context = {title: title, id: id, type: type}
     var html    = template(context);
-    $('#menu .dd-list').append(html);
+    $('#menu #menu-first').append(html);
+    $(this).removeAttr('checked');
   });
   updateOutput($('#menu').data('output', $('#menu_data')));
+});
+
+//ACTION REMOVE
+$('#menu .dd-remove .icon-remove').on('click', function(event){
+  event.preventDefault();
+  var $cara = $(this).parent().parent();
+  if($cara.find('ol.dd-list').length > 0){
+    var ok = confirm("Deleting this item will delete other items inside");
+     if(ok===true){
+      $cara.remove();
+      updateOutput($('#menu').data('output', $('#menu_data'))); 
+     }else{
+      return; 
+     }
+  }else{
+   $cara.remove();
+   updateOutput($('#menu').data('output', $('#menu_data')));  
+  }
 });
 
 </script>
