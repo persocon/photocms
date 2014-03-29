@@ -1,0 +1,107 @@
+<div class="row">
+  <div class="col-md-12">
+    <% error = @menu.errors.key?(:title) && @menu.errors[:title].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :title, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :title, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+      </div>
+    </fieldset>
+    <% error = @menu.errors.key?(:slug) && @menu.errors[:slug].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :slug, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :slug, :class => 'form-control input-sm input-with-feedback', :disabled => 'disabled' %>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="box">
+      <div class="box-content" data-who="contents">
+        <% @contents.each do |content| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%=content.id%>" name="content[id]">
+              <input type="hidden" value="content" name="content[type]" />
+              <input type="hidden" value="<%= content.title %>" name="content[title]" />
+              <%= content.title %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="box-action-btn">
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="contents">Add</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="dd" id="menu">
+        <ol class="dd-list">
+            
+        </ol>
+    </div>
+  </div>
+</div>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+ <strong>NAO ESQUECER DE DAR HIDE NISSO DEPOIS </strong>
+  <div class='controls'>
+    <%= f.text_area :data, :class => 'form-control input-xlarge input-with-feedback' %>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:menus, :index), :class => 'btn btn-default' %>
+</div>
+<script id="entry-template" type="text/x-handlebars-template">
+  <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-title='{{ title }}'>
+    <div class='dd-handle'>{{ title }}</div>
+  </li>
+</script>
+<script>
+//COMPILE TEMPLATE
+var source = $("#entry-template").html();
+var template = Handlebars.compile(source);
+
+
+//PREPARE OUTPUT
+var updateOutput = function(e)
+{
+    var list   = e.length ? e : $(e.target),
+        output = list.data('output');
+    if (window.JSON) {
+        output.val(window.JSON.stringify(list.nestable('serialize')));
+    } else {
+        output.val('JSON browser support required for this demo.');
+    }
+};
+// INIT NESTABLE
+$('#menu').nestable();
+$('#menu').on('change', updateOutput);
+updateOutput($('#menu').data('output', $('#menu_data')));
+
+
+//ACTION BTNS
+$('.box-action-btn .btn-add').click( function(event){
+  event.preventDefault();
+  var who = $(this).attr('data-action-for');
+  // var obj = [];
+  $('.box-content[data-who="'+who+'"] input[type="checkbox"]:checked').each(function(){
+    var id = $(this).val();
+    var type = $(this).parent().find('input[type="hidden"][name="content[type]"]').val();
+    var title = $(this).parent().find('input[type="hidden"][name="content[title]"]').val();
+    // obj.push({id: id, type: type, title: title});
+    var context = {title: title, id: id, type: type}
+    var html    = template(context);
+    $('#menu .dd-list').append(html);
+  });
+  updateOutput($('#menu').data('output', $('#menu_data')));
+});
+
+</script>
