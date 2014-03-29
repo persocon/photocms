@@ -9,10 +9,11 @@ Syntax error: Undefined mixin 'border-radius'.
 4: 	padding: 10px
 5: 	margin: 10px 0
 6: 	+border-radius(5px)
-7: 	.box-content
-8: 		height: 200px
-9: 		overflow-x: hidden
-10: 		overflow-y: auto
+7: 	&.external
+8: 		height: 140px
+9: 		.box-content
+10: 			height: 90px
+11: 	.box-content
 
 Backtrace:
 /Users/persocon/photo-cms/admin/stylesheets/boxes.sass:6:in `border-radius'
@@ -82,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass, in `border-radius'\A         from line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass\A \A 1: .box\A 2: 	border: 1px solid #CCC\A 3: 	height: 250px\A 4: 	padding: 10px\A 5: 	margin: 10px 0\A 6: 	+border-radius(5px)\A 7: 	.box-content\A 8: 		height: 200px\A 9: 		overflow-x: hidden\A 10: 		overflow-y: auto"; }
+  content: "Syntax error: Undefined mixin 'border-radius'.\A         on line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass, in `border-radius'\A         from line 6 of /Users/persocon/photo-cms/admin/stylesheets/boxes.sass\A \A 1: .box\A 2: 	border: 1px solid #CCC\A 3: 	height: 250px\A 4: 	padding: 10px\A 5: 	margin: 10px 0\A 6: 	+border-radius(5px)\A 7: 	&.external\A 8: 		height: 140px\A 9: 		.box-content\A 10: 			height: 90px\A 11: 	.box-content"; }

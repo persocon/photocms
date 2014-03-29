@@ -18,13 +18,29 @@
 </div>
 <div class="row">
   <div class="col-md-3">
+    
+    <h5>External Link</h5>
+    <div class="box external">
+      <div class="box-content" data-who="external_link">
+          <div class="controls">
+              <input type="checkbox" value="0" name="external_link[id]" class="hide" checked="checked">
+              <input type="hidden" value="external_link" name="external_link[type]" />
+              <input class="form-control input-sm" type="text" value="" name="external_link[url]" placeholder="http://example.com"/><br />
+              <input class="form-control input-sm" type="text" value="" name="external_link[title]" placeholder="Title" />
+          </div>
+      </div>
+      <div class="box-action-btn">
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="external_link">Add</a>
+      </div>
+    </div>
+  
     <h5>Contents</h5>
     <div class="box">
       <div class="box-content" data-who="content">
         <% @contents.each do |content| %>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value="<%=content.id%>" name="content[id]">
+              <input type="checkbox" value="<%=content.id%>" name="content[id]"/>
               <input type="hidden" value="content" name="content[type]" />
               <input type="hidden" value="<%= content.title %>" name="content[title]" />
               <%= content.title %>
@@ -108,7 +124,7 @@
 </div>
 
 <script id="entry-template" type="text/x-handlebars-template">
-  <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-title='{{ title }}'>
+  <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-title='{{ title }}' {{#if url}} data-url='{{ url }}' {{/if}}>
     <div class='dd-handle'>{{ title }}</div>
     <div class="dd-remove"><span class="icon icon-remove"></span></div>
   </li>
@@ -140,22 +156,29 @@ updateOutput($('#menu').data('output', $('#menu_data')));
 $('.box-action-btn .btn-add').click( function(event){
   event.preventDefault();
   var who = $(this).attr('data-action-for');
-  console.log(who);
   $('.box-content[data-who="'+who+'"] input[type="checkbox"]:checked').each(function(){
     var id = $(this).val();
-    var type = $(this).parent().find('input[type="hidden"][name="'+who+'[type]"]').val();
-    var title = $(this).parent().find('input[type="hidden"][name="'+who+'[title]"]').val();
+    var type = $(this).parent().find('input[name="'+who+'[type]"]').val();
+    var title = $(this).parent().find('input[name="'+who+'[title]"]').val();
+    if(who === 'external_link'){
+      var url = $(this).parent().find('input[name="'+who+'[url]"]').val();  
+      var context = {title: title, id: id, type: type, url: url}
+    }else{
+      var context = {title: title, id: id, type: type}
+    }
     
-    var context = {title: title, id: id, type: type}
     var html    = template(context);
     $('#menu #menu-first').append(html);
     $(this).removeAttr('checked');
+    if(who === 'external_link'){
+      $(this).parent().find('input[type="text"]').val('');
+    }
   });
   updateOutput($('#menu').data('output', $('#menu_data')));
 });
 
 //ACTION REMOVE
-$('#menu .dd-remove .icon-remove').on('click', function(event){
+$('#menu').on('click', '.dd-remove .icon-remove', function(event){
   event.preventDefault();
   var $cara = $(this).parent().parent();
   if($cara.find('ol.dd-list').length > 0){
