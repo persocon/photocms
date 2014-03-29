@@ -39,7 +39,13 @@
   <div class="col-md-9">
     <div class="dd" id="menu">
         <ol class="dd-list">
-            
+            <% menu = JSON.parse(@menu.data)
+              menu.each do |item| %>
+                <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>'>
+                  <div class='dd-handle'><%= item["title"] %></div>
+                  <%= TreeHelper.do_other_thing(item["children"]) %>
+                </li>
+            <% end %>
         </ol>
     </div>
   </div>

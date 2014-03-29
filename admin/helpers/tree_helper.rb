@@ -1,4 +1,5 @@
 class TreeHelper
+	
 	def self.do_something(category, content_categories)
 		 unless category.blank? 
 	         html = "<ul>"
@@ -16,5 +17,21 @@ class TreeHelper
 	         html << "</ul>"
 	         html.html_safe
          end 
+	end
+	
+	def self.do_other_thing(item)
+		unless item.blank?
+			html = "<ol class='dd-list'>"
+				item.each do |i|
+					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{i["title"]}'>"
+						html << "<div class='dd-handle'>#{i["title"]}</div>"
+							unless i["children"].blank?
+								html << do_other_thing(i["children"])
+							end
+					html << "</li>"
+				end
+			html << "</ol>"
+			html.html_safe
+		end
 	end
 end
