@@ -95,14 +95,18 @@
   <div class="col-md-9">
     <div class="dd" id="menu">
         <ol class="dd-list" id="menu-first">
-            <% menu = JSON.parse(@menu.data)
+          
+            <% unless @menu.data.nil?
+            menu = JSON.parse(@menu.data)
               menu.each do |item| %>
                 <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>'>
                   <div class='dd-handle'><%= item["title"] %></div>
                   <div class="dd-remove"><span class="icon icon-remove"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
                 </li>
-            <% end %>
+            <% end
+            end 
+            %>
         </ol>
     </div>
   </div>
@@ -169,9 +173,10 @@ $('.box-action-btn .btn-add').click( function(event){
     
     var html    = template(context);
     $('#menu #menu-first').append(html);
-    $(this).removeAttr('checked');
     if(who === 'external_link'){
       $(this).parent().find('input[type="text"]').val('');
+    }else{    
+      $(this).removeAttr('checked');
     }
   });
   updateOutput($('#menu').data('output', $('#menu_data')));
