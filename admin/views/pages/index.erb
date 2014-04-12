@@ -1,6 +1,7 @@
 <ul class="nav nav-tabs">
-  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:menus, :index) %></li>
-  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:menus, :new) %></li>
+  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:pages, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:pages, :new) %></li>
+  <li> <%= link_to tag_icon(:'align-justify', pat(:sort)), url(:pages, :sort) %></li>
 </ul>
 <div class=tabs-content>
   <table id=list class="table table-striped table-hover table-condensed">
@@ -25,8 +26,8 @@
                   <div class=arrow></div>
                   <h3 class=popover-title><%= pat(:delete_selected_title) %></h3>
                   <div class=popover-content>
-                    <% form_tag url(:menus, :destroy_many), :method => :delete do %>
-                      <%=hidden_field_tag :menu_ids, :'data-delete-many-ids' => true %>
+                    <% form_tag url(:pages, :destroy_many), :method => :delete do %>
+                      <%=hidden_field_tag :content_ids, :'data-delete-many-ids' => true %>
                       <%=submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small' %>
                       <div class='btn btn-default btn-small cancel'><%= pat(:cancel) %></div>
                     <% end %>
@@ -36,30 +37,40 @@
             </ul>
           </div>
         </th>
-                <th class=header> <%= mat(:menu, :id) %></th>
-                <th class=header> <%= mat(:menu, :title) %></th>
-                <th class=header> <%= mat(:menu, :slug) %></th>
+                <th class=header> <%= mat(:content, :id) %></th>
+                <th class=header> <%= mat(:content, :title) %></th>
+                <th class=header> <%= mat(:content, :slug) %></th>
+                <th class=header> <%= mat(:content, :body) %></th>
+                <th class=header> <%= mat(:content, :published) %></th>
+                <th class=header> <%= mat(:content, :created_at) %></th>
+                <th class=header> <%= mat(:content, :updated_at) %></th>
+                <th class=header> <%= mat(:content, :account_id) %></th>
                 <th class="header list-row-action-header"></th>
     </thead>
 
     <tbody>
-      <% @menus.each do |menu| %>
+      <% @contents.each do |content| %>
         <tr class=list-row>
           <td class="list-column list-selectable">
-            <%= check_box_tag 'menu_ids[]', :value => menu.id, :class => 'list-selectable-checkbox' %>
+            <%= check_box_tag 'content_ids[]', :value => content.id, :class => 'list-selectable-checkbox' %>
            </td>
-          <td class=list-column> <%= menu.id %> </td>
-          <td class=list-column> <%= menu.title %> </td>
-          <td class=list-column> <%= menu.slug %> </td>
+          <td class=list-column> <%= content.id %> </td>
+          <td class=list-column> <%= content.title %> </td>
+          <td class=list-column> <%= content.slug %> </td>
+          <td class=list-column> <%= content.body %> </td>
+          <td class=list-column> <%= content.published ? tag_icon(:ok) : tag_icon(:remove) %> </td>
+          <td class=list-column> <%= content.created_at %> </td>
+          <td class=list-column> <%= content.updated_at %> </td>
+          <td class=list-column> <%= content.account_id %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
-               <%= link_to tag_icon(:edit), :href => url(:menus, :edit, :id => menu.id), :rel => :tooltip, :title => "#{pat(:edit)} menu", :class => 'list-row-action-wrapper-link' %>
-               <%= link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} menu", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
+               <%= link_to tag_icon(:edit), :href => url(:pages, :edit, :id => content.id), :rel => :tooltip, :title => "#{pat(:edit)} content", :class => 'list-row-action-wrapper-link' %>
+               <%= link_to tag_icon(:trash), :rel => :tooltip, :title => "#{pat(:delete)} content", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
                <div class="popover list-row-action-popover-delete-one left">
                  <div class=arrow> </div>
-                 <h3 class=popover-title><%= pat(:delete, :model => "menu") %></h3>
+                 <h3 class=popover-title><%= pat(:delete, :model => "content") %></h3>
                  <div class=popover-content>
-                   <%- form_tag url(:menus, :destroy, :id => menu.id), :method => :delete do %>
+                   <%- form_tag url(:pages, :destroy, :id => content.id), :method => :delete do %>
                      <%= submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small' %>
                      <div class="btn btn-default btn-small cancel"><%= pat(:cancel) %></div>
                    <% end %>

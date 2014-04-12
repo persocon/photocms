@@ -27,7 +27,7 @@ gem 'sequel'
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '0.12.0'
+gem 'padrino', '0.12.1'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

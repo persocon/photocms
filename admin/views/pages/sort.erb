@@ -1,0 +1,34 @@
+<ul class="nav nav-tabs">
+	<li> <%= link_to tag_icon(:list, pat(:list)), url(:pages, :index) %></li>
+	<li> <%= link_to tag_icon(:plus, pat(:new)), url(:pages, :new) %></li>
+	<li class=active> <%= link_to tag_icon(:'align-justify', pat(:sort)), url(:pages, :sort) %></li>
+</ul>
+<div class=tabs-content>
+	<% form_for :content, url(:pages, :sort), :method => :put, :class => 'form-horizontal' do |f| %>
+		<div class="row">
+			<div class="col-md-12">
+				<ul id="sortable" class="sortable list-unstyled">
+					<% @contents.each do |content| %>
+						<li class="item bg-success" id="<%= content.id %>">
+							<img src="<%= content.uploads.first.file.thumb %>" />
+							<p><%= content.title %></p>
+							<input type="hidden" name="sort[]" value="<%= content.id %>" />
+						</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<br />
+			<div class="col-md-12">
+				<%= f.submit pat(:save), :class => 'btn btn-primary' %>
+				&nbsp;
+				<%= link_to pat(:cancel), url(:pages, :index), :class => 'btn btn-default' %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<script>
+	$('#sortable').sortable();
+</script>

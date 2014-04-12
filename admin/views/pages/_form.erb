@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-8">
+    <button type="button" class="btn btn-primary btn-sm image-library" data-toggle="modal" data-target="#imageLibrary">Image Library</button>
+    <% error = @content.errors.key?(:title) && @content.errors[:title].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :title, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :title, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+        <span class='help-block'><%= error ? f.error_message_on(:title) : "Ex: a simple text" %></span>
+      </div>
+    </fieldset>
+    <% error = @content.errors.key?(:slug) && @content.errors[:slug].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :slug, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :slug, :class => 'form-control input-xlarge input-with-feedback' %>
+        <span class='help-block'><%= error ? f.error_message_on(:slug) : "" %></span>
+      </div>
+    </fieldset>
+    <% error = @content.errors.key?(:body) && @content.errors[:body].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :body, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_area :body, :class => 'form-control input-xlarge input-with-feedback' %>
+        <span class='help-block'><%= error ? f.error_message_on(:body) : "Ex: a simple text" %></span>
+      </div>
+    </fieldset>
+  </div>
+  <div class="col-md-4">
+    <% error = @content.errors.key?(:published) && @content.errors[:published].count > 0 %>
+    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+      <%= f.label :published, :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.check_box :published, :class => '' %><br />
+      </div>
+    </fieldset>
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+          <%= f.label :date, :class => 'control-label' %>
+          <div class='controls'>
+            <%= date = @content.created_at ? @content.created_at.strftime("%d/%m/%Y - %H:%M:%S") : DateTime.now.strftime("%d/%m/%Y - %H:%M:%S") %>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+          <%= f.label :updated, :class => 'control-label' %>
+          <div class='controls'>
+            <%= updated = @content.updated_at ? @content.updated_at.strftime("%d/%m/%Y - %H:%M:%S") : DateTime.now.strftime("%d/%m/%Y - %H:%M:%S") %>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    
+    
+    
+    
+    <% error = @content.errors.key?(:type) && @content.errors[:type].count > 0 %>
+    <%= f.hidden_field :type, :value => 'page' %>
+  </div>
+  <div id="uploads_hidden">
+
+  </div>
+</div>
+<div class="row">
+  <br />
+  <div class="col-md-12">
+    <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+    &nbsp;
+    <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+    &nbsp;
+    <%= link_to pat(:cancel), url(:contents, :index), :class => 'btn btn-default' %>
+  </div>
+</div>

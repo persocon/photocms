@@ -33,7 +33,6 @@
               <%= button_to(:logout, url(:sessions, :destroy), :method => :delete, :class => 'navbar-nav-form') { content_tag :button, tag_icon(:off), :type => :submit, :title => pat(:logout), :class => 'navbar-nav-form-link' } %>
             </li>
           </ul>
-
           <ul class="nav navbar-nav pull-left">
             <% project_modules.each do |project_module| %>
               <% if request.path_info =~ /^#{project_module.path}/ %>

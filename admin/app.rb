@@ -37,7 +37,8 @@ module PhotoCms
       role.project_module :menus, '/menus'
       role.project_module :uploads, '/uploads'
       role.project_module :categories, '/categories'
-      role.project_module :contents, '/contents'
+      role.project_module :sets, '/contents'
+      role.project_module :pages, '/pages'
       role.project_module :accounts, '/accounts'
     end
 
