@@ -257,6 +257,8 @@
 	<% else %>
 		Lib.fetch().then(function(){
 			new App.Views.Library({ collection: Lib });
+			new App.Views.OnThisPost({ collection: OnThisPost });
+			new App.Views.Inputs({ collection: InputHidden });
 		});
 		
 	<% end %>

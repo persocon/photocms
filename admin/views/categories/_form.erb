@@ -1,4 +1,3 @@
-###<%= @category.inspect %>###
 <% error = @category.errors.key?(:title) && @category.errors[:title].count > 0 %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :title, :class => 'control-label' %>

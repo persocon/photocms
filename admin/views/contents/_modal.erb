@@ -230,6 +230,7 @@
 		return this;
 	  },
 	  addOne: function(post){
+	  console.log(post)
 		var photo = new App.Views.InputSingle({ model: post });
 		this.$el.append( photo.render().el );
 	  }
@@ -257,6 +258,8 @@
 	<% else %>
 		Lib.fetch().then(function(){
 			new App.Views.Library({ collection: Lib });
+			new App.Views.OnThisPost({ collection: OnThisPost });
+			new App.Views.Inputs({ collection: InputHidden });
 		});
 		
 	<% end %>

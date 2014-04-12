@@ -1,7 +1,7 @@
 Sequel.migration do
   up do
     alter_table :contents do
-      add_column :sort, Integer
+      add_column :sort, Integer, :default => 0
     end
   end
 
