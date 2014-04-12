@@ -24,14 +24,14 @@ PhotoCms::Admin.controllers :pages do
 	end
 
 	get :new do
-		@title = pat(:new_title, :model => 'content')
+		@title = pat(:new_title, :model => 'page')
 		@content = Content.new
 		@uploads_all = Upload.all
 		render 'pages/new'
 	end
 
 	get :sort do
-		@title = pat(:sort_title, :model => 'content')
+		@title = pat(:sort_pages, :model => 'page')
 		@contents = Content.where(:type => 'page').order(:sort).all
 		@js = ['jquery.sortable.min']
 		render 'pages/sort'
@@ -68,7 +68,7 @@ PhotoCms::Admin.controllers :pages do
 	end
 
 	get :edit, :with => :id do
-		@title = pat(:edit_title, :model => "content #{params[:id]}")
+		@title = pat(:edit_title, :model => "page #{params[:id]}")
 		@content = Content[params[:id]]
 		@uploads_all = Upload.all
 		if @content
@@ -80,7 +80,7 @@ PhotoCms::Admin.controllers :pages do
 	end
 
 	put :update, :with => :id do
-		@title = pat(:update_title, :model => "content #{params[:id]}")
+		@title = pat(:update_title, :model => "page #{params[:id]}")
 		@content = Content[params[:id]]
 		if @content
 			

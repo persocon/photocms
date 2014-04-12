@@ -24,7 +24,7 @@ PhotoCms::Admin.controllers :contents do
   end
 
   get :new do
-    @title = pat(:new_title, :model => 'content')
+    @title = pat(:new_title, :model => 'set')
     @content = Content.new
     @categories = Category.all
     @uploads_all = Upload.all
@@ -32,7 +32,7 @@ PhotoCms::Admin.controllers :contents do
   end
   
   get :sort do
-    @title = pat(:sort_title, :model => 'content')
+    @title = pat(:sort_sets, :model => 'set')
     @contents = Content.where(:type => 'post').order(:sort).all
     @js = ['jquery.sortable.min']
     render 'contents/sort'
