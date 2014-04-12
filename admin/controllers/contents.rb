@@ -18,7 +18,7 @@ PhotoCms::Admin.controllers :contents do
   end
   
   get :index do
-    @title = "Contents"
+    @title = "Sets"
     @contents = Content.where(:type => 'post').order(:sort).all
     render 'contents/index'
   end
@@ -60,7 +60,7 @@ PhotoCms::Admin.controllers :contents do
       @content.add_categories(params[:categories])
       @content.add_uploads(params[:uploads])
       
-      @title = pat(:create_title, :model => "content #{@content.id}")
+      @title = pat(:create_title, :model => "set #{@content.title}")
       flash[:success] = pat(:create_success, :model => 'Content')
       params[:save_and_continue] ? redirect(url(:contents, :index)) : redirect(url(:contents, :edit, :id => @content.id))
     else
@@ -71,7 +71,7 @@ PhotoCms::Admin.controllers :contents do
   end
 
   get :edit, :with => :id do
-    @title = pat(:edit_title, :model => "content #{params[:id]}")
+    @title = pat(:edit_title, :model => "set #{params[:id]}")
     @categories = Category.all
     @content = Content[params[:id]]
     @uploads_all = Upload.all
@@ -84,7 +84,7 @@ PhotoCms::Admin.controllers :contents do
   end
 
   put :update, :with => :id do
-    @title = pat(:update_title, :model => "content #{params[:id]}")
+    @title = pat(:update_title, :model => "set #{params[:id]}")
     @content = Content[params[:id]]
     if @content
       
@@ -109,7 +109,7 @@ PhotoCms::Admin.controllers :contents do
   end
 
   delete :destroy, :with => :id do
-    @title = "Contents"
+    @title = "Sets"
     content = Content[params[:id]]
     if content
       if content.destroy
@@ -125,7 +125,7 @@ PhotoCms::Admin.controllers :contents do
   end
 
   delete :destroy_many do
-    @title = "Contents"
+    @title = "Sets"
     unless params[:content_ids]
       flash[:error] = pat(:destroy_many_error, :model => 'content')
       redirect(url(:contents, :index))
