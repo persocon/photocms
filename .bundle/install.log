@@ -127,3 +127,183 @@ I, [2014-02-10T10:45:30.615781 #20380]  INFO -- : 0:  rake (10.1.1) from /home/n
 I, [2014-02-10T10:45:30.616293 #20380]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
 E, [2014-02-10T10:45:30.616872 #20380] ERROR -- : Bundler::GemNotFound: Could not find minitest-4.7.5.gem for installation
 /home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:149:in `cached_gem'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:84:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:257:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/bin/bundle:23:in `load'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/bin/bundle:23:in `<main>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `eval'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-02-24T18:34:50.819544 #20992]  INFO -- : 0:  rake (10.1.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rake-10.1.1.gemspec
+I, [2014-02-24T18:34:53.592425 #20992]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
+E, [2014-02-24T18:34:53.610870 #20992] ERROR -- : Bundler::GemNotFound: Could not find minitest-4.7.5.gem for installation
+/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:149:in `cached_gem'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:84:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:257:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `load'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `<main>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `eval'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-02-24T18:35:17.227099 #21055]  INFO -- : 0:  rake (10.1.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rake-10.1.1.gemspec
+I, [2014-02-24T18:35:17.227595 #21055]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
+E, [2014-02-24T18:35:17.228144 #21055] ERROR -- : Bundler::GemNotFound: Could not find minitest-4.7.5.gem for installation
+/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:149:in `cached_gem'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:84:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:336:in `update'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `load'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `<main>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `eval'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-02-24T18:36:10.605763 #21150]  INFO -- : 0:  rake (10.1.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rake-10.1.1.gemspec
+I, [2014-02-24T18:36:10.635481 #21150]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
+I, [2014-02-24T18:36:10.742370 #21150]  INFO -- : 0:  minitest (4.7.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/minitest-4.7.5.gemspec
+I, [2014-02-24T18:36:13.018801 #21150]  INFO -- : 0:  multi_json (1.8.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/multi_json-1.8.4.gemspec
+I, [2014-02-24T18:36:17.180781 #21150]  INFO -- : 0:  atomic (1.1.14) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/atomic-1.1.14.gemspec
+I, [2014-02-24T18:36:20.082515 #21150]  INFO -- : 0:  thread_safe (0.1.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/thread_safe-0.1.3.gemspec
+I, [2014-02-24T18:36:26.429295 #21150]  INFO -- : 0:  tzinfo (0.3.38) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/tzinfo-0.3.38.gemspec
+I, [2014-02-24T18:36:30.933066 #21150]  INFO -- : 0:  activesupport (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activesupport-4.0.3.gemspec
+I, [2014-02-24T18:36:32.959466 #21150]  INFO -- : 0:  builder (3.1.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/builder-3.1.4.gemspec
+I, [2014-02-24T18:36:35.653438 #21150]  INFO -- : 0:  activemodel (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activemodel-4.0.3.gemspec
+I, [2014-02-24T18:36:46.789076 #21150]  INFO -- : 0:  bcrypt (3.1.6) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-3.1.6.gemspec
+I, [2014-02-24T18:36:49.137314 #21150]  INFO -- : 0:  bcrypt-ruby (3.1.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-ruby-3.1.5.gemspec
+I, [2014-02-24T18:36:49.177454 #21150]  INFO -- : 0:  bundler (1.5.0) from /home/neves/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.0.gemspec
+E, [2014-02-24T18:36:49.178090 #21150] ERROR -- : Bundler::GemNotFound: Could not find json-1.8.1.gem for installation
+/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:149:in `cached_gem'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:84:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:336:in `update'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `load'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `<main>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `eval'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-02-24T18:37:43.638515 #21438]  INFO -- : 0:  rake (10.1.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rake-10.1.1.gemspec
+I, [2014-02-24T18:37:43.639419 #21438]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
+I, [2014-02-24T18:37:43.781558 #21438]  INFO -- : 0:  minitest (4.7.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/minitest-4.7.5.gemspec
+I, [2014-02-24T18:37:43.782145 #21438]  INFO -- : 0:  multi_json (1.8.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/multi_json-1.8.4.gemspec
+I, [2014-02-24T18:37:43.782562 #21438]  INFO -- : 0:  atomic (1.1.14) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/atomic-1.1.14.gemspec
+I, [2014-02-24T18:37:43.782949 #21438]  INFO -- : 0:  thread_safe (0.1.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/thread_safe-0.1.3.gemspec
+I, [2014-02-24T18:37:43.783282 #21438]  INFO -- : 0:  tzinfo (0.3.38) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/tzinfo-0.3.38.gemspec
+I, [2014-02-24T18:37:43.783595 #21438]  INFO -- : 0:  activesupport (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activesupport-4.0.3.gemspec
+I, [2014-02-24T18:37:43.783916 #21438]  INFO -- : 0:  builder (3.1.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/builder-3.1.4.gemspec
+I, [2014-02-24T18:37:43.784224 #21438]  INFO -- : 0:  activemodel (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activemodel-4.0.3.gemspec
+I, [2014-02-24T18:37:43.784531 #21438]  INFO -- : 0:  bcrypt (3.1.6) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-3.1.6.gemspec
+I, [2014-02-24T18:37:43.784851 #21438]  INFO -- : 0:  bcrypt-ruby (3.1.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-ruby-3.1.5.gemspec
+I, [2014-02-24T18:37:43.785193 #21438]  INFO -- : 0:  bundler (1.5.0) from /home/neves/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.0.gemspec
+I, [2014-02-24T18:37:45.084374 #21438]  INFO -- : 0:  json (1.8.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/json-1.8.1.gemspec
+I, [2014-02-24T18:37:47.795769 #21438]  INFO -- : 0:  carrierwave (0.9.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/carrierwave-0.9.0.gemspec
+I, [2014-02-24T18:37:52.325639 #21438]  INFO -- : 0:  sequel (4.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/sequel-4.7.0.gemspec
+I, [2014-02-24T18:37:54.168442 #21438]  INFO -- : 0:  carrierwave-sequel (0.1.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/carrierwave-sequel-0.1.0.gemspec
+I, [2014-02-24T18:37:57.872451 #21438]  INFO -- : 0:  chunky_png (1.3.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/chunky_png-1.3.0.gemspec
+I, [2014-02-24T18:37:59.899144 #21438]  INFO -- : 0:  fssm (0.2.10) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/fssm-0.2.10.gemspec
+I, [2014-02-24T18:38:02.988079 #21438]  INFO -- : 0:  sass (3.2.14) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/sass-3.2.14.gemspec
+I, [2014-02-24T18:38:07.387844 #21438]  INFO -- : 0:  compass (0.12.2) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/compass-0.12.2.gemspec
+I, [2014-02-24T18:38:10.100763 #21438]  INFO -- : 0:  erubis (2.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/erubis-2.7.0.gemspec
+I, [2014-02-24T18:38:13.270734 #21438]  INFO -- : 0:  rack (1.5.2) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rack-1.5.2.gemspec
+I, [2014-02-24T18:38:15.313921 #21438]  INFO -- : 0:  url_mount (0.2.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/url_mount-0.2.1.gemspec
+I, [2014-02-24T18:38:18.292103 #21438]  INFO -- : 0:  http_router (0.11.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/http_router-0.11.1.gemspec
+I, [2014-02-24T18:38:21.151849 #21438]  INFO -- : 0:  mime-types (1.25.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mime-types-1.25.1.gemspec
+I, [2014-02-24T18:38:23.245121 #21438]  INFO -- : 0:  polyglot (0.3.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/polyglot-0.3.4.gemspec
+I, [2014-02-24T18:38:25.797785 #21438]  INFO -- : 0:  treetop (1.4.15) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/treetop-1.4.15.gemspec
+I, [2014-02-24T18:38:29.152657 #21438]  INFO -- : 0:  mail (2.5.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mail-2.5.4.gemspec
+I, [2014-02-24T18:38:31.004048 #21438]  INFO -- : 0:  subexec (0.2.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/subexec-0.2.3.gemspec
+I, [2014-02-24T18:38:33.231475 #21438]  INFO -- : 0:  mini_magick (3.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mini_magick-3.7.0.gemspec
+I, [2014-02-24T18:38:36.235356 #21438]  INFO -- : 0:  moneta (0.7.20) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/moneta-0.7.20.gemspec
+E, [2014-02-24T18:38:42.080255 #21438] ERROR -- : Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    /home/neves/.rvm/rubies/ruby-2.1.0/bin/ruby extconf.rb 
+checking for ruby/thread.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for rb_thread_blocking_region()... yes
+checking for rb_wait_for_single_fd()... yes
+checking for rb_hash_dup()... yes
+checking for rb_intern3()... yes
+checking for mysql_query() in -lmysqlclient... no
+checking for main() in -lm... yes
+checking for mysql_query() in -lmysqlclient... no
+checking for main() in -lz... yes
+checking for mysql_query() in -lmysqlclient... no
+checking for main() in -lsocket... no
+checking for mysql_query() in -lmysqlclient... no
+checking for main() in -lnsl... yes
+checking for mysql_query() in -lmysqlclient... no
+checking for main() in -lmygcc... no
+checking for mysql_query() in -lmysqlclient... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/home/neves/.rvm/rubies/ruby-2.1.0/bin/ruby
+	--with-mysql-dir
+	--without-mysql-dir
+	--with-mysql-include
+	--without-mysql-include=${mysql-dir}/include
+	--with-mysql-lib
+	--without-mysql-lib=${mysql-dir}/lib
+	--with-mysql-config
+	--without-mysql-config
+	--with-mysql-dir
+	--without-mysql-dir
+	--with-mysql-include
+	--without-mysql-include=${mysql-dir}/include
+	--with-mysql-lib
+	--without-mysql-lib=${mysql-dir}/lib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+	--with-mlib
+	--without-mlib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+	--with-zlib
+	--without-zlib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+	--with-socketlib
+	--without-socketlib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+	--with-nsllib
+	--without-nsllib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+	--with-mygcclib
+	--without-mygcclib
+	--with-mysqlclientlib
+	--without-mysqlclientlib
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /home/neves/.rvm/gems/ruby-2.1.0@photocms/gems/mysql2-0.3.15 for inspection.
+Results logged to /home/neves/.rvm/gems/ruby-2.1.0@photocms/extensions/x86_64-linux/2.1.0/mysql2-0.3.15/gem_make.out
+
+/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:89:in `run'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/ext_conf_builder.rb:38:in `block in build'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/tempfile.rb:324:in `open'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/ext_conf_builder.rb:17:in `build'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:161:in `block (2 levels) in build_extension'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:160:in `chdir'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:160:in `block in build_extension'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:159:in `synchronize'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:159:in `build_extension'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:198:in `block in build_extensions'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:195:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/ext/builder.rb:195:in `build_extensions'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/installer.rb:677:in `build_extensions'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/site_ruby/2.1.0/rubygems/installer.rb:232:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:101:in `block in install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:118:in `preserve_paths'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:94:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/forwardable.rb:183:in `each'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:336:in `update'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/home/neves/.rvm/gems/ruby-2.1.0@global/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `load'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/bundle:23:in `<main>'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `eval'  \n/home/neves/.rvm/gems/ruby-2.1.0@photocms/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-02-24T18:40:58.995758 #23115]  INFO -- : 0:  rake (10.1.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rake-10.1.1.gemspec
+I, [2014-02-24T18:40:59.017857 #23115]  INFO -- : 0:  i18n (0.6.9) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/i18n-0.6.9.gemspec
+I, [2014-02-24T18:40:59.114555 #23115]  INFO -- : 0:  minitest (4.7.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/minitest-4.7.5.gemspec
+I, [2014-02-24T18:40:59.115056 #23115]  INFO -- : 0:  multi_json (1.8.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/multi_json-1.8.4.gemspec
+I, [2014-02-24T18:40:59.115388 #23115]  INFO -- : 0:  atomic (1.1.14) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/atomic-1.1.14.gemspec
+I, [2014-02-24T18:40:59.115689 #23115]  INFO -- : 0:  thread_safe (0.1.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/thread_safe-0.1.3.gemspec
+I, [2014-02-24T18:40:59.115994 #23115]  INFO -- : 0:  tzinfo (0.3.38) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/tzinfo-0.3.38.gemspec
+I, [2014-02-24T18:40:59.116302 #23115]  INFO -- : 0:  activesupport (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activesupport-4.0.3.gemspec
+I, [2014-02-24T18:40:59.116606 #23115]  INFO -- : 0:  builder (3.1.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/builder-3.1.4.gemspec
+I, [2014-02-24T18:40:59.116908 #23115]  INFO -- : 0:  activemodel (4.0.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/activemodel-4.0.3.gemspec
+I, [2014-02-24T18:40:59.117211 #23115]  INFO -- : 0:  bcrypt (3.1.6) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-3.1.6.gemspec
+I, [2014-02-24T18:40:59.117513 #23115]  INFO -- : 0:  bcrypt-ruby (3.1.5) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/bcrypt-ruby-3.1.5.gemspec
+I, [2014-02-24T18:40:59.117827 #23115]  INFO -- : 0:  bundler (1.5.0) from /home/neves/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.0.gemspec
+I, [2014-02-24T18:41:01.102049 #23115]  INFO -- : 0:  json (1.8.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/json-1.8.1.gemspec
+I, [2014-02-24T18:41:01.102654 #23115]  INFO -- : 0:  carrierwave (0.9.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/carrierwave-0.9.0.gemspec
+I, [2014-02-24T18:41:01.102996 #23115]  INFO -- : 0:  sequel (4.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/sequel-4.7.0.gemspec
+I, [2014-02-24T18:41:01.103334 #23115]  INFO -- : 0:  carrierwave-sequel (0.1.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/carrierwave-sequel-0.1.0.gemspec
+I, [2014-02-24T18:41:01.103665 #23115]  INFO -- : 0:  chunky_png (1.3.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/chunky_png-1.3.0.gemspec
+I, [2014-02-24T18:41:01.103994 #23115]  INFO -- : 0:  fssm (0.2.10) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/fssm-0.2.10.gemspec
+I, [2014-02-24T18:41:01.104303 #23115]  INFO -- : 0:  sass (3.2.14) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/sass-3.2.14.gemspec
+I, [2014-02-24T18:41:01.104693 #23115]  INFO -- : 0:  compass (0.12.2) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/compass-0.12.2.gemspec
+I, [2014-02-24T18:41:01.105057 #23115]  INFO -- : 0:  erubis (2.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/erubis-2.7.0.gemspec
+I, [2014-02-24T18:41:01.105385 #23115]  INFO -- : 0:  rack (1.5.2) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rack-1.5.2.gemspec
+I, [2014-02-24T18:41:01.105749 #23115]  INFO -- : 0:  url_mount (0.2.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/url_mount-0.2.1.gemspec
+I, [2014-02-24T18:41:01.106099 #23115]  INFO -- : 0:  http_router (0.11.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/http_router-0.11.1.gemspec
+I, [2014-02-24T18:41:01.106463 #23115]  INFO -- : 0:  mime-types (1.25.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mime-types-1.25.1.gemspec
+I, [2014-02-24T18:41:01.106799 #23115]  INFO -- : 0:  polyglot (0.3.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/polyglot-0.3.4.gemspec
+I, [2014-02-24T18:41:01.107183 #23115]  INFO -- : 0:  treetop (1.4.15) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/treetop-1.4.15.gemspec
+I, [2014-02-24T18:41:01.107568 #23115]  INFO -- : 0:  mail (2.5.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mail-2.5.4.gemspec
+I, [2014-02-24T18:41:01.107951 #23115]  INFO -- : 0:  subexec (0.2.3) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/subexec-0.2.3.gemspec
+I, [2014-02-24T18:41:01.108290 #23115]  INFO -- : 0:  mini_magick (3.7.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mini_magick-3.7.0.gemspec
+I, [2014-02-24T18:41:01.108663 #23115]  INFO -- : 0:  moneta (0.7.20) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/moneta-0.7.20.gemspec
+I, [2014-02-24T18:41:04.129919 #23115]  INFO -- : 0:  mysql2 (0.3.15) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/mysql2-0.3.15.gemspec
+I, [2014-02-24T18:41:06.772703 #23115]  INFO -- : 0:  rack-protection (1.5.2) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/rack-protection-1.5.2.gemspec
+I, [2014-02-24T18:41:09.908510 #23115]  INFO -- : 0:  tilt (1.4.1) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/tilt-1.4.1.gemspec
+I, [2014-02-24T18:41:13.144648 #23115]  INFO -- : 0:  sinatra (1.4.4) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/sinatra-1.4.4.gemspec
+I, [2014-02-24T18:41:15.679956 #23115]  INFO -- : 0:  thor (0.17.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/thor-0.17.0.gemspec
+I, [2014-02-24T18:41:19.524405 #23115]  INFO -- : 0:  padrino-core (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-core-0.12.0.gemspec
+I, [2014-02-24T18:41:22.301958 #23115]  INFO -- : 0:  padrino-helpers (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-helpers-0.12.0.gemspec
+I, [2014-02-24T18:41:25.740078 #23115]  INFO -- : 0:  padrino-admin (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-admin-0.12.0.gemspec
+I, [2014-02-24T18:41:28.091254 #23115]  INFO -- : 0:  padrino-cache (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-cache-0.12.0.gemspec
+I, [2014-02-24T18:41:32.654178 #23115]  INFO -- : 0:  padrino-gen (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-gen-0.12.0.gemspec
+I, [2014-02-24T18:41:34.964387 #23115]  INFO -- : 0:  padrino-mailer (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-mailer-0.12.0.gemspec
+I, [2014-02-24T18:41:36.641323 #23115]  INFO -- : 0:  padrino (0.12.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/padrino-0.12.0.gemspec
+I, [2014-02-24T18:41:39.561220 #23115]  INFO -- : 0:  stringex (2.2.0) from /home/neves/.rvm/gems/ruby-2.1.0@photocms/specifications/stringex-2.2.0.gemspec
