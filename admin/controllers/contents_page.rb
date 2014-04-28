@@ -3,7 +3,7 @@ PhotoCms::Admin.controllers :pages do
 	get :uploads, :with => :id do
 
 		content = Content[params[:id]]
-		@uploads = content.uploads
+		@uploads = content.uploads.uploads.sort_by{|key| key[:sort]}
 		hash = Array.new
 		@uploads.each do |upload|
 			hash << {
@@ -27,6 +27,7 @@ PhotoCms::Admin.controllers :pages do
 		@title = pat(:new_title, :model => 'page')
 		@content = Content.new
 		@uploads_all = Upload.all
+		@js = ['jquery.sortable.min']
 		render 'pages/new'
 	end
 
@@ -44,6 +45,16 @@ PhotoCms::Admin.controllers :pages do
 			content.save
 		end
 		redirect(url(:pages, :sort))
+	end
+
+	put :sortUpload do
+	    sorted = JSON.parse(params[:sorted])
+	    sorted.each_with_index do |item, index|
+	      upload = Upload[item]
+	      upload.sort = index
+	      upload.save
+	    end
+	    {success: true}.to_json
 	end
 
 	post :create do    
@@ -71,6 +82,7 @@ PhotoCms::Admin.controllers :pages do
 		@title = pat(:edit_title, :model => "page #{params[:id]}")
 		@content = Content[params[:id]]
 		@uploads_all = Upload.all
+		@js = ['jquery.sortable.min']
 		if @content
 			render 'pages/edit'
 		else

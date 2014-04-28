@@ -58,6 +58,7 @@
 			<span>Remove</span>
 		</a>
 	</p>
+	<input type="hidden" name="sort[]" value="{{ id }}" />
 </script>
 <script id="input-template" type="text/x-handlebars-template">
 	<input type="hidden" value="{{ id }}" name="uploads[]" />
@@ -89,7 +90,32 @@
 	});
 	
 	App.Collections.OnThisPost = Backbone.Collection.extend({
-		model: App.Models.Image
+		model: App.Models.Image,
+		move: function(id, previousId, list) {
+			var model = this.get(id), 
+				toModel = this.get(previousId), 
+			  	index = this.indexOf(toModel) + 1;
+
+		  	this.remove(model, { silent: true });
+		  	this.add(model, { at: index, silent: true });
+
+		  	// Persist the change
+		  	// this.moveTask({ task: id, previous: previousId });
+		  	this.ordenate();
+		},
+		ordenate: function(){
+			var url = "<%= url(:pages, :sortUpload) %>";
+			var array = [];
+			var authenticity_token = $('input[name="authenticity_token"]').val();
+			_.each(this.models, function(e){
+				array.push(e.id);
+			});
+			$.ajax({
+				url: url,
+				type: 'put',
+				data: {sorted: JSON.stringify(array), authenticity_token: authenticity_token}
+			})
+		}
 	});
 	App.Collections.InputHidden = Backbone.Collection.extend({
 		model: App.Models.Image
@@ -200,11 +226,14 @@
 	
 	App.Views.OnThisPost = Backbone.View.extend({
 	  tagName: 'ul',
+	  className: 'sortable',
 	  initialize: function(){
 		this.collection.on('add', this.addOne, this);
 		this.render();
 		
 		$('#onThisPost').html(this.el);
+
+		this.makeSortable();
 		
 	  },
 	  render: function(){
@@ -214,6 +243,22 @@
 	  addOne: function(post){
 		var photo = new App.Views.Single({ model: post });
 		this.$el.append( photo.render().el );
+		this.makeSortable();
+	  },
+	  makeSortable: function(){
+	  	var $el = this.$el;
+	  	if (this.collection.length) {
+	  		$el.sortable('destroy');
+	  		$el.sortable().bind('sortupdate', _.bind(this.saveTaskOrder, this));
+
+	  	}
+	  },
+	  saveTaskOrder: function(e, o) {
+	  	var id = $(o.item).find('input[type="hidden"]').val(),
+	  		previous = $(o.item).prev(),
+	  		previousId = previous.length ? $(previous).find('input[type="hidden"]').val() : null,
+	  		request;
+	  	this.collection.move(id, previousId, this.model);
 	  }
 	});
 	
