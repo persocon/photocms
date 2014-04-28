@@ -3,7 +3,7 @@ PhotoCms::Admin.controllers :contents do
   get :uploads, :with => :id do
     
     content = Content[params[:id]]
-    @uploads = content.uploads
+    @uploads = content.uploads.sort_by{|key| key[:sort]}
     hash = Array.new
     @uploads.each do |upload|
       hash << {
@@ -46,6 +46,16 @@ PhotoCms::Admin.controllers :contents do
       content.save
     end
     redirect(url(:contents, :sort))
+  end
+
+  put :sortUpload do
+    sorted = JSON.parse(params[:sorted])
+    sorted.each_with_index do |item, index|
+      upload = Upload[item]
+      upload.sort = index
+      upload.save
+    end
+    {success: true}.to_json
   end
 
   post :create do    

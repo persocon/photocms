@@ -101,6 +101,20 @@
 
 		  	// Persist the change
 		  	// this.moveTask({ task: id, previous: previousId });
+		  	this.ordenate();
+		},
+		ordenate: function(){
+			var url = "<%= url(:contents, :sortUpload) %>";
+			var array = [];
+			var authenticity_token = $('input[name="authenticity_token"]').val();
+			_.each(this.models, function(e){
+				array.push(e.id);
+			});
+			$.ajax({
+				url: url,
+				type: 'put',
+				data: {sorted: JSON.stringify(array), authenticity_token: authenticity_token}
+			})
 		}
 	});
 	App.Collections.InputHidden = Backbone.Collection.extend({
@@ -212,6 +226,7 @@
 	
 	App.Views.OnThisPost = Backbone.View.extend({
 	  tagName: 'ul',
+	  className: 'sortable',
 	  initialize: function(){
 		this.collection.on('add', this.addOne, this);
 		this.render();
@@ -234,8 +249,16 @@
 	  	var $el = this.$el;
 	  	if (this.collection.length) {
 	  		$el.sortable('destroy');
-	  		$el.sortable();
+	  		$el.sortable().bind('sortupdate', _.bind(this.saveTaskOrder, this));
+
 	  	}
+	  },
+	  saveTaskOrder: function(e, o) {
+	  	var id = $(o.item).find('input[type="hidden"]').val(),
+	  		previous = $(o.item).prev(),
+	  		previousId = previous.length ? $(previous).find('input[type="hidden"]').val() : null,
+	  		request;
+	  	this.collection.move(id, previousId, this.model);
 	  }
 	});
 	
