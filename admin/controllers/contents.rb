@@ -28,6 +28,7 @@ PhotoCms::Admin.controllers :contents do
     @content = Content.new
     @categories = Category.all
     @uploads_all = Upload.all
+    @js = ['jquery.sortable.min']
     render 'contents/new'
   end
   
@@ -72,6 +73,7 @@ PhotoCms::Admin.controllers :contents do
 
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "set #{params[:id]}")
+    @js = ['jquery.sortable.min']
     @categories = Category.all
     @content = Content[params[:id]]
     @uploads_all = Upload.all
