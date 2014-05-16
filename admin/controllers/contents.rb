@@ -28,7 +28,7 @@ PhotoCms::Admin.controllers :contents do
     @content = Content.new
     @categories = Category.all
     @uploads_all = Upload.all
-    @js = ['jquery.sortable.min']
+    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
     render 'contents/new'
   end
   
@@ -83,7 +83,7 @@ PhotoCms::Admin.controllers :contents do
 
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "set #{params[:id]}")
-    @js = ['jquery.sortable.min']
+    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
     @categories = Category.all
     @content = Content[params[:id]]
     @uploads_all = Upload.all
