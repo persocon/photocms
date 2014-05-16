@@ -15,7 +15,7 @@ class Content < Sequel::Model
 	def before_destroy
 		remove_associations
 	end
-	
+		
 	def add_tags(tags)
 		if tags.present?
 			@tags = Tag.create_for_content(tags)
@@ -55,5 +55,6 @@ class Content < Sequel::Model
 		self.remove_all_categories
 		self.remove_all_tags
 	end
+
 	
 end
