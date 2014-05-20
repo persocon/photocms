@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-md-8">
     <button type="button" class="btn btn-primary btn-sm image-library" data-toggle="modal" data-target="#imageLibrary">Image Library</button>
+    <% unless @content.values.blank? && current_account.tumblr_oauth_consumer_key.blank? && current_account.tumblr_oauth_secret_key.blank? %>
+      <%= link_to pat(:send_to_tumblr), :href => url(:contents, :tumblr, :id => @content.id), :id => 'send_to_tumblr', :class => 'btn btn-primary btn-sm' %>
+    <% end %>
     <% error = @content.errors.key?(:title) && @content.errors[:title].count > 0 %>
     <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
       <%= f.label :title, :class => 'control-label' %>
@@ -110,3 +113,21 @@
     <%= link_to pat(:cancel), url(:contents, :index), :class => 'btn btn-default' %>
   </div>
 </div>
+<script>
+$(document).ready(function(){
+  $('body').on('click', '#send_to_tumblr', function(event){
+    event.preventDefault();
+    var authenticity_token = $('input[name="authenticity_token"]').val(),
+    url = $(this).attr('href');
+    console.log(url)
+    $.ajax({
+        url: url,
+        type: 'post',
+        data: {authenticity_token: authenticity_token},
+        success: function(data){
+          console.log(data)
+        }
+    });
+  })
+});
+</script>

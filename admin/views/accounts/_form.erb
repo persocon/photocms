@@ -46,6 +46,34 @@
     <span class='help-inline'><%= error ? f.error_message_on(:role) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
+<% error = @account.errors.key?(:tumblr_url) && @account.errors[:tumblr_url].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :tumblr_url, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :tumblr_url, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:tumblr_url) : "" %></span>
+  </div>
+</fieldset>
+<% error = @account.errors.key?(:tumblr_oauth_consumer_key) && @account.errors[:tumblr_oauth_consumer_key].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :tumblr_oauth_consumer_key, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :tumblr_oauth_consumer_key, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:tumblr_oauth_consumer_key) : "" %></span>
+  </div>
+</fieldset>
+<% error = @account.errors.key?(:tumblr_oauth_secret_key) && @account.errors[:tumblr_oauth_secret_key].count > 0 %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :tumblr_oauth_secret_key, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :tumblr_oauth_secret_key, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:tumblr_oauth_secret_key) : "" %></span>
+  </div>
+</fieldset>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+</fieldset>
+<br />
+
 
 
 <div class="form-actions">
