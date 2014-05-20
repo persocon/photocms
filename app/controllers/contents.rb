@@ -1,5 +1,5 @@
-PhotoCms::App.controllers :contents, :map => '/api/v1/sets' do
-	get :index, :provides => [:html, :json] do
+PhotoCms::App.controllers :contents, :map => '/api/v1' do
+	get :index, :map => 'sets', :provides => [:html, :json] do
 		callback = params.delete('callback') # jsonp
 		#params[:paged]
 		@contents = ContentHelper.get_all_json
@@ -12,6 +12,20 @@ PhotoCms::App.controllers :contents, :map => '/api/v1/sets' do
 	      response = @contents
 	    end
 	    response
+	end
+
+	get :set, :with => :slug, :provides => [:html, :json] do
+		callback = params.delete('callback')
+
+		@content = ContentHelper.get_set(params[:slug])
+
+		if callback
+			content_type :js
+			response = "#{callback}(#{@content})"
+		else
+			content_type :json
+			response @content
+		end
 	end
 
 	get :page do
