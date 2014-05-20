@@ -26,9 +26,10 @@ PhotoCms::Admin.controllers :contents do
 
     client = Tumblr::Client.new
     carinha = content.uploads.map { |image| image.file.url}
-    p client.text(current_account.tumblr_url, {:title => content[:title]})
+    # p client.text(current_account.tumblr_url, {:title => content[:title]})
     # client.photo(current_account.tumblr_url, {:caption => content[:body], :data => [carinha.to_json]}) 
-    # client.text(current_account.tumblr_url, {:title => content[:title], :body => content[:body]})
+    client.text(current_account.tumblr_url, {:title => content[:title], :body => content[:body]})
+    p client.inspect
   end
   
   get :index do
