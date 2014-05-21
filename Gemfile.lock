@@ -125,6 +125,7 @@ DEPENDENCIES
   faraday (= 0.8.0)
   mini_magick
   mysql2
+  oauth
   padrino (= 0.12.1)
   rake
   sequel

@@ -32,7 +32,7 @@ module PhotoCms
       role.protect '/'
       role.allow   '/sessions'
     end
-
+    
     access_control.roles_for :admin do |role|
       role.project_module :menus, '/menus'
       role.project_module :uploads, '/uploads'

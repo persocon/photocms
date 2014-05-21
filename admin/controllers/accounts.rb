@@ -2,13 +2,44 @@ PhotoCms::Admin.controllers :accounts do
   get :index do
     @title = "Accounts"
     @accounts = Account.all
-    render 'accounts/index'
+    redirect(url(:accounts, :edit, :id => current_account.id))
+    # render 'accounts/index'
   end
 
   get :new do
     @title = pat(:new_title, :model => 'account')
     @account = Account.new
     render 'accounts/new'
+  end
+
+  get :tumblr do 
+    @consumer_key = current_account.tumblr_oauth_consumer_key
+    @consumer_secret = current_account.tumblr_oauth_secret_key
+
+    consumer = OAuth::Consumer.new(
+      @consumer_key,
+      @consumer_secret,
+      { :site => 'http://www.tumblr.com',
+        :request_token_path => '/oauth/request_token',
+        :authorize_path => '/oauth/authorize',
+        :access_token_path => '/oauth/access_token',
+        :http_method => :get
+       }
+    )
+    if params[:oauth_token] && params[:oauth_verifier]
+      access_token = session[:request_token].get_access_token({:oauth_verifier => params[:oauth_verifier]})
+      @user = Account[current_account.id]
+      @user.tumblr_token = access_token.params[:oauth_token]
+      @user.tumblr_token_secret = access_token.params[:oauth_token_secret]
+      if @user.save
+        flash[:success] = "Account associated with tumblr"
+        redirect(url(:accounts, :edit, :id => current_account.id))
+      end
+    else
+      request_token = consumer.get_request_token(:exclude_callback => true)
+      session[:request_token] = request_token
+      redirect session[:request_token].authorize_url
+    end
   end
 
   post :create do

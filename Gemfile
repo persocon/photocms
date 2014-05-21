@@ -23,6 +23,7 @@ gem 'compass'
 gem 'erubis', '~> 2.7.0'
 gem 'mysql2'
 gem 'sequel'
+gem 'oauth'
 gem 'faraday', '0.8.0'
 gem 'tumblr_client'
 

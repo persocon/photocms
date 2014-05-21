@@ -22,14 +22,17 @@ PhotoCms::Admin.controllers :contents do
     Tumblr.configure do |config|
       config.consumer_key = current_account.tumblr_oauth_consumer_key
       config.consumer_secret = current_account.tumblr_oauth_secret_key
+      config.oauth_token = current_account.tumblr_token
+      config.oauth_token_secret = current_account.tumblr_token_secret
     end
 
     client = Tumblr::Client.new
-    carinha = content.uploads.map { |image| image.file.url}
+    carinha = content.uploads.map { |image| 
+      image.file.current_path
+    }
     # p client.text(current_account.tumblr_url, {:title => content[:title]})
-    # client.photo(current_account.tumblr_url, {:caption => content[:body], :data => [carinha.to_json]}) 
-    client.text(current_account.tumblr_url, {:title => content[:title], :body => content[:body]})
-    p client.inspect
+    photo = client.photo(current_account.tumblr_url, {:caption => content[:body], :data => [carinha.to_json]}) 
+    p photo.inspect
   end
   
   get :index do

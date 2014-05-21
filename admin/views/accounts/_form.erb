@@ -46,6 +46,7 @@
     <span class='help-inline'><%= error ? f.error_message_on(:role) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
+<h3>Tumblr Configuration</h3>
 <% error = @account.errors.key?(:tumblr_url) && @account.errors[:tumblr_url].count > 0 %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
   <%= f.label :tumblr_url, :class => 'control-label' %>
@@ -70,7 +71,15 @@
     <span class='help-inline'><%= error ? f.error_message_on(:tumblr_oauth_secret_key) : "" %></span>
   </div>
 </fieldset>
+<br />
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <div class='controls'>
+    <% if @account.tumblr_token_secret %>
+      <%= link_to pat(:reauthenticate_with_tumblr), :href => url(:accounts, :tumblr), :id => 'send_to_tumblr', :class => 'btn btn-primary btn-sm' %> 
+    <% else %> 
+      <%= link_to pat(:authenticate_with_tumblr), :href => url(:accounts, :tumblr), :id => 'send_to_tumblr', :class => 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
 </fieldset>
 <br />
 
