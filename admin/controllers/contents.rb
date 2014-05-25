@@ -16,6 +16,33 @@ PhotoCms::Admin.controllers :contents do
     hash.to_json
     
   end
+  
+  get :tags, :provides => [:html, :json] do
+    
+    callback = params.delete('callback') # jsonp
+    if params[:q].blank?
+      @tags = Tag.all
+    else
+      @tags = Tag.where(Sequel.like(:title, "#{params[:q]}%"))
+    end
+    tags = @tags.map {|tag|
+        {
+          "id" => tag.id,
+          "text" => tag.title
+        }
+      }
+    
+    if callback
+      content_type :js
+      response = "#{callback}(#{tags.to_json})" 
+    else
+      content_type :json
+      response = tags.to_json
+    end
+    
+    response
+    
+  end
 
   post :tumblr, :with => :id do
     content = Content[params[:id]]
@@ -46,7 +73,7 @@ PhotoCms::Admin.controllers :contents do
     @content = Content.new
     @categories = Category.all
     @uploads_all = Upload.all
-    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
+    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'select2/select2.min.js', 'ibutton/jquery.ibutton.js']
     render 'contents/new'
   end
   
@@ -101,7 +128,7 @@ PhotoCms::Admin.controllers :contents do
 
   get :edit, :with => :id do
     @title = pat(:edit_title, :model => "set #{params[:id]}")
-    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
+    @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'select2/select2.min.js', 'ibutton/jquery.ibutton.js']
     @categories = Category.all
     @content = Content[params[:id]]
     @uploads_all = Upload.all

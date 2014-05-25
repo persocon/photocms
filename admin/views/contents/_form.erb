@@ -25,10 +25,11 @@
       <%= f.label :tags, :class => 'control-label' %>
       <div class='controls'>
           <input 
-            type="text" 
+            id="tags"
+            type="hidden" 
             name="tags" 
             value="<%= @content.tags.map {|k,vs| k.title }.join(", ") %>"
-            class="form-control input-xlarge input-with-feedback" />
+            class="" />
       </div>
     </fieldset>
   </div>
@@ -37,7 +38,7 @@
     <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
       <%= f.label :published, :class => 'control-label' %>
       <div class='controls'>
-        <%= f.check_box :published, :class => '' %><br />
+        <%= f.check_box :published, :class => '', :id => "published" %><br />
       </div>
     </fieldset>
     <div class="row">
@@ -115,6 +116,46 @@
 </div>
 <script>
 $(document).ready(function(){
+  $.fn.iButton && $( '#published' ).iButton( 'repaint' );
+
+
+  <%
+    tags = @content.tags.map {|k,vs| 
+      {
+        "text" => k.title
+      }
+     } 
+  %>
+  var OBJ = <%= tags.to_json.html_safe %>;
+  $("#tags").select2({
+      tokenSeparators: [","],
+      dropdownCssClass: "bigdrop",
+      multiple:true,
+      ajax: {
+        url: "<%= url(:contents, :tags)%>",
+        data: function(term) {
+          return { 
+            q: term
+          }
+        },
+        results: function(data){
+          return {results: data}
+        }
+      },
+      createSearchChoice: function(term) {
+          return {
+              id: term,
+              text: term
+          };
+      },
+      initSelection: function(element, callback){
+        var obj = OBJ;
+        callback(obj);
+      },
+      id: function(object){
+        return object.text
+      }
+  }).select2('val', OBJ);
   $('body').on('click', '#send_to_tumblr', function(event){
     event.preventDefault();
     var authenticity_token = $('input[name="authenticity_token"]').val(),

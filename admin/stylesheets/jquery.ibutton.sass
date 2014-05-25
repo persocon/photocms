@@ -1,0 +1,100 @@
+.ibutton-container
+	position: relative
+	height: 20px
+	cursor: pointer
+	overflow: hidden
+	display: inline-block
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	input
+		position: absolute
+		top: 0
+		left: 0
+		z-index: -100
+		filter: alpha(opacity = 0)
+		-moz-opacity: 0.0
+		opacity: 0.0
+		-moz-user-input: enabled!important
+
+.ibutton-handle
+	display: block
+	height: 20px
+	cursor: inherit
+	position: absolute
+	top: 0
+	left: 0
+	width: 0
+	border: 1px solid #888
+	background: #fafafa repeat-x left bottom
+	background-image: linear-gradient(top, white, #f2f2f2)
+	z-index: 3
+	-webkit-border-radius: 3px
+	-moz-border-radius: 3px
+	border-radius: 3px
+	.ibutton-handle-inner
+		display: block
+		position: absolute
+		width: 8px
+		height: 6px
+		background: url(../images/grip.png) no-repeat center center
+		left: 50%
+		margin-left: -4px
+		top: 50%
+		margin-top: -3px
+
+div
+	&.ibutton-label-on, &.ibutton-label-off
+		white-space: nowrap
+		font-size: 10px
+		line-height: 18px
+		font-weight: 700
+		text-transform: uppercase
+		cursor: inherit
+		display: block
+		position: absolute
+		width: auto
+		top: 0
+		overflow: hidden
+		-webkit-border-radius: 3px
+		-moz-border-radius: 3px
+		border-radius: 3px
+		-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15)
+		-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15)
+		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15)
+	&.ibutton-label-on
+		color: #60783f
+		text-shadow: 0 1px rgba(255, 255, 255, 0.3)
+		left: 0
+		padding-right: 3px
+		margin-right: -3px
+		z-index: 1
+		border: 1px solid #87aa5b
+		background-color: #9fc46a
+	&.ibutton-label-off
+		color: #8f5247
+		background-color: #dd7d6c
+		text-shadow: 0 1px rgba(255, 255, 255, 0.3)
+		text-align: right
+		right: 0
+		left: 0
+		border: 1px solid #b15b4d
+	&.ibutton-label-on label, &.ibutton-label-off label
+		font-weight: 700
+		margin: 0!important
+
+.ibutton-container label
+	cursor: inherit
+	font-size: 1em!important
+	display: inline
+	margin: 0
+
+.ibutton-disabled
+	opacity: .75
+	-moz-opacity: .75
+	filter: alpha(opacity = 75)
+
+div
+	&.ibutton-label-on span, &.ibutton-label-off span
+		padding: 0 5px
