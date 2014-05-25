@@ -7,7 +7,7 @@ class MenuHelper
 									"id" => menu[:id],
 									"slug" => menu[:slug],
 									"title" => menu[:title],
-									"data" => menu[:data]
+									"data" => JSON.parse(menu[:data])
 								}
 							}
 		json.to_json
@@ -20,7 +20,7 @@ class MenuHelper
 									"id" => menu[:id],
 									"slug" => menu[:slug],
 									"title" => menu[:title],
-									"data" => menu[:data]
+									"data" => JSON.parse(menu[:data])
 								}
 							}
 		json.to_json

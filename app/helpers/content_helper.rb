@@ -39,8 +39,8 @@ class ContentHelper
 	end
 
 	def self.get_set(slug)
-		content = Content.where(:type => 'post', :published => true, :slug => slug)
-		json = content.map {|content| 
+		contents = Content.where(:type => 'post', :published => true, :slug => slug)
+		json = contents.map {|content| 
 								{
 									"id" => content[:id],
 									"title" => content[:title],
