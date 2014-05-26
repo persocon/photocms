@@ -1,5 +1,5 @@
 class CategoryHelper
-	
+
 	def self.get_all_json
 		categories = Category.where(:parent_id => nil).all
 		json = categories.map {|category|
