@@ -13,3 +13,7 @@ $ padrino start -p 9090
 - brew install imagemagick
 **LINUX**
 - sudo apt-get install imagemagick
+
+
+### DEPLOY PURPOSE
+$ rvm alias create photocms ruby-2.1.1@photocms
