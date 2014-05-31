@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-md-8">
     <button type="button" class="btn btn-primary btn-sm image-library" data-toggle="modal" data-target="#imageLibrary">Image Library</button>
-    <% unless @content.values.blank? && current_account.tumblr_oauth_consumer_key.blank? && current_account.tumblr_oauth_secret_key.blank? %>
+    <% 
+      unless @content.values.blank? && current_account.tumblr_oauth_consumer_key.blank? && current_account.tumblr_oauth_secret_key.blank? || @content.values.blank?
+    %>
       <%= link_to pat(:send_to_tumblr), :href => url(:contents, :tumblr, :id => @content.id), :id => 'send_to_tumblr', :class => 'btn btn-primary btn-sm' %>
-    <% end %>
+    <% 
+      end 
+    %>
     <% error = @content.errors.key?(:title) && @content.errors[:title].count > 0 %>
     <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
       <%= f.label :title, :class => 'control-label' %>

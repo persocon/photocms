@@ -40,7 +40,6 @@
                 <th class=header> <%= mat(:content, :id) %></th>
                 <th class=header> <%= mat(:content, :title) %></th>
                 <th class=header> <%= mat(:content, :slug) %></th>
-                <th class=header> <%= mat(:content, :body) %></th>
                 <th class=header> <%= mat(:content, :published) %></th>
                 <th class=header> <%= mat(:content, :created_at) %></th>
                 <th class=header> <%= mat(:content, :updated_at) %></th>
@@ -57,7 +56,6 @@
           <td class=list-column> <%= content.id %> </td>
           <td class=list-column> <%= content.title %> </td>
           <td class=list-column> <%= content.slug %> </td>
-          <td class=list-column> <%= content.body %> </td>
           <td class=list-column> <%= content.published ? tag_icon(:ok) : tag_icon(:remove) %> </td>
           <td class=list-column> <%= content.created_at %> </td>
           <td class=list-column> <%= content.updated_at %> </td>

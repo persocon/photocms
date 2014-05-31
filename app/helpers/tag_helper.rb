@@ -1,15 +1,9 @@
 class TagHelper
 
 	def self.get_all_json
-		categories = Tag.all
-		json = categories.map {|category|
-
-				{
-					"id" => category[:id],
-					"title" => category[:title],
-					"slug" => category[:slug],
-				}
-		}	
+		tags = Tag.all
+		json = GeneralHelper::map_tag(tags.map)
 		json.to_json
 	end
+	
 end

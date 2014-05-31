@@ -27,7 +27,7 @@ PhotoCms::Admin.controllers :pages do
 		@title = pat(:new_title, :model => 'page')
 		@content = Content.new
 		@uploads_all = Upload.all
-		@js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
+		@js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'ibutton/jquery.ibutton.js']
 		render 'pages/new'
 	end
 
@@ -82,7 +82,7 @@ PhotoCms::Admin.controllers :pages do
 		@title = pat(:edit_title, :model => "page #{params[:id]}")
 		@content = Content[params[:id]]
 		@uploads_all = Upload.all
-		@js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start']
+		@js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'ibutton/jquery.ibutton.js']
 		if @content
 			render 'pages/edit'
 		else

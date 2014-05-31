@@ -28,6 +28,9 @@ gem 'oauth'
 gem 'faraday', '0.8.0'
 gem 'tumblr_client'
 
+#CACHE
+gem 'redis'
+
 # Test requirements
 
 # Padrino Stable Gem
@@ -40,3 +43,7 @@ gem 'padrino', '0.12.1'
 # %w(core gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.11.4'
 # end
+
+
+# DATA USAGE
+gem 'newrelic_rpm'

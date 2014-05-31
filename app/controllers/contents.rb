@@ -1,8 +1,10 @@
-PhotoCms::App.controllers :contents, :map => '/api/v1' do
+PhotoCms::App.controllers :contents, :map => '/api/v1', :cache => true do
+	
 	get :index, :map => 'sets', :provides => [:html, :json] do
 		callback = params.delete('callback') # jsonp
 		@contents = ContentHelper.get_all_json
 		GeneralHelper.response_to(callback, @contents).call(self)
+		cache_key :set
 	end
 
 	get :set, :with => :slug, :provides => [:html, :json] do
