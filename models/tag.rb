@@ -14,15 +14,13 @@ class Tag < Sequel::Model
 	end
 
 	def clear_cache
-		@contents = Content.eager_graph(:tags).where(:tag_id => self.id, :type => 'post').all
-		
+		@contents = Content.eager_graph(:tags).where(:tag_id => self.id, :type => 'post', :published => true).all
 		@contents.each_with_index do |content|
 			PhotoCms::App.cache.delete("/api/v1/set/#{content.slug}")
 		end
-		
 		PhotoCms::App.cache.delete("/api/v1/sets")
-
 		PhotoCms::App.cache.delete("/api/v1/tags")
+		PhotoCms::App.cache.delete("/api/v1/tag/#{self.slug}")
 	end
 	
 	private

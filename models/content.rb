@@ -69,5 +69,16 @@ class Content < Sequel::Model
 			PhotoCms::App.cache.delete("/api/v1/sets")
 			PhotoCms::App.cache.delete("/api/v1/set/#{self.slug}")
 		end
+		if self.tags
+			self.tags.each do |tag|
+				PhotoCms::App.cache.delete("/api/v1/tag/#{tag.slug}")
+			end
+		end
+
+		if self.categories
+			self.categories.each do |category|
+				PhotoCms::App.cache.delete("/api/v1/category/#{category.slug}")
+			end
+		end
 	end
 end

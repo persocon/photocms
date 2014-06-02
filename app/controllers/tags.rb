@@ -7,4 +7,13 @@ PhotoCms::App.controllers :tags, :map => '/api/v1', :cache => true do
 		GeneralHelper.response_to(callback, @tags).call(self)
 		
 	end
+
+	get :tag, :with => :slug, :provides => [:html, :json] do
+		callback = params.delete('callback')
+		cache_key
+		@tag = Tag.where(:slug => params[:slug]).first
+		@contents = ContentHelper.get_from_tag(@tag.id)
+
+		GeneralHelper.response_to(callback, @contents).call(self)
+	end
 end

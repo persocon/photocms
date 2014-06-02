@@ -27,6 +27,7 @@ class Category < Sequel::Model
 
 	def clear_cache
 		PhotoCms::App.cache.delete("/api/v1/categories")
+		PhotoCms::App.cache.delete("/api/v1/category/#{self.slug}")
 	end
 
 end

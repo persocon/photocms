@@ -64,5 +64,43 @@ class GeneralHelper
 		end
 		response
 	end
+
+	def self.map_content(contents)
+		if contents.any?
+			response = contents.map { |content|
+				{
+					"id" => content[:id],
+					"title" => content[:title],
+					"slug" => content[:slug],
+					"body" => content[:body],
+					"tags" => GeneralHelper::map_tag(content.tags.map),
+					"categories" => GeneralHelper::map_category(content.categories.map),
+					"images" => GeneralHelper::map_upload(content.uploads.map)
+				}
+			}
+		else
+			response = nil
+		end
+
+		response
+	end
+
+	def self.map_page(contents)
+		if contents.any?
+			response = contents.map { |content|
+				{
+					"id" => content[:id],
+					"title" => content[:title],
+					"slug" => content[:slug],
+					"body" => content[:body],
+					"images" => GeneralHelper::map_upload(content.uploads.map)
+				}
+			}
+		else
+			response = nil
+		end
+
+		response
+	end
 	
 end

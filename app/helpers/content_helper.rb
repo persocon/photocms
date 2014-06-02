@@ -2,33 +2,25 @@ class ContentHelper
 
 	def self.get_all_json
 		contents = Content.where(:type => 'post', :published => true).order(:sort).all
-		json = contents.map {|content| 
-								{
-									"id" => content[:id],
-									"title" => content[:title],
-									"slug" => content[:slug],
-									"body" => content[:body],
-									"tags" => GeneralHelper::map_tag(content.tags.map),
-									"categories" => GeneralHelper::map_category(content.categories.map),
-									"images" => GeneralHelper::map_upload(content.uploads.map)
-								}
-							}
+		json = GeneralHelper::map_content(contents)
 		json.to_json
 	end
 
 	def self.get_set(slug)
 		contents = Content.where(:type => 'post', :published => true, :slug => slug)
-		json = contents.map {|content| 
-								{
-									"id" => content[:id],
-									"title" => content[:title],
-									"slug" => content[:slug],
-									"body" => content[:body],
-									"tags" => GeneralHelper::map_tag(content.tags.map),
-									"categories" => GeneralHelper::map_category(content.categories.map),
-									"images" => GeneralHelper::map_upload(content.uploads.map)
-								}
-							}
+		json = GeneralHelper::map_content(contents)
+		json.to_json
+	end
+
+	def self.get_from_category(category_id)
+		contents = Content.eager_graph(:categories).where(:type => 'post', :published => true, :category_id => category_id).order(:sort).all
+		json = GeneralHelper::map_content(contents)
+		json.to_json
+	end
+
+	def self.get_from_tag(tag_id)
+		contents = Content.eager_graph(:tags).where(:type => 'post', :published => true, :tag_id => tag_id).order(:sort).all
+		json = GeneralHelper::map_content(contents)
 		json.to_json
 	end
 
