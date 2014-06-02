@@ -15,10 +15,18 @@ class Category < Sequel::Model
 	def before_destroy
 		remove_associations
 	end
+
+	def after_save
+		clear_cache
+	end
 	
 	def remove_associations
 		self.remove_all_contents
 		self.remove_all_children
+	end
+
+	def clear_cache
+		PhotoCms::App.cache.delete("/api/v1/categories")
 	end
 
 end

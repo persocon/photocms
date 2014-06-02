@@ -7,6 +7,7 @@ class PageHelper
 									"id" => content[:id],
 									"title" => content[:title],
 									"slug" => content[:slug],
+									"body" => content[:body],
 									"images" => GeneralHelper::map_upload(content.uploads.map)
 								}
 							}

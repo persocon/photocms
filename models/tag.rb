@@ -8,6 +8,22 @@ class Tag < Sequel::Model
 		sluger = Sluger.new
 		sluger.slugfy(self)
 	end
+
+	def after_save
+		clear_cache
+	end
+
+	def clear_cache
+		@contents = Content.eager_graph(:tags).where(:tag_id => self.id, :type => 'post').all
+		
+		@contents.each_with_index do |content|
+			PhotoCms::App.cache.delete("/api/v1/set/#{content.slug}")
+		end
+		
+		PhotoCms::App.cache.delete("/api/v1/sets")
+
+		PhotoCms::App.cache.delete("/api/v1/tags")
+	end
 	
 	private
 	
@@ -23,4 +39,5 @@ class Tag < Sequel::Model
 		tarray
 	end
 	
+
 end

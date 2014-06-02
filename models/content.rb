@@ -15,6 +15,10 @@ class Content < Sequel::Model
 	def before_destroy
 		remove_associations
 	end
+
+	def after_save
+		clear_cache
+	end
 		
 	def add_tags(tags)
 		if tags.present?
@@ -56,5 +60,14 @@ class Content < Sequel::Model
 		self.remove_all_tags
 	end
 
-	
+	def clear_cache
+		type = self.type
+		if type == "page"
+			PhotoCms::App.cache.delete("/api/v1/pages")
+			PhotoCms::App.cache.delete("/api/v1/page/#{self.slug}")
+		else
+			PhotoCms::App.cache.delete("/api/v1/sets")
+			PhotoCms::App.cache.delete("/api/v1/set/#{self.slug}")
+		end
+	end
 end

@@ -7,6 +7,7 @@ class ContentHelper
 									"id" => content[:id],
 									"title" => content[:title],
 									"slug" => content[:slug],
+									"body" => content[:body],
 									"tags" => GeneralHelper::map_tag(content.tags.map),
 									"categories" => GeneralHelper::map_category(content.categories.map),
 									"images" => GeneralHelper::map_upload(content.uploads.map)
