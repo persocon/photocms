@@ -15,15 +15,17 @@
 	
 	<%= yield %>
 
-
 <% #VENDOR %>
-<%= javascript_include_tag  "App/vendor/jquery-1.11.1.js", "App/vendor/underscore.js", "App/vendor/backbone.js", "App/vendor/marionette.js", "App/vendor/backbone.wreqr.js", "App/vendor/backbone.babysitter.js" %>	
+<%= javascript_include_tag  "App/vendor/jquery", "App/vendor/json2", "App/vendor/underscore", "App/vendor/backbone", "App/vendor/backbone.babysitter", "App/vendor/backbone.wreqr", "App/vendor/backbone.marionette", "App/vendor/handlebars-v1.3.0" %>	
 
 <% #APP SETUP AND COMMON FILES %>
 <%= javascript_include_tag "App/app" %>
 
 <% #ENTITIES %>
 <%= javascript_include_tag "App/entities/header" %>
+
+<% #HEADER %>
+<%= javascript_include_tag "App/apps/header/header_app.js", "App/apps/header/list/list_controller.js", "App/apps/header/list/list_view.js" %>
 
 <script type="text/javascript">
 	App.start();

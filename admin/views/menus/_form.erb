@@ -34,15 +34,16 @@
       </div>
     </div>
   
-    <h5>Contents</h5>
+    <h5>Sets</h5>
     <div class="box">
       <div class="box-content" data-who="content">
         <% @contents.each do |content| %>
           <div class="checkbox">
             <label>
               <input type="checkbox" value="<%=content.id%>" name="content[id]"/>
-              <input type="hidden" value="content" name="content[type]" />
+              <input type="hidden" value="set" name="content[type]" />
               <input type="hidden" value="<%= content.title %>" name="content[title]" />
+              <input type="hidden" value="<%= content.slug %>" name="content[slug]" />
               <%= content.title %>
             </label>
           </div>
@@ -53,6 +54,26 @@
       </div>
     </div>
     
+    <h5>Pages</h5>
+    <div class="box">
+      <div class="box-content" data-who="page">
+        <% @pages.each do |page| %>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="<%=page.id%>" name="page[id]"/>
+              <input type="hidden" value="page" name="page[type]" />
+              <input type="hidden" value="<%= page.title %>" name="page[title]" />
+              <input type="hidden" value="<%= page.slug %>" name="page[slug]" />
+              <%= page.title %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <div class="box-action-btn">
+        <a href="#" class="btn btn-primary btn-sm btn-block btn-add" data-action-for="page">Add</a>
+      </div>
+    </div>    
+    
     <h5>Categories</h5>
     <div class="box">
       <div class="box-content" data-who="category">
@@ -60,8 +81,9 @@
           <div class="checkbox">
             <label>
               <input type="checkbox" value="<%=category.id%>" name="category[id]">
-              <input type="hidden" value="content" name="category[type]" />
+              <input type="hidden" value="category" name="category[type]" />
               <input type="hidden" value="<%= category.title %>" name="category[title]" />
+              <input type="hidden" value="<%= category.slug %>" name="category[slug]" />
               <%= category.title %>
             </label>
           </div>
@@ -79,8 +101,9 @@
           <div class="checkbox">
             <label>
               <input type="checkbox" value="<%=tag.id%>" name="tag[id]">
-              <input type="hidden" value="content" name="tag[type]" />
+              <input type="hidden" value="tag" name="tag[type]" />
               <input type="hidden" value="<%= tag.title %>" name="tag[title]" />
+              <input type="hidden" value="<%= tag.slug %>" name="tag[slug]" />
               <%= tag.title %>
             </label>
           </div>
@@ -99,7 +122,7 @@
             <% unless @menu.data.nil?
             menu = JSON.parse(@menu.data)
               menu.each do |item| %>
-                <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>'>
+                  <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>' data-slug="<%= item["slug"] %>">
                   <div class='dd-handle'><%= item["title"] %></div>
                   <div class="dd-remove"><span class="icon icon-remove"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
@@ -127,7 +150,7 @@
 </div>
 
 <script id="entry-template" type="text/x-handlebars-template">
-  <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-title='{{ title }}' {{#if url}} data-url='{{ url }}' {{/if}}>
+  <li class='dd-item' {{#if id}}data-id='{{ id }}'{{/if}} data-type='{{ type }}' {{#if slug }}data-slug="{{ slug }}"{{/if}} data-title='{{ title }}' {{#if url}} data-url='{{ url }}' {{/if}}>
     <div class='dd-handle'>{{ title }}</div>
     <div class="dd-remove"><span class="icon icon-remove"></span></div>
   </li>
@@ -167,7 +190,8 @@ $('.box-action-btn .btn-add').click( function(event){
       var url = $(this).parent().find('input[name="'+who+'[url]"]').val();  
       var context = {title: title, id: id, type: type, url: url}
     }else{
-      var context = {title: title, id: id, type: type}
+      var slug = $(this).parent().find('input[name="'+who+'[slug]"]').val();
+      var context = {title: title, id: id, type: type, slug: slug}
     }
     
     var html    = template(context);

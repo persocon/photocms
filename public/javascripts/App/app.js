@@ -1,5 +1,21 @@
 var App = new Marionette.Application();
 
+Handlebars.registerHelper('list', function(items, options) {
+  var out = "";
+	_.each(items, function(item){
+		out = out + "<li>";
+		out = out + item.title;
+		if(item.children){
+			out = out + "<ul class='submenu'>";
+			out = out + Handlebars.helpers.list(item.children);
+			out = out + "</ul> ";
+		}
+		out = out + "</li>";
+	})
+
+	return new Handlebars.SafeString(out);
+});
+
 App.addRegions({
 	headerRegion: "#header-region",
 	mainRegion: "#main-region"
@@ -19,15 +35,6 @@ App.on("initialize:after", function(){
 		Backbone.history.start();
 
 		if(this.getCurrentRoute() === ""){
-			// var fetchingContacts = App.request("header:entities");
-			// $.when(fetchingContacts).done(function(contacts){
-			// 		console.log(contacts);
-			// });
-			
-			var fetchingContact = App.request("header:entity", "main");
-			$.when(fetchingContact).done(function(contact){
-					console.log(contact)
-			});
 			
 		}
 	}
