@@ -3,14 +3,22 @@ var App = new Marionette.Application();
 Handlebars.registerHelper('list', function(items, options) {
   var out = "";
 	_.each(items, function(item){
-		out = out + "<li>";
-		out = out + item.title;
-		if(item.children){
-			out = out + "<ul class='submenu'>";
-			out = out + Handlebars.helpers.list(item.children);
-			out = out + "</ul> ";
+		out += "<li>";
+		if(item.type === "external_link"){
+			out += "<a href='" + item.url + "' title='" + item.title + "'>";
+				out += item.title;
+			out += "</a>";
+		}else{		
+			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + item.title + "'>";
+				out += item.title;
+			out += "</a>"
 		}
-		out = out + "</li>";
+		if(item.children){
+			out += "<ul class='submenu'>";
+				out += Handlebars.helpers.list(item.children);
+			out += "</ul> ";
+		}
+		out += "</li>";
 	})
 
 	return new Handlebars.SafeString(out);

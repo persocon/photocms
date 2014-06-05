@@ -122,7 +122,7 @@
             <% unless @menu.data.nil?
             menu = JSON.parse(@menu.data)
               menu.each do |item| %>
-                  <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>' data-slug="<%= item["slug"] %>">
+                  <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>' data-slug="<%= item["slug"] %>" data-url="<%= item["url"]%>">
                   <div class='dd-handle'><%= item["title"] %></div>
                   <div class="dd-remove"><span class="icon icon-remove"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
@@ -150,7 +150,7 @@
 </div>
 
 <script id="entry-template" type="text/x-handlebars-template">
-  <li class='dd-item' {{#if id}}data-id='{{ id }}'{{/if}} data-type='{{ type }}' {{#if slug }}data-slug="{{ slug }}"{{/if}} data-title='{{ title }}' {{#if url}} data-url='{{ url }}' {{/if}}>
+  <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-slug="{{ slug }}" data-title='{{ title }}' data-url='{{ url }}'>
     <div class='dd-handle'>{{ title }}</div>
     <div class="dd-remove"><span class="icon icon-remove"></span></div>
   </li>
@@ -189,6 +189,7 @@ $('.box-action-btn .btn-add').click( function(event){
     if(who === 'external_link'){
       var url = $(this).parent().find('input[name="'+who+'[url]"]').val();  
       var context = {title: title, id: id, type: type, url: url}
+      console.log(context);
     }else{
       var slug = $(this).parent().find('input[name="'+who+'[slug]"]').val();
       var context = {title: title, id: id, type: type, slug: slug}

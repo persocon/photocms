@@ -23,7 +23,7 @@ class TreeHelper
 		unless item.blank?
 			html = "<ol class='dd-list'>"
 				item.each do |i|
-					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{i["title"]}'>"
+					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{i["title"]}' data-url='#{i["url"]}' data-slug='#{i["slug"]}'>"
 						html << "<div class='dd-handle'>#{i["title"]}</div>"
 						html << "<div class='dd-remove'><span class='icon icon-remove'></span></div>"
 							unless i["children"].blank?
