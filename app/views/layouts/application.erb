@@ -22,10 +22,13 @@
 <%= javascript_include_tag "App/app" %>
 
 <% #ENTITIES %>
-<%= javascript_include_tag "App/entities/header" %>
+<%= javascript_include_tag "App/entities/header", "App/entities/set" %>
 
 <% #HEADER %>
-<%= javascript_include_tag "App/apps/header/header_app.js", "App/apps/header/list/list_controller.js", "App/apps/header/list/list_view.js" %>
+<%= javascript_include_tag "App/apps/header/header_app", "App/apps/header/list/list_controller", "App/apps/header/list/list_view" %>
+
+<% #SET %>
+<%= javascript_include_tag "App/apps/set/set_app", "App/apps/set/list/list_controller", "App/apps/set/list/list_view", "App/apps/set/show/show_controller", "App/apps/set/show/show_view" %>
 
 <script type="text/javascript">
 	App.start();

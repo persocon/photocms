@@ -3,7 +3,11 @@ var App = new Marionette.Application();
 Handlebars.registerHelper('list', function(items, options) {
   var out = "";
 	_.each(items, function(item){
-		out += "<li>";
+		var classe = "";
+		if(item.children){
+			classe = "class='has-submenu'"
+		}
+		out += "<li "+classe+">";
 		if(item.type === "external_link"){
 			out += "<a href='" + item.url + "' title='" + item.title + "'>";
 				out += item.title;
@@ -41,9 +45,5 @@ App.getCurrentRoute = function(){
 App.on("initialize:after", function(){
 	if(Backbone.history){
 		Backbone.history.start();
-
-		if(this.getCurrentRoute() === ""){
-			
-		}
 	}
 });

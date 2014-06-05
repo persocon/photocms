@@ -1,0 +1,13 @@
+<script id="set-list-item" type="text/x-handlebars-template">
+	<p><a href="#set/{{slug}}">{{ title }}</a></p>
+	
+	{{#if images}}
+		<ul class="set-images">
+			{{#each images}}
+				<li>
+					<img src="{{files.thumb}}" />
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</script>
