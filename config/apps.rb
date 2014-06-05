@@ -37,4 +37,4 @@ end
 Padrino.mount("PhotoCms::Admin", :app_file => Padrino.root('admin/app.rb')).to("/admin")
 Padrino.mount('PhotoCms::App', :app_file => Padrino.root('app/app.rb')).to('/')
 
-Padrino.mount("PhotoCms::Admin", :app_file => File.expand_path('../../admin/app.rb', __FILE__)).to("/admin")
+#Padrino.mount("PhotoCms::Admin", :app_file => File.expand_path('../../admin/app.rb', __FILE__)).to("/admin")

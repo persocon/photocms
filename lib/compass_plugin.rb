@@ -20,10 +20,12 @@ module CompassInitializer
       config.javascripts_dir = "public/javascripts"
       
       apps.each do |name, path|
-        config.sass_dir = "#{path}/stylesheets"
-        config.css_dir = "public/#{path}/stylesheets"
-        config.images_dir = "public/#{path}/images"
-        config.javascripts_dir = "public/#{path}/javascripts"
+        unless path != "app"
+          config.sass_dir = "#{path}/stylesheets"
+          config.css_dir = "public/#{path}/stylesheets"
+          config.images_dir = "public/#{path}/images"
+          config.javascripts_dir = "public/#{path}/javascripts"
+        end
       end
       
       config.output_style = :compressed

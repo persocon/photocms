@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	<meta charset="utf-8">
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name=viewport content='width=device-width,initial-scale=1' />
+	
+	<title>The Killer-Rabbit Photography</title>
+	
+	<%= stylesheet_link_tag 'screen' %>
+	
+</head>
+<body>
+	
+	<%= yield %>
+
+
+<% #VENDOR %>
+<%= javascript_include_tag  "App/vendor/jquery-1.11.1.js", "App/vendor/underscore.js", "App/vendor/backbone.js", "App/vendor/marionette.js", "App/vendor/backbone.wreqr.js", "App/vendor/backbone.babysitter.js" %>	
+
+<% #APP SETUP AND COMMON FILES %>
+<%= javascript_include_tag "App/app" %>
+
+<% #ENTITIES %>
+<%= javascript_include_tag "App/entities/header" %>
+
+<script type="text/javascript">
+	App.start();
+</script>
+
+</body>
+</html>
