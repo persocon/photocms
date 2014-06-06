@@ -1,14 +1,14 @@
-App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
+App.module("CategoryApp.List", function(List, App, Backbone, Marionette, $, _){
 	List.Controller = {
-		listSets: function(){
+		listCategory: function(slug){
 			var loadingView = new App.Common.Views.Loading();
 			App.mainRegion.show(loadingView);
 
-			var fetchingSets = App.request("set:entities");
+			var fetchingSets = App.request("category:entity", slug);
 
 			$.when(fetchingSets).done(function(sets){
 				
-				var setsListView = new List.Sets({
+				var setsListView = new App.SetApp.List.Sets({
 					collection: sets
 				});
 
