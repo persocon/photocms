@@ -10,7 +10,14 @@ App.module("Entities", function(Entities, App, Backbone, Marionette, $, _){
 	
 	Entities.SetParsed = Entities.Set.extend({
 		parse: function(data){
-			return data[0];
+			var response = "";
+			if(data){
+				response = data[0];
+			}else{
+				this.clear();
+				response = {};
+			}
+			return response;
 		}
 	});
 
@@ -38,7 +45,11 @@ App.module("Entities", function(Entities, App, Backbone, Marionette, $, _){
 			var defer = $.Deferred();
 			set.fetch({
 				success: function(data){
-					defer.resolve(data);
+					if(data.get("title")){
+						defer.resolve(data);
+					}else{
+						defer.resolve(undefined);
+					}
 				},
 				error: function(data){
 					defer.resolve(undefined);

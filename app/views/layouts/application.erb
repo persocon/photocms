@@ -16,19 +16,26 @@
 	<%= yield %>
 
 <% #VENDOR %>
-<%= javascript_include_tag  "App/vendor/jquery", "App/vendor/json2", "App/vendor/underscore", "App/vendor/backbone", "App/vendor/backbone.babysitter", "App/vendor/backbone.wreqr", "App/vendor/backbone.marionette", "App/vendor/handlebars-v1.3.0" %>	
+<%= javascript_include_tag  "App/vendor/jquery", "App/vendor/json2", "App/vendor/underscore", "App/vendor/backbone", "App/vendor/backbone.babysitter", "App/vendor/backbone.wreqr", "App/vendor/backbone.marionette", "App/vendor/handlebars-v1.3.0", "App/vendor/showdown" %>	
 
 <% #APP SETUP AND COMMON FILES %>
 <%= javascript_include_tag "App/app" %>
 
 <% #ENTITIES %>
-<%= javascript_include_tag "App/entities/header", "App/entities/set" %>
+<%= javascript_include_tag "App/entities/header", "App/entities/set", "App/entities/page" %>
+
+<% #COMMON %>
+<%= javascript_include_tag "App/common/views" %>
 
 <% #HEADER %>
 <%= javascript_include_tag "App/apps/header/header_app", "App/apps/header/list/list_controller", "App/apps/header/list/list_view" %>
 
 <% #SET %>
 <%= javascript_include_tag "App/apps/set/set_app", "App/apps/set/list/list_controller", "App/apps/set/list/list_view", "App/apps/set/show/show_controller", "App/apps/set/show/show_view" %>
+
+<% #PAGE %>
+
+<%= javascript_include_tag "App/apps/page/page_app", "App/apps/page/show/show_controller", "App/apps/page/show/show_view" %>
 
 <script type="text/javascript">
 	App.start();

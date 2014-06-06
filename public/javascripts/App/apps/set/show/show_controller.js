@@ -9,8 +9,7 @@ App.module("SetApp.Show", function(Show, App, Backbone, Marionette, $, _){
 						model: set
 					});
 				}else{
-					console.log("NonExist")
-					// contactView = new Show.MissingContact();
+					setView = new App.Common.Views.MissingPage();
 				}
 
 				App.mainRegion.show(setView);

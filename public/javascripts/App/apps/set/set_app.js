@@ -23,7 +23,7 @@ App.module("SetApp", function(SetApp, App, Backbone, Marionette, $, _){
 
 	App.on("set:show", function(slug){
 		App.navigate("set/" + slug);
-		API.showContact(id);
+		API.showSet(slug);
 	});
 
 	App.addInitializer(function(){

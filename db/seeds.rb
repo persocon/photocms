@@ -10,6 +10,8 @@ password  = shell.ask "Tell me the password to use:"
 
 shell.say ""
 
+Menu.create(:title => "Main")
+
 account = Account.create(:email => email, :name => "Foo", :surname => "Bar", :password => password, :password_confirmation => password, :role => "admin")
 
 if account.valid?

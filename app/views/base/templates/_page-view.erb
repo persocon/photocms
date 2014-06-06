@@ -1,0 +1,13 @@
+<script id="page-view" type="text/x-handlebars-template">
+	<h2>{{ title }}</h2>
+	{{markdown body}}
+	{{#if images}}
+		<ul class="images">
+			{{#each images}}
+				<li>
+					<img src="{{files.thumb}}" />
+				</li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</script>

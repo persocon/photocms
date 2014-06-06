@@ -3,11 +3,15 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		template: Handlebars.compile($("#header-link").html()),
 		tagName: "ul",
 		events: {
-			"click a" : "navigate"
+			"click a.internal_link" : "navigate"
 		},
 		navigate: function(event){
 			event.preventDefault();
-			this.trigger("navigate", this.model);
+			var type, slug;
+			type = $(event.currentTarget).attr('data-type');
+			slug = $(event.currentTarget).attr('data-slug');
+
+			this.trigger("header:navigate", {type: type, slug: slug});
 		}
 	});
 });

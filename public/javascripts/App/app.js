@@ -1,5 +1,12 @@
 var App = new Marionette.Application();
 
+function markdown(context, options) {
+	var showdown = new Showdown.converter();
+	return new Handlebars.SafeString(showdown.makeHtml(context));
+}
+
+Handlebars.registerHelper('markdown', markdown);
+
 Handlebars.registerHelper('list', function(items, options) {
   var out = "";
 	_.each(items, function(item){
@@ -9,11 +16,11 @@ Handlebars.registerHelper('list', function(items, options) {
 		}
 		out += "<li "+classe+">";
 		if(item.type === "external_link"){
-			out += "<a href='" + item.url + "' title='" + item.title + "'>";
+			out += "<a href='" + item.url + "' title='" + item.title + "' class='external_link' target='_blank'>";
 				out += item.title;
 			out += "</a>";
 		}else{		
-			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + item.title + "'>";
+			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + item.title + "' class='internal_link' data-type='"+item.type+"' data-slug='"+item.slug+"'>";
 				out += item.title;
 			out += "</a>"
 		}
