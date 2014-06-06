@@ -1,6 +1,8 @@
 App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
 	List.Controller = {
 		listSets: function(criterion){
+			var loadingView = new App.Common.Views.Loading();
+			App.mainRegion.show(loadingView);
 
 			var fetchingSets = App.request("set:entities");
 
