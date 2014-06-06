@@ -22,7 +22,7 @@
 <%= javascript_include_tag "App/app" %>
 
 <% #ENTITIES %>
-<%= javascript_include_tag "App/entities/header", "App/entities/set", "App/entities/page", "App/entities/category" %>
+<%= javascript_include_tag "App/entities/header", "App/entities/set", "App/entities/page", "App/entities/category", "App/entities/tag" %>
 
 <% #COMMON %>
 <%= javascript_include_tag "App/common/views" %>
@@ -38,6 +38,9 @@
 
 <% #CATEGORY$%>
 <%= javascript_include_tag "App/apps/category/category_app", "App/apps/category/list/list_controller" %>
+
+<% #TAG %>
+<%= javascript_include_tag "App/apps/tag/tag_app", "App/apps/tag/list/list_controller" %>
 
 <script type="text/javascript">
 	App.start();
