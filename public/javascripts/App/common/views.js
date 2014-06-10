@@ -23,12 +23,10 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		toggleMenu: function(event){
 			event.preventDefault();
 			event.stopPropagation();
-			if($('body').hasClass('open_menu')){
-				$('#main-region').removeAttr('style');
-			}else{
-				$('#main-region').height(screen.height - 40);
-			}
 			$('body').toggleClass('open_menu');
+		},
+		onRender: function(){
+			$('body').removeClass('open_menu');
 		}
 	});
 
