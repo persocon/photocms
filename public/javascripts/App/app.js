@@ -72,4 +72,8 @@ App.on("setup:sizes", function(){
 	$('#contents-region').height(height - 40);
 });
 
-window.addEventListener('orientationchange', App.trigger("setup:sizes"), false);
+window.addEventListener('orientationchange', function(){
+	setTimeout(function(){
+		App.trigger("setup:sizes")
+	},300);
+}, false);
