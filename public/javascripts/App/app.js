@@ -64,3 +64,12 @@ App.on("initialize:after", function(){
 		Backbone.history.start();
 	}
 });
+
+App.on("setup:sizes", function(){
+	var width = $(window).width(),
+		height = $(window).height();
+	$('body, #main-region').width(width).height(height);
+	$('#contents-region').height(height - 40);
+});
+
+window.addEventListener('orientationchange', App.trigger("setup:sizes"), false);
