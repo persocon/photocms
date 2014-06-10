@@ -1,4 +1,5 @@
 App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
+
 	
 	List.Set = Marionette.ItemView.extend({
 		tagName: "li",

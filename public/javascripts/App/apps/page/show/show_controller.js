@@ -5,6 +5,10 @@ App.module("PageApp.Show", function(Show, App, Backbone, Marionette, $, _){
 			App.mainRegion.show(loadingView);
 			
 			var fetchingPage = App.request("page:entity", slug);
+
+			var pageListLayout = new App.Common.Views.Layout();
+			var pageListPanel = new App.Common.Views.Panel();
+
 			$.when(fetchingPage).done(function(page){
 				var pageView;
 				if(page !== undefined){
@@ -15,7 +19,12 @@ App.module("PageApp.Show", function(Show, App, Backbone, Marionette, $, _){
 					pageView = new App.Common.Views.MissingPage();
 				}
 
-				App.mainRegion.show(pageView);
+				pageListLayout.on("show", function(){
+					pageListLayout.panelRegion.show(pageListPanel);
+					pageListLayout.contentRegion.show(pageView);
+				});
+
+				App.mainRegion.show(pageListLayout);
 			});
 		}
 	}

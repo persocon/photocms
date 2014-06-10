@@ -1,0 +1,70 @@
+@import compass/utilities/general/clearfix
+@import compass/css3
+@import compass/css3/transition
+
+$menu-width: 300px
+$black: #4e4e4e
+body
+	+pie-clearfix
+	+transition-duration(0.3s)
+	+transition-timing-function(ease-in-out)
+	+transition-property(translate)  
+	font-family: 'Droid Sans', sans-serif
+	&.open_menu
+		+translateX(300px, 0)
+		overflow: hidden
+		width: auto
+		#main-region
+			+box-shadow(-3px 0px 3px rgba(0,0,0,0.2))
+			height: 100%
+			z-index: 1000
+			position: relative
+
+#header-region
+	height: 100%
+	overflow-x: hidden
+	float: left
+	position: fixed
+	top: 0
+	left: -300px
+	color: $black
+	.icon
+		cursor: pointer
+		padding: 5px 10px
+	a
+		color: $black
+		text-decoration: none
+		font-size: 1.0em
+		float: left
+		padding: 5px 10px
+		width: 80%
+		&.reset-padding
+			padding: 5px 0
+	nav
+		position: relative
+		width: $menu-width
+		height: 100%
+		overflow-x: hidden
+	.translated
+		+translateX(($menu-width * -1), 0)
+	li
+		+pie-clearfix
+	ul
+		+transition-duration(0.3s)
+		+transition-timing-function(ease-in-out)
+		+transition-property(translate)
+	ul, li
+		width: $menu-width
+		.submenu
+			position: absolute
+			top: 0%
+			left: 100%
+			display: none
+		&.has-submenu
+			cursor: pointer
+
+#main-region
+	float: left
+	width: 100%
+	position: relative
+	padding-top: 40px

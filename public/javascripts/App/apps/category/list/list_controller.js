@@ -6,6 +6,9 @@ App.module("CategoryApp.List", function(List, App, Backbone, Marionette, $, _){
 
 			var fetchingSets = App.request("category:entity", slug);
 
+			var categoryListLayout = new App.Common.Views.Layout();
+			var categoryListPanel = new App.Common.Views.Panel();
+
 			$.when(fetchingSets).done(function(sets){
 				
 				var setsListView = new App.SetApp.List.Sets({
@@ -16,7 +19,12 @@ App.module("CategoryApp.List", function(List, App, Backbone, Marionette, $, _){
 					App.trigger("set:show", args.model.get("slug"));
 				});
 
-				App.mainRegion.show(setsListView);
+				categoryListLayout.on("show", function(){
+					categoryListLayout.panelRegion.show(categoryListPanel);
+					categoryListLayout.contentRegion.show(setsListView);
+				});
+
+				App.mainRegion.show(categoryListLayout);
 
 			});
 		}

@@ -9,28 +9,38 @@ Handlebars.registerHelper('markdown', markdown);
 
 Handlebars.registerHelper('list', function(items, options) {
   var out = "";
+  	if(!options.nohome){
+  		out += "<ul>";
+  		out += "<li><a href='#' class='home internal_link'>Home</a></li>";
+  	}
 	_.each(items, function(item){
-		var classe = "";
+		var classe = "",
+			icon = "";
 		if(item.children){
-			classe = "class='has-submenu'"
+			classe = "class='has-submenu'";
+			icon = " <i class='icon icon-chevron-right is-float-right open-submenu'></i>";
 		}
 		out += "<li "+classe+">";
 		if(item.type === "external_link"){
 			out += "<a href='" + item.url + "' title='" + item.title + "' class='external_link' target='_blank'>";
 				out += item.title;
-			out += "</a>";
 		}else{		
 			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + item.title + "' class='internal_link' data-type='"+item.type+"' data-slug='"+item.slug+"'>";
 				out += item.title;
-			out += "</a>"
 		}
+		out += "</a>";
+		out += icon;
 		if(item.children){
 			out += "<ul class='submenu'>";
-				out += Handlebars.helpers.list(item.children);
+				out += "<li><i class='icon icon-chevron-left is-float-left close-submenu'></i><a href='#' class='close-submenu reset-padding'>Back</a></li>";
+				out += Handlebars.helpers.list(item.children, {nohome: true});
 			out += "</ul> ";
 		}
 		out += "</li>";
-	})
+	});
+	if(!options.nohome){
+		out += "</ul>";
+	}
 
 	return new Handlebars.SafeString(out);
 });
