@@ -20,6 +20,10 @@ App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
 					setListLayout.contentRegion.show(setsListView);
 				});
 
+				setsListView.on('show', function(){
+
+				});
+
 				setsListView.on("itemview:set:show", function(childView, args){
 					App.trigger("set:show", args.model.get("slug"));
 				});

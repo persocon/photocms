@@ -16,7 +16,7 @@ body
 		width: auto
 		#main-region
 			+box-shadow(-3px 0px 3px rgba(0,0,0,0.2))
-			height: 100%
+			overflow: hidden
 			z-index: 1000
 			position: relative
 
@@ -68,3 +68,9 @@ body
 	width: 100%
 	position: relative
 	padding-top: 40px
+	#contents-region
+		.list-items
+			li 
+				margin-bottom: 10px
+				img
+					width: 100%
