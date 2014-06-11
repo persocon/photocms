@@ -1,9 +1,9 @@
 app_name = "photo-cms"
 rack_env = (ENV['RACK_ENV'] || :production).to_sym
 puts "Starting app in #{rack_env} mode..."
-
+APP_PATH = "/var/www/#{app_name}"
 if rack_env == :production
-  working_directory "/var/www/#{app_name}"
+  working_directory APP_PATH
   worker_processes 4
 else
   working_directory "."
@@ -12,14 +12,12 @@ end
 
 listen "/tmp/#{app_name}.sock", :backlog => 64
 listen 8008, :tcp_nopush => true
-pid "/tmp/unicorn.pid"
 
-# APP_PATH = "/home/neves/photoCMS"
-# preload_app true
-# working_directory APP_PATH
-# pid APP_PATH + "/tmp/pids/unicorn.pid"
-# listen 8008
-# worker_processes 8
+pid APP_PATH + "/tmp/pids/unicorn.pid"
+
+preload_app true
+
+
 timeout 60
 
 stderr_path "./log/unicorn.stderr.log"
