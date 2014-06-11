@@ -1,0 +1,46 @@
+@import compass/utilities/general/clearfix
+@import compass/css3
+
+.set
+	h2.set-title
+		padding: 5px
+	.set-images
+		width: 100%
+		img
+			width: 100%
+	.content
+		margin: 10px 5px
+	.categories
+		+pie-clearfix
+		padding: 5px
+		background: #666
+		color: #FFF
+		a
+			color: #FFF
+		p, ul
+			float: left
+		ul
+			+pie-clearfix
+			margin-left: 5px
+			li
+				float: left
+				margin-left: 7px
+				position: relative
+				&:before
+					content: ","
+					position: absolute
+					bottom: -2px
+					left: -7px
+				&:first-child
+					&:before
+						content: " "
+	.tags
+		+pie-clearfix
+		background: #4e4e4e
+		padding: 5px
+		a
+			color: #FFF
+			float: left
+			margin-left: 5px
+			&:first-child
+				margin-left: 0

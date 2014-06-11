@@ -1,3 +1,36 @@
 <script id="set-view" type="text/x-handlebars-template">
-	<h2>{{ title }}</h2>
+	<h2 class="set-title">{{ title }}</h2>
+	{{#if images}}
+		<div class="set-images">
+			{{#each images}}
+				<figure>
+					<img src="{{files.default}}" />
+				</figure>
+			{{/each}}
+		</div>
+	{{/if}}
+	{{#if body}}
+		<div class="content">
+			{{markdown body}}
+		</div>
+	{{/if}}
+	{{#if categories}}
+		<div class="categories">
+			<p>See more:</p>
+			<ul>
+				{{#each categories}}
+					<li>
+						<a href="#category/{{slug}}">{{title}}</a>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+	{{#if tags}}
+		<div class="tags">
+			{{#each tags}}
+				<a href="#tag/{{slug}}">#{{title}}</a>
+			{{/each}}
+		</div>
+	{{/if}}
 </script>
