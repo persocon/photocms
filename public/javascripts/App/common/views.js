@@ -18,7 +18,8 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 	Views.Panel = Marionette.ItemView.extend({
 		template: Handlebars.compile($("#app-panel").html()),
 		events: {
-			'click a.toggle_menu' : 'toggleMenu'
+			'click a.toggle_menu' : 'toggleMenu',
+			'tap a.toggle_menu' : 'toggleMenu'
 		},
 		toggleMenu: function(event){
 			event.preventDefault();
