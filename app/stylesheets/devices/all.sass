@@ -11,8 +11,9 @@ body
 	+transition-property(translate, transform)  
 	font-family: 'Droid Sans', sans-serif
 	overflow: hidden
+	+transform(translate3d(0,0,0))
 	&.open_menu
-		+transform(translateX(300px))
+		+transform(translate3d(300px,0,0))
 		// overflow-x: hidden
 		// width: auto
 		#main-region
@@ -46,7 +47,7 @@ body
 		height: 100%
 		overflow-x: hidden
 	.translated
-		+transform(translateX(($menu-width * -1)))
+		+transform(translate3d(($menu-width * -1),0,0))
 	li
 		+pie-clearfix
 	ul
