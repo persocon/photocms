@@ -74,6 +74,6 @@ App.on("setup:sizes", function(){
 
 window.addEventListener('orientationchange', function(){
 	setTimeout(function(){
-		App.trigger("setup:sizes")
+		App.trigger("setup:sizes");
 	},300);
 }, false);

@@ -20,4 +20,42 @@ class ImageHelper
 		uploaded_file.model
 	end
 	
+	def self.get_all_images(content_id = nil)
+    	@uploads = Upload.all
+        hash = Array.new
+        @uploads.each do |upload|
+          onThePost = ""
+          unless content_id.nil?
+	          if upload.contents
+	            x = upload.contents_dataset.where({:id => content_id}).first
+	            if x
+	              onThePost = true
+	            end
+	          end
+	      end
+          hash << {
+            :id => upload.id,
+            :filename => upload.file.url.split("/").last,
+            :file => upload.file,
+            :thumb => upload.file.thumb,
+            :onThePost => onThePost
+          }
+        end
+        hash.to_json
+	end
+
+	def self.get_all_images_on_this_post(content_id)
+		content = Content[content_id]
+	    @uploads = content.uploads.sort_by{|key| key[:sort]}
+	    hash = Array.new
+	    @uploads.each do |upload|
+	      hash << {
+	        :id => upload.id,
+	        :filename => upload.file.url.split("/").last,
+	        :file => upload.file,
+	        :thumb => upload.file.thumb
+	      }
+	    end
+	    hash.to_json
+	end
 end

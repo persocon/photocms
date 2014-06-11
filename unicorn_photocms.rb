@@ -1,4 +1,4 @@
-APP_PATH = "/Users/persocon/photo-cms"
+APP_PATH = "/home/neves/photoCMS"
 preload_app true
 working_directory APP_PATH
 pid APP_PATH + "/tmp/pids/unicorn.pid"
