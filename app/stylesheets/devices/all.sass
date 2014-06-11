@@ -8,11 +8,11 @@ body
 	+pie-clearfix
 	+transition-duration(0.3s)
 	+transition-timing-function(ease-in-out)
-	+transition-property(translate)  
+	+transition-property(translate, transform)  
 	font-family: 'Droid Sans', sans-serif
 	overflow: hidden
 	&.open_menu
-		+translateX(300px, 0)
+		+transform(translateX(300px))
 		// overflow-x: hidden
 		// width: auto
 		#main-region
@@ -46,13 +46,13 @@ body
 		height: 100%
 		overflow-x: hidden
 	.translated
-		+translateX(($menu-width * -1), 0)
+		+transform(translateX(($menu-width * -1)))
 	li
 		+pie-clearfix
 	ul
 		+transition-duration(0.3s)
 		+transition-timing-function(ease-in-out)
-		+transition-property(translate)
+		+transition-property(translate, transform)
 	ul, li
 		width: $menu-width
 		.submenu
