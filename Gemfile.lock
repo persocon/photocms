@@ -120,6 +120,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unicorn-worker-killer (0.4.2)
+      unicorn (~> 4)
     url_mount (0.2.1)
       rack
 
@@ -144,3 +146,4 @@ DEPENDENCIES
   stringex
   tumblr_client
   unicorn
+  unicorn-worker-killer

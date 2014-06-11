@@ -7,6 +7,7 @@ source 'http://rubygems.org'
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
 gem 'unicorn'
+gem 'unicorn-worker-killer'
 
 # Optional JSON codec (faster performance)
 # gem 'oj'
