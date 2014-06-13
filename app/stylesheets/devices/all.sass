@@ -4,79 +4,68 @@
 
 $menu-width: 300px
 $black: #4e4e4e
+
+html, body
+	width: 100%
+	height: 100%
+
 body
-	+pie-clearfix
-	+transition-duration(0.3s)
-	+transition-timing-function(ease-in-out)
-	+transition-property(translate, transform)  
-	font-family: 'Droid Sans', sans-serif
-	overflow: hidden
-	+transform(translate3d(0,0,0))
+	font-family: 'Droid sans', sans-serif
 	&.open_menu
-		+transform(translate3d(300px,0,0))
-		// overflow-x: hidden
-		// width: auto
-		#main-region
-			+box-shadow(-3px 0px 3px rgba(0,0,0,0.2))
-			z-index: 1000
+		overflow: hidden
+		width: 100%
+		height: 100%
+		#header-region
+			display: block
 
 #header-region
-	height: 100%
-	overflow-x: hidden
-	float: left
+	background: #FFF
 	position: fixed
 	top: 0
-	left: -300px
-	color: $black
-	.icon
-		cursor: pointer
-		padding: 5px 10px
-		font-size: 1.4em
-	a
-		color: $black
-		text-decoration: none
-		font-size: 1.4em
-		float: left
-		padding: 5px 10px
-		width: 75%
-		&.reset-padding
-			padding: 5px 0
-	nav
-		position: relative
-		width: $menu-width
-		height: 100%
-		overflow-x: hidden
-	.translated
-		+transform(translate3d(($menu-width * -1),0,0))
-	li
-		+pie-clearfix
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 1000
+	display: none
+	.header-close
+		background: $black
+		color: #FFF
+		padding: 10px
 	ul
-		+transition-duration(0.3s)
+		+transition-property(transform, translate3d)
+		+transition-duration(.3s)
 		+transition-timing-function(ease-in-out)
-		+transition-property(translate, transform)
-	ul, li
-		width: $menu-width
-		.submenu
-			position: absolute
-			top: 0%
-			left: 100%
-			display: none
-		&.has-submenu
-			cursor: pointer
+	ul.menu-mobile
+		display: block
+		clear: both
+		position: relative
+		+pie-clearfix
+		li
+			+pie-clearfix
+			margin: 1px 0
+			a
+				color: $black
+				width: 80%
+				float: left
+				padding: 5px
+			i.icon
+				padding: 5px 10px 5px 5px
+				background: $black
+				color: #FFF
+	ul.translated
+		+translate3d(-100%, 0, 0)
+	li.has-submenu
+
+	ul.submenu
+		position: absolute
+		top: 0
+		left: 100%
+		width: 100%
+		display: none
+		.close-list-item
+			background: $black
+			a
+				color: #FFF
+				text-decoration: none
 
 #main-region
-	float: left
-	width: 100%
-	position: relative
-	overflow: hidden
-	#contents-region
-		padding-top: 40px
-		overflow-x: hidden
-		overflow-y: scroll
-		-webkit-overflow-scrolling: touch
-		height: 100%
-		.list-items
-			li 
-				margin-bottom: 10px
-				img
-					width: 100%

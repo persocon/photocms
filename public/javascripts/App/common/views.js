@@ -28,7 +28,6 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		},
 		onRender: function(){
 			$('body').removeClass('open_menu');
-			App.trigger("setup:sizes");
 		}
 	});
 

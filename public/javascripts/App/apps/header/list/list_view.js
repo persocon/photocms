@@ -5,7 +5,8 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		events: {
 			"click a.internal_link" : "navigate",
 			"click .open-submenu" : "openSubmenu",
-			"click .close-submenu" : "closeSubmenu"
+			"click .close-submenu" : "closeSubmenu",
+			"click .header-close" : "closeMenu"
 		},
 		navigate: function(event){
 			event.preventDefault();
@@ -16,6 +17,11 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			$('body').removeClass('open_menu');
 
 			this.trigger("header:navigate", {type: type, slug: slug});
+		},
+		closeMenu: function(event){
+			event.preventDefault();
+			event.stopPropagation();
+			$('body').removeClass('open_menu');
 		},
 		openSubmenu: function(event){
 			event.preventDefault();

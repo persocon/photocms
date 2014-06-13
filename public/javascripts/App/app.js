@@ -10,7 +10,7 @@ Handlebars.registerHelper('markdown', markdown);
 Handlebars.registerHelper('list', function(items, options) {
   var out = "";
   	if(!options.nohome){
-  		out += "<ul>";
+  		out += "<ul class='menu-mobile'>";
   		out += "<li><a href='#' class='home internal_link'>Home</a></li>";
   	}
 	_.each(items, function(item){
@@ -32,7 +32,7 @@ Handlebars.registerHelper('list', function(items, options) {
 		out += icon;
 		if(item.children){
 			out += "<ul class='submenu'>";
-				out += "<li><i class='icon icon-chevron-left is-float-left close-submenu'></i><a href='#' class='close-submenu reset-padding'>Back</a></li>";
+				out += "<li class='close-list-item'><i class='icon icon-chevron-left is-float-left close-submenu'></i><a href='#' class='close-submenu reset-padding'>Back</a></li>";
 				out += Handlebars.helpers.list(item.children, {nohome: true});
 			out += "</ul> ";
 		}
@@ -65,15 +65,15 @@ App.on("initialize:after", function(){
 	}
 });
 
-App.on("setup:sizes", function(){
-	var width = $(window).width(),
-		height = $(window).height();
-	$('body, #main-region').width(width).height(height);
-	$('#contents-region').height(height - 40);
-});
+// App.on("setup:sizes", function(){
+// 	var width = $(window).width(),
+// 		height = $(window).height();
+// 	$('body, #main-region').width(width).height(height);
+// 	$('#contents-region').height(height - 40);
+// });
 
-window.addEventListener('orientationchange', function(){
-	setTimeout(function(){
-		App.trigger("setup:sizes");
-	},300);
-}, false);
+// window.addEventListener('orientationchange', function(){
+// 	setTimeout(function(){
+// 		// App.trigger("setup:sizes");
+// 	},300);
+// }, false);
