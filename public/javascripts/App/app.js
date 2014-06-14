@@ -11,7 +11,7 @@ Handlebars.registerHelper('list', function(items, options) {
   var out = "";
   	if(!options.nohome){
   		out += "<ul class='menu-mobile'>";
-  		out += "<li><a href='#' class='home internal_link'>Home</a></li>";
+  		out += "<li><a href='#' class='home internal_link' data-type='' data-slug=''>Home</a></li>";
   	}
 	_.each(items, function(item){
 		var classe = "",

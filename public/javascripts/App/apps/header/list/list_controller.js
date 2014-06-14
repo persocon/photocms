@@ -15,7 +15,7 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 						}else if(args.type === "tag"){
 							App.trigger("tag:list", args.slug);
 						}else{
-							App.trigger("set:list")
+							App.trigger("set:list");
 						}
 					});
 					App.on("header:showMenu", function(){

@@ -14,7 +14,7 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			type = $(event.currentTarget).attr('data-type');
 			slug = $(event.currentTarget).attr('data-slug');
 
-			$('body').removeClass('open_menu');
+			this.closeMenu(event);
 
 			this.trigger("header:navigate", {type: type, slug: slug});
 		},
