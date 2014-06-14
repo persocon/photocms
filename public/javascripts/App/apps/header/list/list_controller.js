@@ -18,6 +18,9 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 							App.trigger("set:list")
 						}
 					});
+					App.on("header:showMenu", function(){
+						header.openMenu();
+					})
 
 					App.headerRegion.show(header);
 			});

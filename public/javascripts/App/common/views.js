@@ -24,7 +24,7 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		toggleMenu: function(event){
 			event.preventDefault();
 			event.stopPropagation();
-			$('body').toggleClass('open_menu');
+			App.trigger("header:showMenu");
 		},
 		onRender: function(){
 			$('body').removeClass('open_menu');

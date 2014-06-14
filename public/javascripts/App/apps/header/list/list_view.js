@@ -21,7 +21,15 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		closeMenu: function(event){
 			event.preventDefault();
 			event.stopPropagation();
-			$('body').removeClass('open_menu');
+			this.$el.parent().fadeOut(300, function(){
+				$('body').removeClass('open_menu');
+			});
+		},
+		openMenu: function(){
+			console.log()
+			this.$el.parent().fadeIn(300, function(){
+				$('body').addClass('open_menu');
+			});
 		},
 		openSubmenu: function(event){
 			event.preventDefault();
