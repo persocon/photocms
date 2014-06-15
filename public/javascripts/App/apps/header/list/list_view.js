@@ -42,7 +42,7 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		openSubmenu: function(event){
 			event.preventDefault();
 			event.stopPropagation();
-			$(event.currentTarget).next('.submenu').show(0, function(){
+			$(event.currentTarget).next('.submenu:first').show(0, function(){
 				$(event.currentTarget).closest('ul').addClass('translated');
 			});
 		},
