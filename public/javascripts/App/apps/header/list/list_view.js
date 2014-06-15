@@ -31,7 +31,10 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		removeTranslated: function(){
 			this.$('.translated').each(function(){
 				$(this).removeClass('translated');
-			});			
+			});	
+			this.$('.submenu').each(function(){
+				$(this).fadeOut(0);
+			})
 		},
 		openMenu: function(){
 			console.log()
