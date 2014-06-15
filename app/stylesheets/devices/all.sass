@@ -19,7 +19,8 @@ body
 			display: block
 
 #header-region
-	background: #FFF
+	background: rgba($black, .7)
+	color: #FFF
 	position: fixed
 	top: 0
 	left: 0
@@ -27,33 +28,57 @@ body
 	height: 100%
 	z-index: 800
 	display: none
+	.header-close-wrap
+		background: $black
+		+pie-clearfix
 	.header-close
 		background: $black
 		color: #FFF
 		padding: 10px
 		position: relative
 		z-index: 1001
+		border-left: 1px solid tint($black, 20%)
+		&:after
+			position: absolute
+			top: 0
+			left: 0
+			content: " "
+			height: 100%
+			border-left: 1px solid shade($black, 20%)
 	ul
 		+transition-property(transform, translate3d)
 		+transition-duration(.3s)
 		+transition-timing-function(ease-in-out)
+		background: $black
 	ul.menu-mobile
 		display: block
 		clear: both
 		position: relative
 		+pie-clearfix
+		border-top: 1px solid shade($black, 20%)
 		li
 			+pie-clearfix
-			margin: 1px 0
+			border-bottom: 1px solid shade($black, 20%)
+			border-top: 1px solid tint($black, 20%)
 			a
-				color: $black
+				color: #FFF
+				text-decoration: none
 				width: 80%
 				float: left
-				padding: 5px
+				padding: 10px 5px
 			i.icon
-				padding: 5px 10px 5px 5px
+				padding: 10px
 				background: $black
 				color: #FFF
+				border-left: 1px solid tint($black, 20%)
+				position: relative
+				&:after
+					position: absolute
+					top: 0
+					left: 0
+					content: " "
+					height: 100%
+					border-left: 1px solid shade($black, 20%)
 	ul.translated
 		+translate3d(-100%, 0, 0)
 	li.has-submenu
@@ -70,9 +95,19 @@ body
 			top: -37px
 			z-index: 1000
 			width: 100%
-			.icon, a
-				padding: 10px 10px 10px 5px
+			.icon
+				border-right: 1px solid shade($black, 20%)
+				border-left: none
+				padding: 10px
+				&:after
+					position: absolute
+					top: 0
+					right: 0
+					content: " "
+					height: 100%
+					border-right: 1px solid tint($black, 20%)
 			a
+				padding: 10px 10px 10px 5px
 				color: #FFF
 				text-decoration: none
 

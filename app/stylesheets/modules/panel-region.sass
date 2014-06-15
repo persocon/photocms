@@ -1,16 +1,39 @@
+@import compass/utilities/general/clearfix
 $black: #4e4e4e
 #panel-region
 	position: fixed
 	top: 0
 	left: 0
 	width: 100%
-	.toggle_menu
-		text-decoration: none
-		color: #FFF
-		background: $black
-		padding: 8px 10px
-		float: left
-		overflow-x: hidden
+	background: $black
+	float: left
+	overflow-x: hidden
+	&:after
+		border-bottom: 1px solid shade($black, 20%)
+		position: absolute
+		bottom: 0px
+		content: " "
+		width: 100%
+	.wrap
+		+pie-clearfix
+		position: relative
+		padding: 8px 10px 7px 10px
+		.toggle_menu
+			position: absolute
+			top: 0
+			left: 0
+			color: #fff
+			text-decoration: none
+			padding: 10px
+			border-right: 1px solid tint($black, 20%)
+			&:after
+				position: absolute
+				top: 0
+				right: -2px
+				content: " "
+				height: 100%
+				border-right: 1px solid shade($black, 20%)
+	.mobile-title
+		color: #fff
 		font-size: 1.4em
-		.icon
-			margin-left: -15px
+		text-align: center
