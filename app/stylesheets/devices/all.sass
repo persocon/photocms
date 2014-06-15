@@ -23,7 +23,7 @@ body
 	background: rgba($black, .7)
 	color: #FFF
 	position: fixed
-	top: 0
+	top: 37px
 	left: 0
 	width: 100%
 	height: 100%
@@ -31,7 +31,8 @@ body
 	display: none
 	text-shadow: 0 -1px 0 shade($black, 20%)
 	.header-close-wrap
-		background: $black
+		background: transparent
+		margin-top: -37px
 		+pie-clearfix
 	.header-close
 		background: $black
@@ -65,12 +66,13 @@ body
 				float: left
 				padding: 10px 5px
 			i.icon
-				padding: 10px 12px
+				padding: 10px 14px 10px 13px
 				background: $black
 				color: #FFF
 				border-left: 1px solid shade($black, 20%)
 				+box-shadow(-1px 0 0 0 tint($black, 5%))
 				position: relative
+				cursor: pointer
 				
 	ul.translated
 		+translate3d(-100%, 0, 0)
@@ -82,17 +84,17 @@ body
 		left: 100%
 		width: 100%
 		display: none
+		+box-shadow(0px -1px 0px 0px shade($black, 20%))
 		.close-list-item
 			background: $black
-			position: fixed
-			top: -37px
 			z-index: 1000
 			width: 100%
 			.icon
 				border-left: none
-				padding: 10px 12px
+				padding: 10px 14px 10px 13px
 				border-right: 1px solid shade($black, 20%)
 				+box-shadow(1px 0 0 0 tint($black, 5%))
+				cursor: pointer
 			a
 				padding: 10px 10px 10px 5px
 				color: #FFF

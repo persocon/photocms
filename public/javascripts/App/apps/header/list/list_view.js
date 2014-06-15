@@ -16,9 +16,10 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 
 			this.closeMenu(event);
 
-			this.removeTranslated();
 			
 			this.trigger("header:navigate", {type: type, slug: slug});
+
+			this.removeTranslated();
 		},
 		closeMenu: function(event){
 			event.preventDefault();
