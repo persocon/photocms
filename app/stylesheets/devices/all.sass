@@ -1,6 +1,7 @@
 @import compass/utilities/general/clearfix
 @import compass/css3
 @import compass/css3/transition
+@import compass/css3/box-shadow
 
 $menu-width: 300px
 $black: #4e4e4e
@@ -28,6 +29,7 @@ body
 	height: 100%
 	z-index: 800
 	display: none
+	text-shadow: 0 -1px 0 shade($black, 20%)
 	.header-close-wrap
 		background: $black
 		+pie-clearfix
@@ -37,14 +39,9 @@ body
 		padding: 10px 12px
 		position: relative
 		z-index: 1001
-		border-left: 1px solid tint($black, 20%)
-		&:after
-			position: absolute
-			top: 0
-			left: 0
-			content: " "
-			height: 100%
-			border-left: 1px solid shade($black, 20%)
+		border-left: 1px solid shade($black, 20%)
+		+box-shadow(-1px 0 0 0 tint($black, 5%))
+		
 	ul
 		+transition-property(transform, translate3d)
 		+transition-duration(.3s)
@@ -56,29 +53,25 @@ body
 		position: relative
 		+pie-clearfix
 		border-top: 1px solid shade($black, 20%)
+		+box-shadow(0 1px 1px 0 rgba(56,65,74,.3))
 		li
 			+pie-clearfix
 			border-bottom: 1px solid shade($black, 20%)
-			border-top: 1px solid tint($black, 20%)
+			border-top: 1px solid tint($black, 5%)
 			a
 				color: #FFF
 				text-decoration: none
-				width: 80%
+				width: 75%
 				float: left
 				padding: 10px 5px
 			i.icon
 				padding: 10px 12px
 				background: $black
 				color: #FFF
-				border-left: 1px solid tint($black, 20%)
+				border-left: 1px solid shade($black, 20%)
+				+box-shadow(-1px 0 0 0 tint($black, 5%))
 				position: relative
-				&:after
-					position: absolute
-					top: 0
-					left: 0
-					content: " "
-					height: 100%
-					border-left: 1px solid shade($black, 20%)
+				
 	ul.translated
 		+translate3d(-100%, 0, 0)
 	li.has-submenu
@@ -96,16 +89,10 @@ body
 			z-index: 1000
 			width: 100%
 			.icon
-				border-right: 1px solid shade($black, 20%)
 				border-left: none
 				padding: 10px 12px
-				&:after
-					position: absolute
-					top: 0
-					right: 0
-					content: " "
-					height: 100%
-					border-right: 1px solid tint($black, 20%)
+				border-right: 1px solid shade($black, 20%)
+				+box-shadow(1px 0 0 0 tint($black, 5%))
 			a
 				padding: 10px 10px 10px 5px
 				color: #FFF

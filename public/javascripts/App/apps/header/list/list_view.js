@@ -16,6 +16,8 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 
 			this.closeMenu(event);
 
+			this.removeTranslated();
+			
 			this.trigger("header:navigate", {type: type, slug: slug});
 		},
 		closeMenu: function(event){
@@ -24,6 +26,11 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			this.$el.parent().fadeOut(300, function(){
 				$('body').removeClass('open_menu');
 			});
+		},
+		removeTranslated: function(){
+			this.$('.translated').each(function(){
+				$(this).removeClass('translated');
+			});			
 		},
 		openMenu: function(){
 			console.log()

@@ -1,4 +1,6 @@
 @import compass/utilities/general/clearfix
+@import compass/css3/box-shadow
+
 $black: #4e4e4e
 #panel-region
 	position: fixed
@@ -8,6 +10,8 @@ $black: #4e4e4e
 	background: $black
 	float: left
 	overflow-x: hidden
+	+box-shadow(0 1px 1px 0 rgba(56,65,74,.3))
+	text-shadow: 0 -1px 0 shade($black, 20%)
 	&:after
 		border-bottom: 1px solid shade($black, 20%)
 		position: absolute
@@ -25,14 +29,8 @@ $black: #4e4e4e
 			color: #fff
 			text-decoration: none
 			padding: 10px 12px
-			border-right: 1px solid tint($black, 20%)
-			&:after
-				position: absolute
-				top: 0
-				right: -2px
-				content: " "
-				height: 100%
-				border-right: 1px solid shade($black, 20%)
+			border-right: 1px solid shade($black, 20%)
+			+box-shadow(1px 0 0 0 tint($black, 5%))
 	.mobile-title
 		color: #fff
 		font-size: 1.4em
