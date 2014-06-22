@@ -45,19 +45,21 @@
             Featured Image:
           </label>
           <div class="controls">
-            <% 
-              if @content.featured_image_id.nil? 
-              image_text = "Add Featured Image"
-            %>
-              <p>NO IMAGE</p>
-            <% 
-              else 
-              image_text = "Change Featured Image"
-            %>
-              <p><img src="<%= @featured_image.file.thumb %>" /></p>
-            <% 
-              end 
-            %>
+            <figure id="featured_image_here">
+              <% 
+                if @content.featured_image_id.nil? 
+                image_text = "Add Featured Image"
+              %>
+                <p>NO IMAGE</p>
+              <% 
+                else 
+                image_text = "Change Featured Image"
+              %>
+                <p><img src="<%= @featured_image.file.thumb %>" /></p>
+              <% 
+                end 
+              %>
+            </figure>
             <button type="button" class="btn btn-primary btn-sm image-featured" data-toggle="modal" data-target="#imageFeatured"><%= image_text %></button>
             <%= f.hidden_field :featured_image_id %>
           </div>

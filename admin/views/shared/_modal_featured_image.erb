@@ -47,26 +47,57 @@
 			return this;
 		},
 		unrender: function(){
-			model = this.model.toJSON();
-			model.set("featured", "");
 			this.$el.remove();
 		},
 		events: {
-				'click a.active': 'removeFromPost'
+				'click a.active': 'removeFeatured',
+				'click a.btn-success' : 'addFeatured'
 		},
-		removeFromPost: function(e){
+		removeFeatured: function(e){
 			e.preventDefault();
-			this.unrender();
+			e.stopPropagation();
+			this.model.set("featured", "");
+			this.removeFeaturedImageFromDom();
+		},
+		addFeatured: function(e){
+			e.preventDefault();
+			e.stopPropagation();
+
+			var id = this.model.get("id");
+			
+			_.each(window.OnThisPost.models, function(model){
+				if(model.get('id') != id){
+					model.set('featured', '');
+				}
+			});		
+			this.model.set("featured", id);
+			
+			this.addFeaturedImageToDom();
+		},
+		addFeaturedImageToDom: function(){
+			$('#content_featured_image_id').val(this.model.get('id'));	
+			var file_url = this.model.get('file');
+			file_url = file_url.file.thumb.url
+			if($('#featured_image_here').find('img').length > 0){				
+				$('#featured_image_here').find('img').attr('src', file_url)
+			}else{
+				$('#featured_image_here').html('');
+				$('<img />').attr('src', file_url).appendTo('#featured_image_here');
+			}
+		},
+		removeFeaturedImageFromDom: function(){
+			$('#content_featured_image_id').val('');
+			$('#featured_image_here').html('<p>NO IMAGE</p>');
 		}
 	});
 
 	
 	App.Views.FeaturedList = Backbone.View.extend({
 		tagName: 'ul',
-		initialize: function(){
+		initialize: function(){		
 			this.collection.on('add', this.addOne, this);
+			this.collection.on('change', this.clearFeatured, this);
 			this.render();
-			console.log($('#featured-image-content'))
 			$('#featured-image-content').html(this.el);
 		
 		},
@@ -79,5 +110,6 @@
 			this.$el.append( photo.render().el );
 		}
 	});
+	
 	new App.Views.FeaturedList({ collection: window.OnThisPost });
 </script>
