@@ -1,11 +1,12 @@
 app_name = "photo-cms"
 rack_env = (ENV['RACK_ENV'] || :production).to_sym
 puts "Starting app in #{rack_env} mode..."
-APP_PATH = "/var/www/#{app_name}"
 if rack_env == :production
+  APP_PATH = "/var/www/#{app_name}"
   working_directory APP_PATH
   worker_processes 4
 else
+  APP_PATH = "."
   working_directory "."
   worker_processes 1
 end

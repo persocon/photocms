@@ -1,14 +1,10 @@
-# Enables support for Compass, a stylesheet authoring framework based on SASS.
-# See http://compass-style.org/ for more details.
-# Store Compass/SASS files (by default) within 'app/stylesheets'.
-
 module CompassInitializer
   def self.registered(app)
     require 'sass/plugin/rack'
     apps = {}
 
     apps[app] = app.to_s.downcase.split('::').last
-    
+
     Compass.configuration do |config|
       config.project_path = Padrino.root
       config.project_type = :stand_alone
@@ -18,16 +14,14 @@ module CompassInitializer
       config.css_dir = "public/stylesheets"
       config.images_dir = "public/images"
       config.javascripts_dir = "public/javascripts"
-      
+
       apps.each do |name, path|
-        unless path != "app"
-          config.sass_dir = "#{path}/stylesheets"
-          config.css_dir = "public/#{path}/stylesheets"
-          config.images_dir = "public/#{path}/images"
-          config.javascripts_dir = "public/#{path}/javascripts"
-        end
+        config.sass_dir = "#{path}/stylesheets"
+        config.css_dir = "public/#{path}/stylesheets"
+        config.images_dir = "public/#{path}/images"
+        config.javascripts_dir = "public/#{path}/javascripts"
       end
-      
+
       config.output_style = :compressed
     end
 

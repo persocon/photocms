@@ -1,13 +1,4 @@
 #imageLibrary
-	.tab-content
-		a
-			display: inline-block
-			&:hover
-				.img-thumbnail
-					background: $primary
-			&.active
-				.img-thumbnail
-					background: $active
 	#library, #onThisPost
 		ul
 			+pie-clearfix
@@ -17,4 +8,12 @@
 			li
 				margin: 5px
 				float: left
-		
+#featured-image-content
+	ul
+		+pie-clearfix
+		list-style: none
+		margin: 5px 0px
+		padding: 0px
+		li
+			margin: 5px
+			float: left

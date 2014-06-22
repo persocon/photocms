@@ -46,11 +46,18 @@ class ImageHelper
 
 	def self.get_all_images_on_this_post(content_id)
 		content = Content[content_id]
+		if content.featured_image_id.nil?
+			content_featured_image_id = nil
+		else
+			content_featured_image_id = content.featured_image_id
+		end
 	    @uploads = content.uploads.sort_by{|key| key[:sort]}
 	    hash = Array.new
 	    @uploads.each do |upload|
+		    is_featured = upload.id == content_featured_image_id ? upload.id : ''
 	      hash << {
 	        :id => upload.id,
+	        :featured => is_featured,
 	        :filename => upload.file.url.split("/").last,
 	        :file => upload.file,
 	        :thumb => upload.file.thumb

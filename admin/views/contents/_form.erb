@@ -38,13 +38,52 @@
     </fieldset>
   </div>
   <div class="col-md-4">
-    <% error = @content.errors.key?(:published) && @content.errors[:published].count > 0 %>
-    <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-      <%= f.label :published, :class => 'control-label' %>
-      <div class='controls'>
-        <%= f.check_box :published, :class => '', :id => "published" %><br />
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset class="control-group">
+          <label for="featured_image_id" class="control-label">
+            Featured Image:
+          </label>
+          <div class="controls">
+            <% 
+              if @content.featured_image_id.nil? 
+              image_text = "Add Featured Image"
+            %>
+              <p>NO IMAGE</p>
+            <% 
+              else 
+              image_text = "Change Featured Image"
+            %>
+              <p><img src="<%= @featured_image.file.thumb %>" /></p>
+            <% 
+              end 
+            %>
+            <button type="button" class="btn btn-primary btn-sm image-featured" data-toggle="modal" data-target="#imageFeatured"><%= image_text %></button>
+            <%= f.hidden_field :featured_image_id %>
+          </div>
+        </fieldset>
       </div>
-    </fieldset>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <% error = @content.errors.key?(:published) && @content.errors[:published].count > 0 %>
+        <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+          <%= f.label :published, :class => 'control-label' %>
+          <div class='controls'>
+            <%= f.check_box :published, :class => '', :id => "published" %><br />
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <% error = @content.errors.key?(:featured) && @content.errors[:featured].count > 0 %>
+        <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+          <%= f.label :featured, :class => 'control-label' %>
+          <div class='controls'>
+            <%= f.check_box :featured, :class => '', :id => "featured" %><br />
+          </div>
+        </fieldset>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6">
         <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
@@ -121,6 +160,7 @@
 <script>
 $(document).ready(function(){
   $.fn.iButton && $( '#published' ).iButton( 'repaint' );
+  $.fn.iButton && $( '#featured' ).iButton({labelOn: 'Yes', labelOff: 'No'});
 
 
   <%

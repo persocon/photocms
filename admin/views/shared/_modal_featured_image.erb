@@ -1,0 +1,83 @@
+<div class="modal fade" id="imageFeatured" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="modal-title" id="myModalLabel">Image Library</h4>
+		</div>
+		<div class="modal-body">
+			<div id="featured-image-content">
+			
+			</div>
+		</div>
+		<div class="modal-footer">
+		<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+	</div>
+</div>
+<script id="featured-image" type="text/x-handlebars-template">
+	<figure>
+		<img src="{{ thumb.file.url }}" class="img-thumbnail" />
+	</figure>
+	<p>
+		<a href="#{{ id }}" class="btn btn-block btn-xs {{#if featured}} btn-danger active{{ else }} btn-success{{/if}}">
+			{{#if featured}}
+				<span>Remove</span>
+			{{ else }}
+				<span>Add Feature</span>
+			{{/if}}
+		</a>
+	</p>
+</script>
+<script>
+	// Get Collection from Modal
+	//App.Collections.OnThisPost
+	
+	App.Views.FeaturedItem = Backbone.View.extend({
+		tagName: 'li',
+		template: Template('featured-image'),
+		initialize: function(){
+			this.model.on('change', this.render, this);
+			this.model.on('change:onThePost', this.render, this );  
+			this.model.on('remove', this.unrender, this);
+		},
+		render: function(){
+			this.$el.html( this.template( this.model.toJSON() ) );
+			return this;
+		},
+		unrender: function(){
+			model = this.model.toJSON();
+			model.set("featured", "");
+			this.$el.remove();
+		},
+		events: {
+				'click a.active': 'removeFromPost'
+		},
+		removeFromPost: function(e){
+			e.preventDefault();
+			this.unrender();
+		}
+	});
+
+	
+	App.Views.FeaturedList = Backbone.View.extend({
+		tagName: 'ul',
+		initialize: function(){
+			this.collection.on('add', this.addOne, this);
+			this.render();
+			console.log($('#featured-image-content'))
+			$('#featured-image-content').html(this.el);
+		
+		},
+		render: function(){
+			this.collection.each( this.addOne, this );
+			return this;
+		},
+		addOne: function(post){
+			var photo = new App.Views.FeaturedItem({ model: post });
+			this.$el.append( photo.render().el );
+		}
+	});
+	new App.Views.FeaturedList({ collection: window.OnThisPost });
+</script>

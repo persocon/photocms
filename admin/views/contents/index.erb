@@ -37,6 +37,7 @@
             </ul>
           </div>
         </th>
+                <th class=header> <%= mat(:content, :featured) %></th>
                 <th class=header> <%= mat(:content, :id) %></th>
                 <th class=header> <%= mat(:content, :title) %></th>
                 <th class=header> <%= mat(:content, :slug) %></th>
@@ -53,6 +54,7 @@
           <td class="list-column list-selectable">
             <%= check_box_tag 'content_ids[]', :value => content.id, :class => 'list-selectable-checkbox' %>
            </td>
+          <td class=list-column> <%= content.featured ? tag_icon(:ok) : tag_icon(:remove) %> </td>
           <td class=list-column> <%= content.id %> </td>
           <td class=list-column> <%= content.title %> </td>
           <td class=list-column> <%= content.slug %> </td>

@@ -131,6 +131,9 @@ PhotoCms::Admin.controllers :contents do
     @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'select2/select2.min.js', 'ibutton/jquery.ibutton.js']
     @categories = Category.all
     @content = Content[params[:id]]
+    unless @content.featured_image_id.nil?
+      @featured_image = Upload[@content.featured_image_id]
+    end
     @uploads_all = Upload.all
     if @content
       render 'contents/edit'

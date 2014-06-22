@@ -39,7 +39,6 @@
 	</figure>
 	<p>
 	
-		{{log onThePost}}
 		<a href="#{{ id }}" class="btn btn-block btn-xs {{#if onThePost}} btn-danger active{{ else }} btn-success {{/if}}">
 			{{#if onThePost}}
 				<span>Remove</span>
@@ -80,7 +79,8 @@
 			"id" : "",
 			"filename": "",
 			"thumb": "",
-			"onThePost": ""
+			"onThePost": "",
+			"featured": ""
 		}
 	});
 	
@@ -301,8 +301,8 @@
 		var Lib = new App.Collections.Library(<%= all_images.html_safe %>);
 		new App.Views.Library({ collection: Lib });
 
-		var OnThisPost = new App.Collections.OnThisPost();
-		new App.Views.OnThisPost({ collection: OnThisPost });
+		window.OnThisPost = new App.Collections.OnThisPost();
+		new App.Views.OnThisPost({ collection: window.OnThisPost });
 
 		var InputHidden = new App.Collections.InputHidden();
 		new App.Views.Inputs({ collection: InputHidden });
