@@ -6,6 +6,12 @@ class ContentHelper
 		json.to_json
 	end
 
+	def self.get_random_featured
+		contents = Content.where(:type => 'post', :published => true, :featured => 1).all
+		json = GeneralHelper::map_content(contents, true)
+		json.to_json
+	end
+
 	def self.get_set(slug)
 		contents = Content.where(:type => 'post', :published => true, :slug => slug)
 		json = GeneralHelper::map_content(contents)

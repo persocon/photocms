@@ -2,8 +2,11 @@ PhotoCms::App.controllers :contents, :map => '/api/v1', :cache => true do
 	
 	get :index, :map => 'sets', :provides => [:html, :json] do
 		callback = params.delete('callback') # jsonp
-		cache_key
-		@contents = ContentHelper.get_all_json
+		# cache_key
+		# should expire in 1 hour
+		# 3600s == 1h
+		expires 3600
+		@contents = ContentHelper.get_random_featured
 		GeneralHelper.response_to(callback, @contents).call(self)
 	end
 

@@ -1,3 +1,27 @@
+<script id="set-list-item-home" type="text/x-handlebars-template">
+	{{#if featured_image}}
+		<a href="#set/{{slug}}" class="homer">	
+			<div class="set-images">
+				<figure>
+					<img src="{{featured_image.files.default}}" />
+				</figure>
+			</div>
+		</a>
+	{{ else }}
+		{{#if images}}
+			<a href="#set/{{slug}}">	
+				<div class="set-images">
+					{{#each images}}
+						<figure>
+							<img src="{{files.default}}" />
+						</figure>
+					{{/each}}
+				</div>
+			</a>
+		{{/if}}
+	{{/if}}
+</script>
+
 <script id="set-list-item" type="text/x-handlebars-template">
 	{{#if images}}
 		<a href="#set/{{slug}}">	
