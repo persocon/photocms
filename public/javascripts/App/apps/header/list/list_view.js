@@ -13,13 +13,18 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			var type, slug;
 			type = $(event.currentTarget).attr('data-type');
 			slug = $(event.currentTarget).attr('data-slug');
-
-			this.closeMenu(event);
-
+			
 			
 			this.trigger("header:navigate", {type: type, slug: slug});
 
-			this.removeTranslated();
+			this.closeIfMobile(event);
+		},
+		closeIfMobile: function(event){
+			var mql = window.matchMedia("(min-width: 1280px)")
+			if(!mql.matches){
+				this.closeMenu(event);
+				this.removeTranslated();
+			}
 		},
 		closeMenu: function(event){
 			event.preventDefault();
