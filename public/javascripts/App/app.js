@@ -64,6 +64,11 @@ App.on("initialize:after", function(){
 		Backbone.history.start();
 	}
 });
+// var supportsOrientationChange = "onorientationchange" in window,
+//     orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+// window.addEventListener(orientationEvent, function() {
+//   App.SetApp.List.Sets.trigger('itemview:setup');
+// }, false);
 
 // App.on("setup:sizes", function(){
 // 	var width = $(window).width(),
