@@ -28,8 +28,8 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.2.19)
     erubis (2.7.0)
-    faraday (0.8.0)
-      multipart-post (~> 1.1)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     fssm (0.2.10)
@@ -107,9 +107,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tumblr_client (0.8.2)
-      faraday (>= 0.8)
-      faraday_middleware (>= 0.8)
+    tumblr_client (0.8.3)
+      faraday (~> 0.8.9)
+      faraday_middleware (~> 0.8)
       json
       mime-types
       oauth
@@ -134,7 +134,7 @@ DEPENDENCIES
   carrierwave-sequel
   compass
   erubis (~> 2.7.0)
-  faraday (= 0.8.0)
+  faraday (= 0.8.9)
   mini_magick
   mysql2
   newrelic_rpm
@@ -144,6 +144,6 @@ DEPENDENCIES
   redis
   sequel
   stringex
-  tumblr_client
+  tumblr_client (= 0.8.3)
   unicorn
   unicorn-worker-killer

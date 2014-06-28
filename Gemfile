@@ -26,8 +26,8 @@ gem 'erubis', '~> 2.7.0'
 gem 'mysql2'
 gem 'sequel'
 gem 'oauth'
-gem 'faraday', '0.8.0'
-gem 'tumblr_client'
+gem 'faraday', '0.8.9'
+gem 'tumblr_client', '0.8.3'
 
 #CACHE
 gem 'redis'
