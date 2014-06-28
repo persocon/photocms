@@ -46,6 +46,16 @@ PhotoCms::Admin.controllers :contents do
 
   post :tumblr, :with => :id do
     content = Content[params[:id]]
+    featured_image_id = content.featured_image_id
+    if featured_image_id
+      image = Upload[featured_image_id]
+      image = image.file.current_path
+    else
+      images = content.uploads.map { |img| 
+        img.file.current_path
+      }
+      image = images.sample(1)
+    end
     Tumblr.configure do |config|
       config.consumer_key = current_account.tumblr_oauth_consumer_key
       config.consumer_secret = current_account.tumblr_oauth_secret_key
@@ -54,11 +64,8 @@ PhotoCms::Admin.controllers :contents do
     end
 
     client = Tumblr::Client.new
-    carinha = content.uploads.map { |image| 
-      image.file.current_path
-    }
     # p client.text(current_account.tumblr_url, {:title => content[:title]})
-    photo = client.photo(current_account.tumblr_url, {:caption => content[:body], :data => [carinha.to_json]}) 
+    photo = client.photo(current_account.tumblr_url, {:caption => content[:body], :data => image, :format => 'markdown'}) 
     p photo.inspect
   end
   

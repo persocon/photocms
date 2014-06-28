@@ -204,17 +204,41 @@ $(document).ready(function(){
   }).select2('val', OBJ);
   $('body').on('click', '#send_to_tumblr', function(event){
     event.preventDefault();
+    $(this).text("Sending...").attr('disabled', 'disabled');
     var authenticity_token = $('input[name="authenticity_token"]').val(),
-    url = $(this).attr('href');
-    console.log(url)
-    $.ajax({
-        url: url,
-        type: 'post',
-        data: {authenticity_token: authenticity_token},
-        success: function(data){
-          console.log(data)
-        }
-    });
+    url = $(this).attr('href'),
+    that = this,
+    saved_featured_image_id;
+    
+    function publish_to_tumblr(){
+      $.ajax({
+          url: url,
+          type: 'post',
+          data: {authenticity_token: authenticity_token},
+          success: function(data){
+            $(that).text("Send to tumblr").removeAttr('disabled');
+          }
+      });
+    }
+     
+    <% 
+      unless @content.featured_image_id.nil?
+    %>
+      saved_featured_image_id = <%= @content.featured_image_id %>;
+    <%
+      end
+    %>
+  if(_.isEmpty(saved_featured_image_id)){
+    $(this).text("Sending Random Library Image...").attr('disabled', 'disabled');
+    publish_to_tumblr();
+  }else{
+    if(parseInt(saved_featured_image_id) !== parseInt($('content_featured_image_id').val())){
+      alert("Please, save before sending to tumblr.");
+      $(that).text("Send to tumblr").removeAttr('disabled');
+    }else{
+      publish_to_tumblr();
+    }
+  }
   })
 });
 </script>
