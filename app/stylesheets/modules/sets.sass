@@ -1,6 +1,35 @@
+@import compass/css3/border-radius
+@import ../helpers/mixins
 .sets
 	.list-items
 		.set-list-item
 			.set-images
+				a
+					color: #FFF
+					text-decoration: none
+					line-height: 2em
 				img
 					width: 100%
+					display: block
+				figure
+					position: relative
+					padding: 200px 202px 450px
+					background-position: center center
+					background-repeat: no-repeat
+					background-attachment: fixed
+					background-size: cover
+					
+					figcaption
+						+absolute-center
+						h2
+							font-size: 1.5em
+							font-weight: 700
+							text-transform: uppercase
+						span
+							+border-radius(2px)
+							padding: 10px 15px
+							border: 2px solid rgba(255,255,255,0.75)
+							text-transform: uppercase
+							font-size: .75em
+							letter-spacing: 2px
+						

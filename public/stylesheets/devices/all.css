@@ -1,1 +1,86 @@
-html,body{width:100%;height:100%}body{font-family:"Droid sans",sans-serif}body.open_menu{overflow:hidden;width:100%;height:100%}body.open_menu #header-region{display:block}#header-region{background:rgba(78,78,78,0.7);color:#fff;position:fixed;top:37px;left:0;width:100%;height:100%;z-index:800;display:none;text-shadow:0 -1px 0 #3e3e3e}#header-region .header-close-wrap{background:transparent;margin-top:-37px;*zoom:1}#header-region .header-close-wrap:after{content:"";display:table;clear:both}#header-region .header-close{background:#4e4e4e;color:#fff;padding:10px 12px;position:relative;z-index:1001;border-left:1px solid #3e3e3e;-webkit-box-shadow:-1px 0 0 0 #565656;-moz-box-shadow:-1px 0 0 0 #565656;box-shadow:-1px 0 0 0 #565656}#header-region ul{-webkit-transition-property:-webkit-transform,translate3d;-moz-transition-property:-moz-transform,translate3d;-o-transition-property:-o-transform,translate3d;transition-property:transform,translate3d;-webkit-transition-duration:0.3s;-moz-transition-duration:0.3s;-o-transition-duration:0.3s;transition-duration:0.3s;-webkit-transition-timing-function:ease-in-out;-moz-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out;background:#4e4e4e}#header-region ul.menu-mobile{display:block;clear:both;position:relative;*zoom:1;border-top:1px solid #3e3e3e;-webkit-box-shadow:0 1px 1px 0 rgba(56,65,74,0.3);-moz-box-shadow:0 1px 1px 0 rgba(56,65,74,0.3);box-shadow:0 1px 1px 0 rgba(56,65,74,0.3)}#header-region ul.menu-mobile:after{content:"";display:table;clear:both}#header-region ul.menu-mobile li{*zoom:1;border-bottom:1px solid #3e3e3e;border-top:1px solid #565656}#header-region ul.menu-mobile li:after{content:"";display:table;clear:both}#header-region ul.menu-mobile li a{color:#fff;text-decoration:none;width:75%;float:left;padding:10px 5px}#header-region ul.menu-mobile li i.icon{padding:10px 14px 10px 13px;background:#4e4e4e;color:#fff;border-left:1px solid #3e3e3e;-webkit-box-shadow:-1px 0 0 0 #565656;-moz-box-shadow:-1px 0 0 0 #565656;box-shadow:-1px 0 0 0 #565656;position:relative;cursor:pointer}#header-region ul.translated{-webkit-transform:translate3d(-100%, 0, 0);-moz-transform:translate3d(-100%, 0, 0);-ms-transform:translate3d(-100%, 0, 0);-o-transform:translate3d(-100%, 0, 0);transform:translate3d(-100%, 0, 0)}#header-region ul.submenu{position:absolute;top:0;left:100%;width:100%;display:none;-webkit-box-shadow:0px -1px 0px 0px #3e3e3e;-moz-box-shadow:0px -1px 0px 0px #3e3e3e;box-shadow:0px -1px 0px 0px #3e3e3e}#header-region ul.submenu .close-list-item{background:#4e4e4e;z-index:1000;width:100%}#header-region ul.submenu .close-list-item .icon{border-left:none;padding:10px 14px 10px 13px;border-right:1px solid #3e3e3e;-webkit-box-shadow:1px 0 0 0 #565656;-moz-box-shadow:1px 0 0 0 #565656;box-shadow:1px 0 0 0 #565656;cursor:pointer}#header-region ul.submenu .close-list-item a{padding:10px 10px 10px 5px;color:#fff;text-decoration:none}
+/*
+Syntax error: Undefined mixin 'set-font'.
+        on line 14 of /Users/persocon/photo-cms/app/stylesheets/devices/all.sass, in `set-font'
+        from line 14 of /Users/persocon/photo-cms/app/stylesheets/devices/all.sass
+
+9: html, body
+10: 	width: 100%
+11: 	height: 100%
+12: 
+13: body
+14: 	+set-font(body)
+15: 	&.open_menu
+16: 		overflow: hidden
+17: 		width: 100%
+18: 		height: 100%
+19: 		#header-region
+
+Backtrace:
+/Users/persocon/photo-cms/app/stylesheets/devices/all.sass:14:in `set-font'
+/Users/persocon/photo-cms/app/stylesheets/devices/all.sass:14
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/root_node.rb:20:in `render'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/engine.rb:315:in `_render'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/engine.rb:262:in `render'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin.rb:81:in `update_stylesheets'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/plugin/rack.rb:51:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/xss_header.rb:18:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/path_traversal.rb:16:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/json_csrf.rb:18:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-protection-1.5.3/lib/rack/protection/frame_options.rb:31:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/padrino-core-0.12.1/lib/padrino-core/reloader/rack.rb:22:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/padrino-core-0.12.1/lib/padrino-core/logger.rb:423:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sinatra-1.4.5/lib/sinatra/show_exceptions.rb:21:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sinatra-1.4.5/lib/sinatra/base.rb:2014:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sinatra-1.4.5/lib/sinatra/base.rb:1478:in `block in call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sinatra-1.4.5/lib/sinatra/base.rb:1788:in `synchronize'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sinatra-1.4.5/lib/sinatra/base.rb:1478:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/padrino-core-0.12.1/lib/padrino-core/router.rb:82:in `block in call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/padrino-core-0.12.1/lib/padrino-core/router.rb:75:in `each'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/padrino-core-0.12.1/lib/padrino-core/router.rb:75:in `call'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/persocon/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+/Users/persocon/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+/Users/persocon/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 14 of /Users/persocon/photo-cms/app/stylesheets/devices/all.sass, in `set-font'\A         from line 14 of /Users/persocon/photo-cms/app/stylesheets/devices/all.sass\A \A 9: html, body\A 10: 	width: 100%\A 11: 	height: 100%\A 12: \A 13: body\A 14: 	+set-font(body)\A 15: 	&.open_menu\A 16: 		overflow: hidden\A 17: 		width: 100%\A 18: 		height: 100%\A 19: 		#header-region"; }

@@ -1,5 +1,17 @@
 <script id="set-view" type="text/x-handlebars-template">
-	<h2 class="set-title">{{ title }}</h2>
+	{{#if featured_image}}
+		<div class="set-images featured">
+			<figure>
+				<img src="{{featured_image.files.default}}" />
+			</figure>
+		</div>
+	{{/if}}
+	<div class="content">
+		<h2 class="set-title">{{ title }}</h2>
+		{{#if body}}
+			{{markdown body}}
+		{{/if}}
+	</div>
 	{{#if images}}
 		<div class="set-images">
 			{{#each images}}
@@ -7,11 +19,6 @@
 					<img src="{{files.default}}" />
 				</figure>
 			{{/each}}
-		</div>
-	{{/if}}
-	{{#if body}}
-		<div class="content">
-			{{markdown body}}
 		</div>
 	{{/if}}
 	{{#if categories}}

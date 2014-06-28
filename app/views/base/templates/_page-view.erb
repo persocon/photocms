@@ -1,6 +1,10 @@
 <script id="page-view" type="text/x-handlebars-template">
-	<h2>{{ title }}</h2>
-	{{markdown body}}
+	<div class="page-content">
+		<h2 class="page-title">{{ title }}</h2>
+		{{#if body}}
+			{{markdown body}}
+		{{/if}}
+	</div>
 	{{#if images}}
 		<ul class="images">
 			{{#each images}}

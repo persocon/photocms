@@ -1,16 +1,12 @@
 App.module("SetApp", function(SetApp, App, Backbone, Marionette, $, _){
 	SetApp.Router = Marionette.AppRouter.extend({
 		appRoutes: {
-			"" : "listSetsHome",
+			"" : "listSets",
 			"set/:slug" : "showSet"
 		}
 	});
 
 	var API = {
-		listSetsHome: function(){
-			SetApp.List.Controller.listSetsHome();
-		},
-
 		listSets: function(){
 			SetApp.List.Controller.listSets();
 		},
@@ -22,7 +18,7 @@ App.module("SetApp", function(SetApp, App, Backbone, Marionette, $, _){
 
 	App.on("set:list", function(){
 		App.navigate("");
-		API.listSetsHome();
+		API.listSets();
 	});
 
 	App.on("set:show", function(slug){

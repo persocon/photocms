@@ -1,1 +1,1 @@
-#panel-region{display:none}#header-region{position:relative;float:left;display:block !important;width:300px;overflow-x:hidden;top:auto;left:auto;background:transparent;margin-left:-300px}#header-region nav{width:300px;position:fixed;top:0;left:0}#header-region .header-close-wrap{display:none;visibility:hidden}
+#panel-region .mobile-title{display:none}#panel-region .desktop-title{display:block}

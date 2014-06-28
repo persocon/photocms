@@ -1,37 +1,21 @@
-<script id="set-list-item-home" type="text/x-handlebars-template">
-	{{#if featured_image}}
-		<a href="#set/{{slug}}" class="homer">	
-			<div class="set-images">
-				<figure>
-					<img src="{{featured_image.files.default}}" />
-				</figure>
-			</div>
-		</a>
-	{{ else }}
-		{{#if images}}
-			<a href="#set/{{slug}}">	
-				<div class="set-images">
-					{{#each images}}
-						<figure>
-							<img src="{{files.default}}" />
-						</figure>
-					{{/each}}
-				</div>
-			</a>
-		{{/if}}
-	{{/if}}
-</script>
-
 <script id="set-list-item" type="text/x-handlebars-template">
-	{{#if images}}
+	<div class="set-images">
 		<a href="#set/{{slug}}">	
-			<div class="set-images">
-				{{#each images}}
-					<figure>
-						<img src="{{files.default}}" />
-					</figure>
-				{{/each}}
-			</div>
+			<figure
+				{{#if featured_image}}
+					style="background-image: url({{featured_image.files.default}})"
+				{{ else }}
+					{{#if images}}
+						style="background-image: url({{images.0.files.default}})"
+					{{/if}}
+				{{/if}}
+			>
+				
+				<figcaption>
+						<h2>{{title}}</h2>
+						<span>MORE</span>
+				</figcaption>
+			</figure>
 		</a>
-	{{/if}}
+	</div>
 </script>

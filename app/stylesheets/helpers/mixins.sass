@@ -24,3 +24,27 @@
 =between-breakpoints($min, $max)
   @media (min-width: $min) and (max-width: $max)
     @content
+
+=absolute-center
+  width: 50%
+  height: 50%
+  text-align: center
+  display: block
+  overflow: auto
+  margin: auto
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  
+=set-font($type, $weight: 400)
+  @if $type == title
+    font-family: 'Montserrat', sans-serif
+    font-weight: $weight
+  @else if $type == serif
+    font-family: 'Merriweather', serif
+    font-weight: $weight
+  @else
+    font-family: 'Open Sans', sans-serif
+    font-weight: $weight
