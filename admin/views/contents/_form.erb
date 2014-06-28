@@ -228,11 +228,11 @@ $(document).ready(function(){
     <%
       end
     %>
-  if(_.isEmpty(saved_featured_image_id)){
+  if(_.isEmpty(saved_featured_image_id) && _.isEmpty($('#content_featured_image_id').val())){
     $(this).text("Sending Random Library Image...").attr('disabled', 'disabled');
     publish_to_tumblr();
   }else{
-    if(parseInt(saved_featured_image_id) !== parseInt($('content_featured_image_id').val())){
+    if(parseInt(saved_featured_image_id) !== parseInt($('#content_featured_image_id').val())){
       alert("Please, save before sending to tumblr.");
       $(that).text("Send to tumblr").removeAttr('disabled');
     }else{
