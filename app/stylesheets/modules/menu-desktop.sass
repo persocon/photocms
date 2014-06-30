@@ -1,25 +1,23 @@
 @import compass/utilities/general/clearfix
 
+body.open_menu
+	overflow: auto
+	width: auto
+	height: auto
+
 #panel-region
+	padding: 20px 10px
+	.wrap
+		padding: 0
+		.toggle_menu
+			padding: 0px 12px
 	.mobile-title
 		display: none
 	.desktop-title
 		display: block
-// #header-region
-//   position: relative
-//   float: left
-//   display: block!important
-//   width: 300px
-//   overflow-x: hidden
-//   top: auto
-//   left: auto
-//   background: transparent
-//   margin-left: -300px
-//   nav
-//     width: 300px
-//     position: fixed
-//     top: 0
-//     left: 0
-//   .header-close-wrap
-//     display: none
-//     visibility: hidden
+#header-region
+	width: 300px
+	top: 50px
+	ul
+		&:after
+			left: 28px

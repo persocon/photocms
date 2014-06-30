@@ -3,8 +3,10 @@
 @import ../helpers/mixins
 
 $primary: #2ba6cb
+$black: #000
 
 .set
+	+pie-clearfix
 	h2.set-title
 		padding: 5px
 		+set-font(serif,700)
@@ -29,37 +31,41 @@ $primary: #2ba6cb
 			list-style: square
 			list-style-position: inside
 			
-	.categories
+	.categories, .tags
 		+pie-clearfix
 		padding: 5px
-		background: #666
+		background: $black
 		color: #FFF
+		width: 100%
+		+set-font(serif, 300)
 		a
-			color: #FFF
-		p, ul
-			float: left
+			color: $primary
+			font-style: italic
+		p
+			font-weight: 700
 		ul
 			+pie-clearfix
-			margin-left: 5px
+			margin: 5px 0px
+			list-style: square
+			list-style-position: inside
+			color: $primary
 			li
-				float: left
-				margin-left: 7px
+				margin: 5px 0
 				position: relative
-				&:before
-					content: ","
-					position: absolute
-					bottom: -2px
-					left: -7px
-				&:first-child
-					&:before
-						content: " "
 	.tags
 		+pie-clearfix
-		background: #4e4e4e
+		background: $black
 		padding: 5px
 		a
-			color: #FFF
 			float: left
 			margin-left: 5px
+			position: relative
+			&:before
+				content: ","
+				position: absolute
+				bottom: -2px
+				left: -5px
 			&:first-child
 				margin-left: 0
+				&:before
+					content: " "

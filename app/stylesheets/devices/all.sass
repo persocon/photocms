@@ -2,6 +2,7 @@
 @import compass/css3
 @import compass/css3/transition
 @import compass/css3/box-shadow
+@import ../helpers/mixins
 
 $menu-width: 300px
 $black: #4e4e4e
@@ -20,8 +21,7 @@ body
 			display: block
 
 #header-region
-	background: rgba($black, .7)
-	color: #FFF
+	color: $black
 	position: fixed
 	top: 37px
 	left: 0
@@ -29,48 +29,48 @@ body
 	height: 100%
 	z-index: 800
 	display: none
-	text-shadow: 0 -1px 0 shade($black, 20%)
-	.header-close-wrap
-		background: transparent
-		margin-top: -37px
-		+pie-clearfix
-	.header-close
-		background: $black
-		color: #FFF
-		padding: 10px 12px
-		position: relative
-		z-index: 1001
-		border-left: 1px solid shade($black, 20%)
-		+box-shadow(-1px 0 0 0 tint($black, 5%))
-		
 	ul
 		+transition-property(transform, translate3d)
 		+transition-duration(.3s)
 		+transition-timing-function(ease-in-out)
-		background: $black
+		+border-radius(5px)
+		background: #FFF
+		// border: 1px solid $black
+		&:after
+			bottom: 100%
+			left: 20px
+			border: solid transparent
+			content: " "
+			height: 0
+			width: 0
+			position: absolute
+			pointer-events: none
+		&:after
+			border-color: rgba(255, 255, 255, 0)
+			border-bottom-color: #ffffff
+			border-width: 10px
+			margin-left: -10px		
 	ul.menu-mobile
 		display: block
 		clear: both
 		position: relative
 		+pie-clearfix
-		border-top: 1px solid shade($black, 20%)
-		+box-shadow(0 1px 1px 0 rgba(56,65,74,.3))
 		li
+			+set-font(serif, 300)
 			+pie-clearfix
-			border-bottom: 1px solid shade($black, 20%)
-			border-top: 1px solid tint($black, 5%)
+			border-top: 1px solid shade(#FFF, 20%)
+			&:first-child
+				border-top: none
 			a
-				color: #FFF
+				color: $black
 				text-decoration: none
 				width: 75%
 				float: left
 				padding: 10px 5px
 			i.icon
 				padding: 10px 14px 10px 13px
-				background: $black
-				color: #FFF
-				border-left: 1px solid shade($black, 20%)
-				+box-shadow(-1px 0 0 0 tint($black, 5%))
+				color: $black
+				border-left: 1px solid shade(#FFF, 20%)
 				position: relative
 				cursor: pointer
 				
@@ -84,20 +84,15 @@ body
 		left: 100%
 		width: 100%
 		display: none
-		+box-shadow(0px -1px 0px 0px shade($black, 20%))
 		.close-list-item
-			background: $black
 			z-index: 1000
 			width: 100%
 			.icon
 				border-left: none
 				padding: 10px 14px 10px 13px
-				border-right: 1px solid shade($black, 20%)
-				+box-shadow(1px 0 0 0 tint($black, 5%))
+				border-right: 1px solid shade(#FFF, 20%)
 				cursor: pointer
 			a
 				padding: 10px 10px 10px 5px
-				color: #FFF
+				color: $black
 				text-decoration: none
-
-#main-region

@@ -2,17 +2,22 @@
 Syntax error: Undefined mixin 'set-font'.
         on line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'
         from line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass
-        from line 3 of /home/neves/photoCMS/app/stylesheets/devices/desktop.sass
 
-1: @import compass/utilities/general/clearfix
-2: @import ../modules/menu-desktop
-3: @import ../modules/set-desktop
-4: @import ../modules/page-desktop
+1: $black: #000
+2: .set
+3: 	background: $black
+4: 	h2.set-title
+5: 		padding: 5px
+6: 		+set-font(serif,700)
+7: 		font-style: italic
+8: 		color: $primary
+9: 	.set-images
+10: 		width: 100%
+11: 		img
 
 Backtrace:
 /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:6:in `set-font'
 /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:6
-/home/neves/photoCMS/app/stylesheets/devices/desktop.sass:3
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -34,11 +39,6 @@ Backtrace:
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
-/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `map'
-/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -93,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A         from line 3 of /home/neves/photoCMS/app/stylesheets/devices/desktop.sass\A \A 1: @import compass/utilities/general/clearfix\A 2: @import ../modules/menu-desktop\A 3: @import ../modules/set-desktop\A 4: @import ../modules/page-desktop"; }
+  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A \A 1: $black: #000\A 2: .set\A 3: 	background: $black\A 4: 	h2.set-title\A 5: 		padding: 5px\A 6: 		+set-font(serif,700)\A 7: 		font-style: italic\A 8: 		color: $primary\A 9: 	.set-images\A 10: 		width: 100%\A 11: 		img"; }

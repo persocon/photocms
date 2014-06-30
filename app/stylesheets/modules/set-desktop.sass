@@ -1,0 +1,45 @@
+$black: #000
+.set
+	background: $black
+	h2.set-title
+		padding: 5px
+		+set-font(serif,700)
+		font-style: italic
+		color: $primary
+	.set-images
+		width: 100%
+		img
+			width: 100%
+			display: block
+	.content
+		text-align: center
+		+set-font(serif, 300)
+		padding: 10px 5px
+		background: #000
+		color: #FFF
+		line-height: 1.2em
+		a
+			color: $primary
+		ul
+			margin: 5px 0
+			list-style: square
+			list-style-position: inside
+			
+	.categories, .tags
+		width: 50%
+		float: left
+	.tags
+		a
+			display: list-item
+			float: none
+			margin-left: 0
+			position: relative
+			list-style: square
+			list-style-position: inside
+			margin: 5px 0
+			&:before
+				content: " "
+			&:first-child
+				margin-left: 0
+				&:before
+					content: " "

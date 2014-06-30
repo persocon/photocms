@@ -15,16 +15,13 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			slug = $(event.currentTarget).attr('data-slug');
 			
 			
-			this.trigger("header:navigate", {type: type, slug: slug});
-
 			this.closeIfMobile(event);
+
+			this.trigger("header:navigate", {type: type, slug: slug});
 		},
 		closeIfMobile: function(event){
-			var mql = window.matchMedia("(min-width: 1280px)")
-			if(!mql.matches){
-				this.closeMenu(event);
-				this.removeTranslated();
-			}
+			this.closeMenu(event);
+			this.removeTranslated();
 		},
 		closeMenu: function(event){
 			event.preventDefault();
@@ -43,8 +40,8 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 		},
 		openMenu: function(){
 			console.log()
-			this.$el.parent().fadeIn(300, function(){
-				$('body').addClass('open_menu');
+			this.$el.parent().stop(true,true).fadeToggle(300, function(){
+				$('body').toggleClass('open_menu');
 			});
 		},
 		openSubmenu: function(event){

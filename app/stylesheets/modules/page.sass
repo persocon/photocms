@@ -1,7 +1,12 @@
 @import ../helpers/mixins
+$primary: #2ba6cb
+$black: #000
 .page
 	font-size: 1em
 	line-height: 1.1em
+	padding-top: 37px
+	background: $black
+	color: #FFF
 	.page-content
 		padding:	10px
 		+set-font(serif,300)
@@ -13,6 +18,8 @@
 		font-style: italic
 	p
 		margin-bottom: 10px
+	a
+		color: $primary
 	ul.images
 		li, img
 			width: 100%
