@@ -29,6 +29,11 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		},
 		onRender: function(){
 			$('body').removeClass('open_menu');
+			$(window).scroll(this.setupOpacity);
+		},
+		setupOpacity: function(){
+			var oVal = $(window).scrollTop() / 240;
+			$('#panel-region').css("background", 'rgba(0,0,0,'+oVal+')');
 		}
 	});
 

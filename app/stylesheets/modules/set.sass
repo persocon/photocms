@@ -57,15 +57,10 @@ $black: #000
 		background: $black
 		padding: 5px
 		a
-			float: left
-			margin-left: 5px
+			display: list-item
+			float: none
+			margin-left: 0
 			position: relative
-			&:before
-				content: ","
-				position: absolute
-				bottom: -2px
-				left: -5px
-			&:first-child
-				margin-left: 0
-				&:before
-					content: " "
+			list-style: square
+			list-style-position: inside
+			margin: 5px 0
