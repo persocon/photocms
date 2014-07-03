@@ -1,24 +1,32 @@
 /*
-Syntax error: Undefined mixin 'set-font'.
-        on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'
-        from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass
+Syntax error: Undefined mixin 'pie-clearfix'.
+        on line 4 of /home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass, in `pie-clearfix'
+        from line 4 of /home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass
 
-3: 	background: $black
-4: 	&.not-featured
-5: 		padding-top: 50px
-6: 	h2.set-title
-7: 		padding: 5px
-8: 		+set-font(serif,700)
-9: 		font-style: italic
-10: 		color: $primary
-11: 	.set-images
-12: 		width: 100%
-13: 		img
+1: #footer-region
+2: 	.footer-wrap
+3: 		.footer-content
+4: 			+pie-clearfix
+5: 			margin: 0 auto
+6: 			ul
+7: 				float: left
+8: 				text-align: left
+9: 				margin-left: 10px
 
 Backtrace:
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8:in `set-font'
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8
+/home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass:4:in `pie-clearfix'
+/home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass:4
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -93,4 +101,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A \A 3: 	background: $black\A 4: 	&.not-featured\A 5: 		padding-top: 50px\A 6: 	h2.set-title\A 7: 		padding: 5px\A 8: 		+set-font(serif,700)\A 9: 		font-style: italic\A 10: 		color: $primary\A 11: 	.set-images\A 12: 		width: 100%\A 13: 		img"; }
+  content: "Syntax error: Undefined mixin 'pie-clearfix'.\A         on line 4 of /home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass, in `pie-clearfix'\A         from line 4 of /home/neves/photoCMS/app/stylesheets/modules/footer-region-desktop.sass\A \A 1: #footer-region\A 2: 	.footer-wrap\A 3: 		.footer-content\A 4: 			+pie-clearfix\A 5: 			margin: 0 auto\A 6: 			ul\A 7: 				float: left\A 8: 				text-align: left\A 9: 				margin-left: 10px"; }

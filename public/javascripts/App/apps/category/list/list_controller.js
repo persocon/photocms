@@ -8,6 +8,7 @@ App.module("CategoryApp.List", function(List, App, Backbone, Marionette, $, _){
 
 			var categoryListLayout = new App.Common.Views.Layout();
 			var categoryListPanel = new App.Common.Views.Panel();
+			var footerView = new App.Common.Views.Footer();
 
 			$.when(fetchingSets).done(function(sets){
 				
@@ -22,6 +23,7 @@ App.module("CategoryApp.List", function(List, App, Backbone, Marionette, $, _){
 				categoryListLayout.on("show", function(){
 					categoryListLayout.panelRegion.show(categoryListPanel);
 					categoryListLayout.contentRegion.show(setsListView);
+					categoryListLayout.footerRegion.show(footerView);
 				});
 
 				App.mainRegion.show(categoryListLayout);

@@ -8,6 +8,7 @@ App.module("SetApp.Show", function(Show, App, Backbone, Marionette, $, _){
 
 			var setListLayout = new App.Common.Views.Layout();
 			var setListPanel = new App.Common.Views.Panel();
+			var footerView = new App.Common.Views.Footer();
 
 			$.when(fetchingSet).done(function(set){
 				var setView;
@@ -22,6 +23,7 @@ App.module("SetApp.Show", function(Show, App, Backbone, Marionette, $, _){
 				setListLayout.on("show", function(){
 					setListLayout.panelRegion.show(setListPanel);
 					setListLayout.contentRegion.show(setView);
+					setListLayout.footerRegion.show(footerView);
 				});
 
 				App.mainRegion.show(setListLayout);

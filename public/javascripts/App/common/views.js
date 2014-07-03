@@ -11,7 +11,8 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		template: Handlebars.compile($("#main-layout").html()),
 		regions: {
 			panelRegion: "#panel-region",
-			contentRegion: "#contents-region"
+			contentRegion: "#contents-region",
+			footerRegion: "#footer-region"
 		}
 	});
 
@@ -34,6 +35,21 @@ App.module("Common.Views", function(Views, App, Backbone, Marionette, $, _){
 		setupOpacity: function(){
 			var oVal = $(window).scrollTop() / 240;
 			$('#panel-region').css("background", 'rgba(0,0,0,'+oVal+')');
+		}
+	});
+
+	Views.Footer = Marionette.ItemView.extend({
+		template: "#footer-view",
+		className: 'footer-wrap',
+		events: {
+			'click .go-to-top': 'goTop'
+		},
+		goTop: function(event){
+			event.preventDefault();
+			event.stopPropagation();
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
 		}
 	});
 

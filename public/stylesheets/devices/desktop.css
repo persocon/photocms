@@ -1,17 +1,16 @@
 /*
 Syntax error: Undefined mixin 'set-font'.
-        on line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'
-        from line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass
+        on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'
+        from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass
         from line 3 of /home/neves/photoCMS/app/stylesheets/devices/desktop.sass
 
-1: @import compass/utilities/general/clearfix
-2: @import ../modules/menu-desktop
 3: @import ../modules/set-desktop
 4: @import ../modules/page-desktop
+5: @import ../modules/footer-region-desktop
 
 Backtrace:
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:6:in `set-font'
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:6
+/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8:in `set-font'
+/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8
 /home/neves/photoCMS/app/stylesheets/devices/desktop.sass:3
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
@@ -93,4 +92,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 6 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A         from line 3 of /home/neves/photoCMS/app/stylesheets/devices/desktop.sass\A \A 1: @import compass/utilities/general/clearfix\A 2: @import ../modules/menu-desktop\A 3: @import ../modules/set-desktop\A 4: @import ../modules/page-desktop"; }
+  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A         from line 3 of /home/neves/photoCMS/app/stylesheets/devices/desktop.sass\A \A 3: @import ../modules/set-desktop\A 4: @import ../modules/page-desktop\A 5: @import ../modules/footer-region-desktop"; }

@@ -8,6 +8,7 @@ App.module("TagApp.List", function(List, App, Backbone, Marionette, $, _){
 
 			var tagListLayout = new App.Common.Views.Layout();
 			var tagListPanel = new App.Common.Views.Panel();
+			var footerView = new App.Common.Views.Footer();
 
 			$.when(fetchingSets).done(function(sets){
 				
@@ -22,6 +23,7 @@ App.module("TagApp.List", function(List, App, Backbone, Marionette, $, _){
 				tagListLayout.on("show", function(){
 					tagListLayout.panelRegion.show(tagListPanel);
 					tagListLayout.contentRegion.show(setsListView);
+					tagListLayout.footerRegion.show(footerView);
 				});
 
 				App.mainRegion.show(tagListLayout);

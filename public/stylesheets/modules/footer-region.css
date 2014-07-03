@@ -1,23 +1,20 @@
 /*
-Syntax error: Undefined mixin 'set-font'.
-        on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'
-        from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass
+Syntax error: Undefined mixin 'pie-clearfix'.
+        on line 3 of /home/neves/photoCMS/app/stylesheets/modules/footer-region.sass, in `pie-clearfix'
+        from line 3 of /home/neves/photoCMS/app/stylesheets/modules/footer-region.sass
 
-3: 	background: $black
-4: 	&.not-featured
-5: 		padding-top: 50px
-6: 	h2.set-title
-7: 		padding: 5px
-8: 		+set-font(serif,700)
-9: 		font-style: italic
-10: 		color: $primary
-11: 	.set-images
-12: 		width: 100%
-13: 		img
+1: #footer-region
+2: 	.footer-wrap
+3: 		+pie-clearfix
+4: 		text-align: center
+5: 		padding: 10px 0
+6: 		border-top: 1px solid #FFF
+7: 		a
+8: 			color: #FFF
 
 Backtrace:
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8:in `set-font'
-/home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass:8
+/home/neves/photoCMS/app/stylesheets/modules/footer-region.sass:3:in `pie-clearfix'
+/home/neves/photoCMS/app/stylesheets/modules/footer-region.sass:3
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /home/neves/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -93,4 +90,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A \A 3: 	background: $black\A 4: 	&.not-featured\A 5: 		padding-top: 50px\A 6: 	h2.set-title\A 7: 		padding: 5px\A 8: 		+set-font(serif,700)\A 9: 		font-style: italic\A 10: 		color: $primary\A 11: 	.set-images\A 12: 		width: 100%\A 13: 		img"; }
+  content: "Syntax error: Undefined mixin 'pie-clearfix'.\A         on line 3 of /home/neves/photoCMS/app/stylesheets/modules/footer-region.sass, in `pie-clearfix'\A         from line 3 of /home/neves/photoCMS/app/stylesheets/modules/footer-region.sass\A \A 1: #footer-region\A 2: 	.footer-wrap\A 3: 		+pie-clearfix\A 4: 		text-align: center\A 5: 		padding: 10px 0\A 6: 		border-top: 1px solid #FFF\A 7: 		a\A 8: 			color: #FFF"; }
