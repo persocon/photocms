@@ -65,6 +65,26 @@ class GeneralHelper
 		response
 	end
 
+	def self.map_and_check_upload(featured_image_id, uploads)
+		if uploads.any?
+			response = uploads.map { |image|
+				next if image.id == featured_image_id
+				{
+					"id" => image[:id],
+					"files" => {
+						"name" => image[:file],
+						"default" => image.file.url,
+						"thumb" => image.file.thumb.url,
+						"thumb50" => image.file.thumb.thumb50.url
+					}
+				}
+			}.compact
+		else
+			response = nil
+		end
+		response
+	end
+
 	def self.map_featured_upload(featured_image_id)
 		unless featured_image_id.nil?
 			image = Upload[featured_image_id]
@@ -95,6 +115,30 @@ class GeneralHelper
 					"categories" => GeneralHelper::map_category(content.categories.map),
 					"featured_image" => GeneralHelper::map_featured_upload(content[:featured_image_id]),
 					"images" => GeneralHelper::map_upload(content.uploads.map)
+				}
+			}
+			if random
+				response = response.sample(1)
+			end
+		else
+			response = nil
+		end
+
+		response
+	end
+
+	def self.map_single_content(contents, random = nil)
+		if contents.any?
+			response = contents.map { |content|
+				{
+					"id" => content[:id],
+					"title" => content[:title],
+					"slug" => content[:slug],
+					"body" => content[:body],
+					"tags" => GeneralHelper::map_tag(content.tags.map),
+					"categories" => GeneralHelper::map_category(content.categories.map),
+					"featured_image" => GeneralHelper::map_featured_upload(content[:featured_image_id]),
+					"images" => GeneralHelper::map_and_check_upload(content[:featured_image_id], content.uploads.map)
 				}
 			}
 			if random

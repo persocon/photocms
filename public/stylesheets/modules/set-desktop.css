@@ -5,7 +5,7 @@ Syntax error: Undefined mixin 'set-font'.
 
 3: 	background: $black
 4: 	&.not-featured
-5: 		padding-top: 50px
+5: 		padding-top: 60px
 6: 	h2.set-title
 7: 		padding: 5px
 8: 		+set-font(serif,700)
@@ -93,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A \A 3: 	background: $black\A 4: 	&.not-featured\A 5: 		padding-top: 50px\A 6: 	h2.set-title\A 7: 		padding: 5px\A 8: 		+set-font(serif,700)\A 9: 		font-style: italic\A 10: 		color: $primary\A 11: 	.set-images\A 12: 		width: 100%\A 13: 		img"; }
+  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /home/neves/photoCMS/app/stylesheets/modules/set-desktop.sass\A \A 3: 	background: $black\A 4: 	&.not-featured\A 5: 		padding-top: 60px\A 6: 	h2.set-title\A 7: 		padding: 5px\A 8: 		+set-font(serif,700)\A 9: 		font-style: italic\A 10: 		color: $primary\A 11: 	.set-images\A 12: 		width: 100%\A 13: 		img"; }

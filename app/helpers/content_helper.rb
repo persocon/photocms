@@ -14,7 +14,7 @@ class ContentHelper
 
 	def self.get_set(slug)
 		contents = Content.where(:type => 'post', :published => true, :slug => slug)
-		json = GeneralHelper::map_content(contents)
+		json = GeneralHelper::map_single_content(contents)
 		json.to_json
 	end
 
