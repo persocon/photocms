@@ -19,7 +19,7 @@ pid APP_PATH + "/tmp/pids/unicorn.pid"
 preload_app true
 
 
-timeout 60
+timeout 360
 
 stderr_path "./log/unicorn.stderr.log"
 stdout_path "./log/unicorn.stdout.log"
