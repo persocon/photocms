@@ -23,7 +23,7 @@ PhotoCms::Admin.controllers :contents do
     if params[:q].blank?
       @tags = Tag.all
     else
-      @tags = Tag.where(Sequel.like(:title, "#{params[:q]}%"))
+      @tags = Tag.select(:title).where(Sequel.like(:title, "#{params[:q]}%"))
     end
     tags = @tags.map {|tag|
         {
@@ -93,9 +93,7 @@ PhotoCms::Admin.controllers :contents do
   
   put :sort do
     params[:sort].each_with_index do |item, index|
-      content = Content[item]
-      content.sort = index
-      content.save
+      content = Content[item].update(:sort => index)
     end
     redirect(url(:contents, :sort))
   end
@@ -103,9 +101,7 @@ PhotoCms::Admin.controllers :contents do
   put :sortUpload do
     sorted = JSON.parse(params[:sorted])
     sorted.each_with_index do |item, index|
-      upload = Upload[item]
-      upload.sort = index
-      upload.save
+      upload = Upload[item].update(:sort => index)
     end
     {success: true}.to_json
   end
