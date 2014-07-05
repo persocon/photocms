@@ -166,42 +166,15 @@ $(document).ready(function(){
 
 
   <%
-    tags = @content.tags.map {|k,vs| 
-      {
-        "text" => k.title
-      }
-     } 
+     TAGS = @tags.map{|k,vs|
+        k.title
+     }
   %>
-  var OBJ = <%= tags.to_json.html_safe %>;
+  var TAGS = <%= TAGS.to_json.html_safe %>;
   $("#tags").select2({
-      tokenSeparators: [","],
-      dropdownCssClass: "bigdrop",
-      multiple:true,
-      ajax: {
-        url: "<%= url(:contents, :tags)%>",
-        data: function(term) {
-          return { 
-            q: term
-          }
-        },
-        results: function(data){
-          return {results: data}
-        }
-      },
-      createSearchChoice: function(term) {
-          return {
-              id: term,
-              text: term
-          };
-      },
-      initSelection: function(element, callback){
-        var obj = OBJ;
-        callback(obj);
-      },
-      id: function(object){
-        return object.text
-      }
-  }).select2('val', OBJ);
+      tags: TAGS,
+      tokenSeparators: [","]
+  });
   $('body').on('click', '#send_to_tumblr', function(event){
     event.preventDefault();
     $(this).text("Sending...").attr('disabled', 'disabled');

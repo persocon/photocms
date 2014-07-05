@@ -80,6 +80,7 @@ PhotoCms::Admin.controllers :contents do
     @content = Content.new
     @categories = Category.all
     @uploads_all = Upload.all
+    @tags = Tag.all
     @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'select2/select2.min.js', 'ibutton/jquery.ibutton.js']
     render 'contents/new'
   end
@@ -133,6 +134,7 @@ PhotoCms::Admin.controllers :contents do
     @title = pat(:edit_title, :model => "set #{params[:id]}")
     @js = ['jquery.sortable.min', 'editor/ripple.min', 'editor/ripple-events.min', 'editor/ripple-refs.min', 'editor/ripple-markdown.min', 'editor/ripple-start', 'select2/select2.min.js', 'ibutton/jquery.ibutton.js']
     @categories = Category.all
+    @tags = Tag.all
     @content = Content[params[:id]]
     unless @content.featured_image_id.nil?
       @featured_image = Upload[@content.featured_image_id]
