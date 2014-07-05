@@ -5,6 +5,7 @@
 @import ../helpers/mixins
 
 $menu-width: 300px
+$primary: #2ba6cb
 $black: #4e4e4e
 
 html, body
@@ -29,13 +30,14 @@ body
 	height: 100%
 	z-index: 800
 	display: none
+	nav
+		+box-shadow(0px 10px 20px rgba(0,0,0,.5))
 	ul
 		+transition-property(transform, translate3d)
 		+transition-duration(.3s)
 		+transition-timing-function(ease-in-out)
 		+border-radius(5px)
 		background: #FFF
-		// border: 1px solid $black
 		&:after
 			bottom: 100%
 			left: 20px
@@ -58,21 +60,42 @@ body
 		li
 			+set-font(serif, 300)
 			+pie-clearfix
-			border-top: 1px solid shade(#FFF, 20%)
+			a
+				position: relative
+				&:before
+					width: 125%
+					position: absolute
+					text-align: center
+					overflow: auto
+					margin: auto
+					top: -1px
+					bottom: 0
+					left: 6px
+					right: 0
+					border-top: 1px solid shade(#FFF, 20%)
+					content: " "
+				
 			&:first-child
-				border-top: none
+				a:before
+					border-top: none
 			a
 				color: $black
 				text-decoration: none
 				width: 75%
 				float: left
 				padding: 10px 5px
+				&:hover
+					color: $primary
 			i.icon
-				padding: 10px 14px 10px 13px
-				color: $black
-				border-left: 1px solid shade(#FFF, 20%)
+				padding: 5px 7px 5px 8px
+				margin: 5px 7px 5px 6px
+				color: #FFF
 				position: relative
 				cursor: pointer
+				background: $black
+				+border-radius(50%)
+				&:hover
+					background: $primary
 				
 	ul.translated
 		+translate3d(-100%, 0, 0)
@@ -89,8 +112,8 @@ body
 			width: 100%
 			.icon
 				border-left: none
-				padding: 10px 14px 10px 13px
-				border-right: 1px solid shade(#FFF, 20%)
+				padding: 5px 8px 5px 7px
+				margin: 5px 7px 5px 6px
 				cursor: pointer
 			a
 				padding: 10px 10px 10px 5px
