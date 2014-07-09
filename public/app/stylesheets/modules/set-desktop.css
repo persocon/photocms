@@ -2,16 +2,22 @@
 Syntax error: Undefined mixin 'set-font'.
         on line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass, in `set-font'
         from line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass
-        from line 3 of /Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass
 
-3: @import ../modules/set-desktop
-4: @import ../modules/page-desktop
-5: @import ../modules/footer-region-desktop
+3: 	background: $black
+4: 	&.not-featured
+5: 		padding-top: 60px
+6: 	h2.set-title
+7: 		padding: 5px
+8: 		+set-font(serif,700)
+9: 		font-style: italic
+10: 		color: $primary
+11: 	.set-images
+12: 		width: 100%
+13: 		img
 
 Backtrace:
 /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass:8:in `set-font'
 /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass:8
-/Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass:3
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -33,11 +39,6 @@ Backtrace:
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `map'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -92,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass\A         from line 3 of /Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass\A \A 3: @import ../modules/set-desktop\A 4: @import ../modules/page-desktop\A 5: @import ../modules/footer-region-desktop"; }
+  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass\A \A 3: 	background: $black\A 4: 	&.not-featured\A 5: 		padding-top: 60px\A 6: 	h2.set-title\A 7: 		padding: 5px\A 8: 		+set-font(serif,700)\A 9: 		font-style: italic\A 10: 		color: $primary\A 11: 	.set-images\A 12: 		width: 100%\A 13: 		img"; }

@@ -1,17 +1,21 @@
 /*
-Syntax error: Undefined mixin 'set-font'.
-        on line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass, in `set-font'
-        from line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass
-        from line 3 of /Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass
+Syntax error: Undefined mixin 'pie-clearfix'.
+        on line 4 of /Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass, in `pie-clearfix'
+        from line 4 of /Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass
 
-3: @import ../modules/set-desktop
-4: @import ../modules/page-desktop
-5: @import ../modules/footer-region-desktop
+1: #footer-region
+2: 	.footer-wrap
+3: 		.footer-content
+4: 			+pie-clearfix
+5: 			margin: 0 auto
+6: 			ul
+7: 				float: left
+8: 				text-align: left
+9: 				margin-left: 10px
 
 Backtrace:
-/Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass:8:in `set-font'
-/Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass:8
-/Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass:3
+/Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass:4:in `pie-clearfix'
+/Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass:4
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -35,9 +39,14 @@ Backtrace:
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `map'
-/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Users/persocon/.rvm/gems/ruby-2.1.1@photocms/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -92,4 +101,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'set-font'.\A         on line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass, in `set-font'\A         from line 8 of /Users/persocon/photo-cms/app/stylesheets/modules/set-desktop.sass\A         from line 3 of /Users/persocon/photo-cms/app/stylesheets/devices/desktop.sass\A \A 3: @import ../modules/set-desktop\A 4: @import ../modules/page-desktop\A 5: @import ../modules/footer-region-desktop"; }
+  content: "Syntax error: Undefined mixin 'pie-clearfix'.\A         on line 4 of /Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass, in `pie-clearfix'\A         from line 4 of /Users/persocon/photo-cms/app/stylesheets/modules/footer-region-desktop.sass\A \A 1: #footer-region\A 2: 	.footer-wrap\A 3: 		.footer-content\A 4: 			+pie-clearfix\A 5: 			margin: 0 auto\A 6: 			ul\A 7: 				float: left\A 8: 				text-align: left\A 9: 				margin-left: 10px"; }
