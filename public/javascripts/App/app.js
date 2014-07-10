@@ -22,11 +22,11 @@ Handlebars.registerHelper('list', function(items, options) {
 		}
 		out += "<li "+classe+">";
 		if(item.type === "external_link"){
-			out += "<a href='" + item.url + "' title='" + item.title + "' class='external_link' target='_blank'>";
-				out += item.title;
+			out += "<a href='" + item.url + "' title='" + _.escape(item.title) + "' class='external_link' target='_blank'>";
+				out += _.escape(item.title);
 		}else{		
-			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + item.title + "' class='internal_link' data-type='"+item.type+"' data-slug='"+item.slug+"'>";
-				out += item.title;
+			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + _.escape(item.title) + "' class='internal_link' data-type='"+item.type+"' data-slug='"+item.slug+"'>";
+				out += _.escape(item.title);
 		}
 		out += "</a>";
 		out += icon;
