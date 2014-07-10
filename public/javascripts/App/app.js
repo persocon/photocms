@@ -53,15 +53,30 @@ App.addRegions({
 App.navigate = function(route, options){
 	options || (options = {});
 	Backbone.history.navigate(route, options);
+	App.trigger("route:change")
 };
 
 App.getCurrentRoute = function(){
 	return Backbone.history.fragment;
 }
 
+Marionette.AppRouter.prototype.onRoute = function(){
+	App.trigger("route:change")
+}
+
+App.on("route:change", function(){
+	var url = Backbone.history.getFragment();
+	if (!/^\//.test(url) && url !== ""){
+			url = "/#" + url;
+	}
+	_gaq.push(['_trackPageview', url]);
+});
+
 App.on("initialize:after", function(){
 	if(Backbone.history){
 		Backbone.history.start();
+		GoSquared.q = GoSquared.q || [];
+		GoSquared.q.push(['TrackView']);
 	}
 });
 // var supportsOrientationChange = "onorientationchange" in window,
