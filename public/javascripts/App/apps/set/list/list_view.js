@@ -9,6 +9,7 @@ App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
 			var that = this;
 			$(window).on("resize", function(){
 				that.setupItemHeight();
+				that.setupSubMenuHeight();
 			});
 		},
 		onRender: function(){
@@ -17,9 +18,13 @@ App.module("SetApp.List", function(List, App, Backbone, Marionette, $, _){
 		setupItemHeight: function(){
 			this.$el.find('figure').height($(window).height());
 		},
+		setupSubMenuHeight: function(){
+			App.trigger("submenu:height");
+		},
 		onClose: function(){
 			$(window).off("resize",function(){
 				that.setupItemHeight();
+				that.setupSubMenuHeight();
 			});
 		}
 		
