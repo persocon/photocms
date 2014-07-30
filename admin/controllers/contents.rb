@@ -71,7 +71,7 @@ PhotoCms::Admin.controllers :contents do
   
   get :index do
     @title = "Sets"
-    @contents = Content.where(:type => 'post').order(:sort).all
+    @contents = Content.where(:type => 'post').order(:sort, Sequel.desc(:created_at)).all
     render 'contents/index'
   end
 
@@ -87,7 +87,7 @@ PhotoCms::Admin.controllers :contents do
   
   get :sort do
     @title = pat(:sort_sets, :model => 'set')
-    @contents = Content.where(:type => 'post').order(:sort).all
+    @contents = Content.where(:type => 'post').order(:sort, Sequel.desc(:created_at)).all
     @js = ['jquery.sortable.min']
     render 'contents/sort'
   end
