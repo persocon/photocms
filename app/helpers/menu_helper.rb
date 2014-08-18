@@ -25,7 +25,7 @@ class MenuHelper
 										"id" => menu[:id],
 										"slug" => menu[:slug],
 										"title" => menu[:title],
-										"data" => MenuHelper::menu_data(menu)
+										"data" => MenuHelper::menu_data(menu.data)
 									}
 								}
 		else
@@ -35,11 +35,61 @@ class MenuHelper
 	end
 
 	def self.menu_data(menu)
-		unless menu.data.nil?
-			response = JSON.parse(menu[:data])
+		unless menu.nil?
+			result = JSON.parse(menu).map{|item|
+				{
+					"id" => item["id"],
+					"slug" => item["slug"],
+					"title" => recovery_title(item["title"], item["id"], item["type"]),
+					"children" => menu_data_children(item["children"])
+				}.compact
+			}
+			response = result
 		else
 			response = nil
 		end
 		response
+	end
+
+	def self.menu_data_children(menus)
+		unless menus.blank?
+			result = menus.map{|item|
+				{
+					"id" => item["id"],
+					"slug" => item["slug"],
+					"title" => recovery_title(item["title"], item["id"], item["type"]),
+					"children" => menu_data_children(item["children"])
+				}.compact
+			}
+			response = result
+		else
+			response = nil
+		end
+		response
+	end
+
+	def self.recovery_title(title, id, type)
+		unless id.blank?
+			unless type.blank?
+				if type === "set" || type === "page"
+					content = Content[id]
+					return content.title
+				end
+
+				if type === "category"
+					category = Category[id]
+					return category.title
+				end
+
+				if type === "tag"
+					tag = Tag[id]
+					return tag.title
+				end
+			else
+				return title
+			end
+		else
+			return title
+		end
 	end
 end

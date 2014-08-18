@@ -9,7 +9,7 @@ PhotoCms::App.controllers :menus, :map => '/api/v1', :cache => true do
 
   get :menu, :with => :slug, :provides => [:html, :json] do 
   	callback = params.delete('callback') # jsonp
-    cache_key
+    #cache_key
 
   	@menus = MenuHelper.get_menu(params[:slug])
 

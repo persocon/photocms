@@ -23,8 +23,8 @@ class TreeHelper
 		unless item.blank?
 			html = "<ol class='dd-list'>"
 				item.each do |i|
-					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{i["title"]}' data-url='#{i["url"]}' data-slug='#{i["slug"]}'>"
-						html << "<div class='dd-handle'>#{i["title"]}</div>"
+					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{recovery_title(i["title"], i["id"], i["type"])}' data-url='#{i["url"]}' data-slug='#{i["slug"]}'>"
+						html << "<div class='dd-handle'>#{recovery_title(i["title"], i["id"], i["type"])}</div>"
 						html << "<div class='dd-remove'><span class='icon icon-remove'></span></div>"
 							unless i["children"].blank?
 								html << do_other_thing(i["children"])
@@ -33,6 +33,31 @@ class TreeHelper
 				end
 			html << "</ol>"
 			html.html_safe
+		end
+	end
+
+	def self.recovery_title(title, id, type)
+		unless id.blank?
+			unless type.blank?
+				if type === "set" || type === "page"
+					content = Content[id]
+					return content.title
+				end
+
+				if type === "category"
+					category = Category[id]
+					return category.title
+				end
+
+				if type === "tag"
+					tag = Tag[id]
+					return tag.title
+				end
+			else
+				return title
+			end
+		else
+			return title
 		end
 	end
 end

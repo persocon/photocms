@@ -123,7 +123,7 @@
             menu = JSON.parse(@menu.data)
               menu.each do |item| %>
                   <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>' data-slug="<%= item["slug"] %>" data-url="<%= item["url"]%>">
-                  <div class='dd-handle'><%= item["title"] %></div>
+                  <div class='dd-handle'><%= TreeHelper.recovery_title(item["title"], item["id"], item["type"]) %></div>
                   <div class="dd-remove"><span class="icon icon-remove"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
                 </li>
