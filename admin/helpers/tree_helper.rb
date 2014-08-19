@@ -38,23 +38,27 @@ class TreeHelper
 
 	def self.recovery_title(title, id, type)
 		unless id.blank?
-			unless type.blank?
-				if type === "set" || type === "page"
-					content = Content[id]
-					return content.title
-				end
-
-				if type === "category"
-					category = Category[id]
-					return category.title
-				end
-
-				if type === "tag"
-					tag = Tag[id]
-					return tag.title
-				end
-			else
+			if id == 0
 				return title
+			else
+				unless type.blank?
+					if type === "set" || type === "page"
+						content = Content[id]
+						return content.title
+					end
+
+					if type === "category"
+						category = Category[id]
+						return category.title
+					end
+
+					if type === "tag"
+						tag = Tag[id]
+						return tag.title
+					end
+				else
+					return title
+				end
 			end
 		else
 			return title
