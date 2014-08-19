@@ -41,6 +41,7 @@ class MenuHelper
 					"id" => item["id"],
 					"slug" => item["slug"],
 					"url" => item["url"],
+					"type" => item["type"],
 					"title" => recovery_title(item["title"], item["id"], item["type"]),
 					"children" => menu_data_children(item["children"])
 				}.compact
@@ -59,6 +60,7 @@ class MenuHelper
 					"id" => item["id"],
 					"slug" => item["slug"],
 					"url" => item["url"],
+					"type" => item["type"],
 					"title" => recovery_title(item["title"], item["id"], item["type"]),
 					"children" => menu_data_children(item["children"])
 				}.compact
