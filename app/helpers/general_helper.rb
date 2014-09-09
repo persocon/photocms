@@ -45,11 +45,9 @@ class GeneralHelper
 		end
 		response
 	end
-	
-	def self.map_upload(uploads)
-		if uploads.any?
-			response = uploads.map { |image|
-				{
+
+	def self.image_hash(image)
+		return {
 					"id" => image[:id],
 					"files" => {
 						"name" => image[:file],
@@ -58,6 +56,12 @@ class GeneralHelper
 						"thumb50" => image.file.thumb.thumb50.url
 					}
 				}
+	end
+	
+	def self.map_upload(uploads)
+		if uploads.any?
+			response = uploads.map { |image|
+				image_hash(image)
 			}
 		else
 			response = nil
@@ -69,15 +73,7 @@ class GeneralHelper
 		if uploads.any?
 			response = uploads.map { |image|
 				next if image.id == featured_image_id
-				{
-					"id" => image[:id],
-					"files" => {
-						"name" => image[:file],
-						"default" => image.file.url,
-						"thumb" => image.file.thumb.url,
-						"thumb50" => image.file.thumb.thumb50.url
-					}
-				}
+				image_hash(image)
 			}.compact
 		else
 			response = nil
@@ -88,15 +84,7 @@ class GeneralHelper
 	def self.map_featured_upload(featured_image_id)
 		unless featured_image_id.nil?
 			image = Upload[featured_image_id]
-			response = {
-				"id" => image[:id],
-				"files" => {
-					"name" => image[:file],
-					"default" => image.file.url,
-					"thumb" => image.file.thumb.url,
-					"thumb50" => image.file.thumb.thumb50.url
-				}
-			}
+			response = image_hash(image)
 		else
 			response = nil
 		end

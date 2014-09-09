@@ -8,7 +8,7 @@ class MenuHelper
 										"id" => menu[:id],
 										"slug" => menu[:slug],
 										"title" => menu[:title],
-										"data" => MenuHelper::menu_data(menu)
+										"data" => MenuHelper::menu_data(JSON.parse(menu.data))
 									}
 								}
 		else
@@ -25,7 +25,7 @@ class MenuHelper
 										"id" => menu[:id],
 										"slug" => menu[:slug],
 										"title" => menu[:title],
-										"data" => MenuHelper::menu_data(menu.data)
+										"data" => MenuHelper::menu_data(JSON.parse(menu.data))
 									}
 								}
 		else
@@ -36,14 +36,14 @@ class MenuHelper
 
 	def self.menu_data(menu)
 		unless menu.nil?
-			result = JSON.parse(menu).map{|item|
+			result = menu.map{|item|
 				{
 					"id" => item["id"],
 					"slug" => item["slug"],
 					"url" => item["url"],
 					"type" => item["type"],
 					"title" => recovery_title(item["title"], item["id"], item["type"]),
-					"children" => menu_data_children(item["children"])
+					"children" => menu_data(item["children"])
 				}.compact
 			}
 			response = result
@@ -53,24 +53,6 @@ class MenuHelper
 		response
 	end
 
-	def self.menu_data_children(menus)
-		unless menus.blank?
-			result = menus.map{|item|
-				{
-					"id" => item["id"],
-					"slug" => item["slug"],
-					"url" => item["url"],
-					"type" => item["type"],
-					"title" => recovery_title(item["title"], item["id"], item["type"]),
-					"children" => menu_data_children(item["children"])
-				}.compact
-			}
-			response = result
-		else
-			response = nil
-		end
-		response
-	end
 
 	def self.recovery_title(title, id, type)
 		unless id.blank?
