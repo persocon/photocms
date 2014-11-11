@@ -7,43 +7,7 @@ function markdown(context, options) {
 
 Handlebars.registerHelper('markdown', markdown);
 
-Handlebars.registerHelper('list', function(items, options) {
-  var out = "";
-  	if(!options.nohome){
-  		out += "<ul class='menu-mobile'>";
-  		out += "<li><a href='#' class='home internal_link' data-type='' data-slug=''>Home</a></li>";
-  	}
-	_.each(items, function(item){
-		var classe = "",
-			icon = "";
-		if(item.children){
-			classe = "class='has-submenu'";
-			icon = " <i class='icon icon-chevron-right is-float-right open-submenu'></i>";
-		}
-		out += "<li "+classe+">";
-		if(item.type === "external_link"){
-			out += "<a href='" + item.url + "' title='" + _.escape(item.title) + "' class='external_link' target='_blank'>";
-				out += _.escape(item.title);
-		}else{		
-			out += "<a href='#" + item.type + "/" + item.slug + "' title='" + _.escape(item.title) + "' class='internal_link' data-type='"+item.type+"' data-slug='"+item.slug+"'>";
-				out += _.escape(item.title);
-		}
-		out += "</a>";
-		out += icon;
-		if(item.children){
-			out += "<ul class='submenu'>";
-				out += "<li class='close-list-item'><i class='icon icon-chevron-left is-float-left close-submenu'></i><a href='#' class='close-submenu reset-padding'>Back</a></li>";
-				out += Handlebars.helpers.list(item.children, {nohome: true});
-			out += "</ul> ";
-		}
-		out += "</li>";
-	});
-	if(!options.nohome){
-		out += "</ul>";
-	}
-
-	return new Handlebars.SafeString(out);
-});
+Handlebars.registerPartial('menu-item', $('#partial-menu-item-view').html());
 
 App.addRegions({
 	headerRegion: "#header-region",

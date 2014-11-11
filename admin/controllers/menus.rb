@@ -9,7 +9,8 @@ PhotoCms::Admin.controllers :menus do
     @title = pat(:new_title, :model => 'menu')
     @js = ['nestable']
     @menu = Menu.new
-    @contents = Content.order(:sort).all
+    @contents = Content.where(:type => 'post').order(:sort).all
+    @pages = Content.where(:type => 'page').order(:sort).all
     @categories = Category.all
     @tags = Tag.all
     render 'menus/new'

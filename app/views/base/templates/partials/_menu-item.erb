@@ -1,0 +1,22 @@
+<script id="partial-menu-item-view" type="text/x-handlebars-template">
+{{#each children}}
+	<li class="{{#if children}}has-submenu{{/if}}">
+		{{#if children}}  <i class='icon icon-chevron-right is-float-right open-submenu'></i>{{/if}}
+		<a 
+			href='{{#if is_external}}{{ url }}{{else}}/#{{ type }}/{{ slug }}{{/if}}' 
+			title='{{ title }}' 
+			class='{{#if is_external}}{{ type }}{{ else }}internal_link{{/if}}' 
+			{{#if is_external}}target='_blank'{{/if}}
+			data-type="{{ type }}"
+			data-slug="{{ slug }}">
+		{{title}}
+		</a>
+		{{#if children}}
+			<ul class='submenu'>
+				<li class='close-list-item'><i class='icon icon-chevron-left is-float-left close-submenu'></i><a href='#' class='close-submenu reset-padding'>Back</a></li>
+				{{> menu-item}}
+			</ul>
+		{{/if}}
+	</li>
+{{/each}}
+</script>

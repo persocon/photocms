@@ -1,6 +1,6 @@
 App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 	List.Header = Marionette.ItemView.extend({
-		template: Handlebars.compile($("#header-link").html()),
+		template: Handlebars.compile($("#menu-view").html()),
 		tagName: "nav",
 		events: {
 			"click a.internal_link" : "navigate",
@@ -80,7 +80,7 @@ App.module("HeaderApp.List", function(List, App, Backbone, Marionette, $, _){
 			event.preventDefault();
 			event.stopPropagation();
 			var windowHeight = parseInt($(window).height()) - 39,
-			$next = $(event.currentTarget).next('.submenu:first');
+			$next = $(event.currentTarget).nextAll('.submenu:first');
 			$next.show(0, function(){
 				$(event.currentTarget).closest('ul').addClass('translated');
 			});

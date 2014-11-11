@@ -25,7 +25,7 @@ class MenuHelper
 										"id" => menu[:id],
 										"slug" => menu[:slug],
 										"title" => menu[:title],
-										"data" => MenuHelper::menu_data(JSON.parse(menu.data))
+										"children" => MenuHelper::menu_data(JSON.parse(menu.data))
 									}
 								}
 		else
@@ -42,6 +42,7 @@ class MenuHelper
 					"slug" => item["slug"],
 					"url" => item["url"],
 					"type" => item["type"],
+					"is_external" => item["type"] === "external_link",
 					"title" => recovery_title(item["title"], item["id"], item["type"]),
 					"children" => menu_data(item["children"])
 				}.compact
