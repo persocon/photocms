@@ -7,6 +7,12 @@ function markdown(context, options) {
 
 Handlebars.registerHelper('markdown', markdown);
 
+Handlebars.registerHelper('safe_html', function(text) {
+	// text = Handlebars.Utils.escapeExpression(text);
+
+	return new Handlebars.SafeString(text);
+});
+
 Handlebars.registerPartial('menu-item', $('#partial-menu-item-view').html());
 
 App.addRegions({

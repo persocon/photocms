@@ -2,6 +2,7 @@ App.module("Entities", function(Entities, App, Backbone, Marionette, $, _){
 	Entities.Set = Backbone.Model.extend({
 		initialize: function(options){
 			this.slug = options.slug
+		
 		},
 		urlRoot: function(){
 			return "/api/v1/set/" + this.slug;

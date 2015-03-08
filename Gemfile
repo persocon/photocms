@@ -28,6 +28,7 @@ gem 'sequel'
 gem 'oauth'
 gem 'faraday', '0.8.9'
 gem 'tumblr_client', '0.8.3'
+gem 'ruby-oembed'
 
 #CACHE
 gem 'redis'

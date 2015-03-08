@@ -12,6 +12,9 @@
 			{{markdown body}}
 		{{/if}}
 	</div>
+	{{#if video}}
+		{{safe_html video_iframe}}
+	{{/if}}
 	{{#if images}}
 		<div class="set-images">
 			{{#each images}}

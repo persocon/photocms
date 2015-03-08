@@ -1,4 +1,6 @@
 class GeneralHelper
+	require 'json'
+	require 'oembed'
 	
 	def self.response_to(callback,contents)
 		response = {}
@@ -102,7 +104,8 @@ class GeneralHelper
 					"tags" => GeneralHelper::map_tag(content.tags.map),
 					"categories" => GeneralHelper::map_category(content.categories.map),
 					"featured_image" => GeneralHelper::map_featured_upload(content[:featured_image_id]),
-					"images" => GeneralHelper::map_upload(content.uploads.map)
+					"images" => GeneralHelper::map_upload(content.uploads.map),
+					"video" => content[:video_url]
 				}
 			}
 			if random
@@ -126,7 +129,9 @@ class GeneralHelper
 					"tags" => GeneralHelper::map_tag(content.tags.map),
 					"categories" => GeneralHelper::map_category(content.categories.map),
 					"featured_image" => GeneralHelper::map_featured_upload(content[:featured_image_id]),
-					"images" => GeneralHelper::map_and_check_upload(content[:featured_image_id], content.uploads.map)
+					"images" => GeneralHelper::map_and_check_upload(content[:featured_image_id], content.uploads.map),
+					"video" => content[:video_url],
+					"video_iframe" => GeneralHelper::return_vimeo_iframe(content[:video_url])
 				}
 			}
 			if random
@@ -155,6 +160,11 @@ class GeneralHelper
 		end
 
 		response
+	end
+	
+	def self.return_vimeo_iframe(url)
+		resource = OEmbed::Providers::Vimeo.get(url, {byline: 0, portrait: 0, title: 0})
+		return resource.html
 	end
 	
 end
