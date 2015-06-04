@@ -68,6 +68,22 @@ class Uploader < CarrierWave::Uploader::Base
       process :resize_to_fill => [50, 50]
     end
   end
+
+  version :mobile do
+    process :resize_to_fit => [320, 320]
+  end
+
+  version :tablet do
+    process :resize_to_fit => [1024, 1024]
+  end
+
+  version :desktop do
+    process :resize_to_fit => [1280, 1280]
+  end
+
+  version :desktop_big do
+    process :resize_to_fit => [1440, 1440]
+  end
   
   
   ##
