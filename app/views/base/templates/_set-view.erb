@@ -2,7 +2,11 @@
 	{{#if featured_image}}
 		<div class="set-images featured">
 			<figure>
-				<img src="{{featured_image.files.default}}" />
+				<img srcset="{{featured_image.files.mobile}} 320w, 
+							{{featured_image.files.tablet}} 1024w, 
+							{{featured_image.files.desktop}} 1280w, 
+							{{featured_image.files.desktop_big}} 1440w, 
+							{{featured_image.files.default}} 1441w" />
 			</figure>
 		</div>
 	{{/if}}
@@ -19,7 +23,11 @@
 		<div class="set-images">
 			{{#each images}}
 				<figure>
-					<img src="{{files.default}}" />
+					<img srcset="{{files.mobile}} 320w, 
+								{{files.tablet}} 1024w, 
+								{{files.desktop}} 1280w, 
+								{{files.desktop_big}} 1440w, 
+								{{files.default}} 1441w" />
 				</figure>
 			{{/each}}
 		</div>

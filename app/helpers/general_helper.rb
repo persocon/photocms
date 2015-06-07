@@ -55,7 +55,11 @@ class GeneralHelper
 						"name" => image[:file],
 						"default" => image.file.url,
 						"thumb" => image.file.thumb.url,
-						"thumb50" => image.file.thumb.thumb50.url
+						"thumb50" => image.file.thumb.thumb50.url,
+						"mobile" => image.file.mobile.url,
+						"tablet" => image.file.tablet.url,
+						"desktop" => image.file.desktop.url,
+						"desktop_big" => image.file.desktop_big.url
 					}
 				}
 	end
@@ -163,8 +167,13 @@ class GeneralHelper
 	end
 	
 	def self.return_vimeo_iframe(url)
-		resource = OEmbed::Providers::Vimeo.get(url, {byline: 0, portrait: 0, title: 0})
-		return resource.html
+		unless url.blank?
+			resource = OEmbed::Providers::Vimeo.get(url, {byline: 0, portrait: 0, title: 0})
+			response = resource.html
+		else
+			response = nil
+		end
+		response
 	end
 	
 end

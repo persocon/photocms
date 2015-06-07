@@ -1,15 +1,8 @@
 <script id="set-list-item" type="text/x-handlebars-template">
-	<div class="set-images">
-		<a href="#set/{{slug}}">	
-			<figure
-				{{#if featured_image}}
-					style="background-image: url({{featured_image.files.default}})"
-				{{ else }}
-					{{#if images}}
-						style="background-image: url({{images.0.files.default}})"
-					{{/if}}
-				{{/if}}
-			>
+{{css this}}
+	<div class="set-images" id="{{slug}}">
+		<a href="#set/{{slug}}">
+			<figure>
 				
 				<figcaption>
 						<h2>{{title}}</h2>
