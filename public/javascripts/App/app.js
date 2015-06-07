@@ -9,42 +9,50 @@ function css(context, options){
 					html += 'background-image: url('+context.images[0].files.default+')';
 				}
 			html += '}';
-			html += '@media (min-width: 320px){';
-				html += '#'+context.slug+' figure {';
-					if(context.featured_image){
-						html += 'background-image: url('+context.featured_image.files.mobile+')';
-					}else{
-						html += 'background-image: url('+context.images[0].files.mobile+')';
-					}
-				html += '}';
-			html += '}'
-			html += '@media (min-width: 768px){';
-				html += '#'+context.slug+' figure {';
-					if(context.featured_image){
-						html += 'background-image: url('+context.featured_image.files.tablet+')';
-					}else{
-						html += 'background-image: url('+context.images[0].files.tablet+')';
-					}
-				html += '}';
-			html += '}'
-			html += '@media (min-width: 1025px){';
-				html += '#'+context.slug+' figure {';
-					if(context.featured_image){
-						html += 'background-image: url('+context.featured_image.files.desktop+')';
-					}else{
-						html += 'background-image: url('+context.images[0].files.desktop+')';
-					}
-				html += '}';
-			html += '}'
-			html += '@media (min-width: 1281px){';
-				html += '#'+context.slug+' figure {';
-					if(context.featured_image){
-						html += 'background-image: url('+context.featured_image.files.desktop_big+')';
-					}else{
-						html += 'background-image: url('+context.images[0].files.desktop_big+')';
-					}
-				html += '}';
-			html += '}'
+			if(!_.isNull(context.images[0].files.mobile)){
+				html += '@media (min-width: 320px){';
+					html += '#'+context.slug+' figure {';
+						if(context.featured_image){
+							html += 'background-image: url('+context.featured_image.files.mobile+')';
+						}else{
+							html += 'background-image: url('+context.images[0].files.mobile+')';
+						}
+					html += '}';
+				html += '}'
+			}
+			if(!_.isNull(context.images[0].files.tablet)){
+				html += '@media (min-width: 768px){';
+					html += '#'+context.slug+' figure {';
+						if(context.featured_image){
+							html += 'background-image: url('+context.featured_image.files.tablet+')';
+						}else{
+							html += 'background-image: url('+context.images[0].files.tablet+')';
+						}
+					html += '}';
+				html += '}'
+			}
+			if(!_.isNull(context.images[0].files.desktop)){
+				html += '@media (min-width: 1025px){';
+					html += '#'+context.slug+' figure {';
+						if(context.featured_image){
+							html += 'background-image: url('+context.featured_image.files.desktop+')';
+						}else{
+							html += 'background-image: url('+context.images[0].files.desktop+')';
+						}
+					html += '}';
+				html += '}'
+			}
+			if(!_.isNull(context.images[0].files.desktop_big)){
+				html += '@media (min-width: 1281px){';
+					html += '#'+context.slug+' figure {';
+						if(context.featured_image){
+							html += 'background-image: url('+context.featured_image.files.desktop_big+')';
+						}else{
+							html += 'background-image: url('+context.images[0].files.desktop_big+')';
+						}
+					html += '}';
+				html += '}'
+			}
 		html += '</style>';
 
 	return new Handlebars.SafeString(html);

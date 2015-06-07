@@ -2,10 +2,19 @@
 	{{#if featured_image}}
 		<div class="set-images featured">
 			<figure>
-				<img srcset="{{featured_image.files.mobile}} 320w, 
+				<img srcset="
+							{{#if featured_image.files.mobile}}
+							{{featured_image.files.mobile}} 320w,
+							{{/if}} 
+							{{#if featured_image.files.tablet}}
 							{{featured_image.files.tablet}} 1024w, 
-							{{featured_image.files.desktop}} 1280w, 
+							{{/if}}
+							{{#if featured_image.files.desktop}}
+							{{featured_image.files.desktop}} 1280w,
+							{{/if}} 
+							{{#if featured_image.files.desktop_big}}
 							{{featured_image.files.desktop_big}} 1440w, 
+							{{/if}}
 							{{featured_image.files.default}} 1441w" />
 			</figure>
 		</div>
@@ -23,10 +32,19 @@
 		<div class="set-images">
 			{{#each images}}
 				<figure>
-					<img srcset="{{files.mobile}} 320w, 
+					<img srcset="
+								{{#if files.mobile}}
+								{{files.mobile}} 320w, 
+								{{/if}}
+								{{#if files.tablet}}
 								{{files.tablet}} 1024w, 
+								{{/if}}
+								{{#if files.desktop}}
 								{{files.desktop}} 1280w, 
+								{{/if}}
+								{{#if files.desktop_big}}
 								{{files.desktop_big}} 1440w, 
+								{{/if}}
 								{{files.default}} 1441w" />
 				</figure>
 			{{/each}}
