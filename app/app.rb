@@ -22,7 +22,9 @@ module PhotoCms
     # set :cache, Padrino::Cache::Store::Memory.new(50)
     # set :cache, Padrino::Cache::Store::File.new(Padrino.root('tmp', app_name.to_s, 'cache')) # default choice
     #
-    App.cache.flush 
+    if ENV['RACK_ENV'] == 'production' 
+        App.cache.flush
+    end
 
     ##
     # Application configuration options.
