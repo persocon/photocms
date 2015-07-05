@@ -54,11 +54,11 @@
           <td class="list-column list-selectable">
             <%= check_box_tag 'content_ids[]', :value => content.id, :class => 'list-selectable-checkbox' %>
            </td>
-          <td class=list-column> <%= content.featured ? tag_icon(:ok) : tag_icon(:remove) %> </td>
+          <td class=list-column> <%= content.featured ? tag_icon(:check) : tag_icon(:times) %> </td>
           <td class=list-column> <%= content.id %> </td>
           <td class=list-column> <%= content.title %> </td>
           <td class=list-column> <%= content.slug %> </td>
-          <td class=list-column> <%= content.published ? tag_icon(:ok) : tag_icon(:remove) %> </td>
+          <td class=list-column> <%= content.published ? tag_icon(:check) : tag_icon(:times) %> </td>
           <td class=list-column> <%= content.created_at %> </td>
           <td class=list-column> <%= content.updated_at %> </td>
           <td class=list-column> <%= content.account_id %> </td>

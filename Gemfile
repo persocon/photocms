@@ -16,6 +16,7 @@ gem 'unicorn-worker-killer'
 gem 'rake'
 
 # Component requirements
+gem 'bcrypt'
 gem 'stringex'
 gem 'carrierwave'
 gem 'carrierwave-sequel', :require => 'carrierwave/sequel'
@@ -36,7 +37,7 @@ gem 'redis'
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '0.12.1'
+gem 'padrino', '0.12.5'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

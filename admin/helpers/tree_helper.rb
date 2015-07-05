@@ -25,7 +25,7 @@ class TreeHelper
 				item.each do |i|
 					html << "<li class='dd-item' data-id='#{i["id"]}' data-type='#{i["type"]}' data-title='#{recovery_title(i["title"], i["id"], i["type"])}' data-url='#{i["url"]}' data-slug='#{i["slug"]}'>"
 						html << "<div class='dd-handle'>#{recovery_title(i["title"], i["id"], i["type"])}</div>"
-						html << "<div class='dd-remove'><span class='icon icon-remove'></span></div>"
+						html << "<div class='dd-remove'><span class='fa fa-times'></span></div>"
 							unless i["children"].blank?
 								html << do_other_thing(i["children"])
 							end

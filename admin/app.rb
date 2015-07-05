@@ -1,10 +1,8 @@
 module PhotoCms
   class Admin < Padrino::Application
-    register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Admin::AccessControl
-    register CompassInitializer
 
     ##
     # Application configuration options
@@ -32,7 +30,7 @@ module PhotoCms
       role.protect '/'
       role.allow   '/sessions'
     end
-    
+
     access_control.roles_for :admin do |role|
       role.project_module :menus, '/menus'
       role.project_module :uploads, '/uploads'

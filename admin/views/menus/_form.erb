@@ -124,7 +124,7 @@
               menu.each do |item| %>
                   <li class='dd-item' data-id='<%= item["id"] %>' data-type='<%= item["type"] %>' data-title='<%= item["title"] %>' data-slug="<%= item["slug"] %>" data-url="<%= item["url"]%>">
                   <div class='dd-handle'><%= TreeHelper.recovery_title(item["title"], item["id"], item["type"]) %></div>
-                  <div class="dd-remove"><span class="icon icon-remove"></span></div>
+                  <div class="dd-remove"><span class="fa fa-times"></span></div>
                   <%= TreeHelper.do_other_thing(item["children"]) %>
                 </li>
             <% end
@@ -152,7 +152,7 @@
 <script id="entry-template" type="text/x-handlebars-template">
   <li class='dd-item' data-id='{{ id }}' data-type='{{ type }}' data-slug="{{ slug }}" data-title='{{ title }}' data-url='{{ url }}'>
     <div class='dd-handle'>{{ title }}</div>
-    <div class="dd-remove"><span class="icon icon-remove"></span></div>
+    <div class="dd-remove"><span class="fa fa-times"></span></div>
   </li>
 </script>
 <script>
@@ -207,7 +207,7 @@ $('.box-action-btn .btn-add').click( function(event){
 });
 
 //ACTION REMOVE
-$('#menu').on('click', '.dd-remove .icon-remove', function(event){
+$('#menu').on('click', '.dd-remove .fa-times', function(event){
   event.preventDefault();
   var $cara = $(this).parent().parent();
   if($cara.find('ol.dd-list').length > 0){

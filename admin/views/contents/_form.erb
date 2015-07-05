@@ -1,13 +1,6 @@
 <div class="row">
   <div class="col-md-8">
     <button type="button" class="btn btn-primary btn-sm image-library" data-toggle="modal" data-target="#imageLibrary">Image Library</button>
-    <% 
-      unless @content.values.blank? && current_account.tumblr_oauth_consumer_key.blank? && current_account.tumblr_oauth_secret_key.blank? || @content.values.blank?
-    %>
-      <%= link_to pat(:send_to_tumblr), :href => url(:contents, :tumblr, :id => @content.id), :id => 'send_to_tumblr', :class => 'btn btn-primary btn-sm' %>
-    <% 
-      end 
-    %>
     <% error = @content.errors.key?(:title) && @content.errors[:title].count > 0 %>
     <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
       <%= f.label :title, :class => 'control-label' %>
@@ -145,7 +138,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <h4>Your content here <i class="icon icon-level-down"></i></h4>
+    <h4>Your content here <i class="fa fa-level-down" style="display: inline-block"></i></h4>
     <textarea id="getTextFromHere" style="display: none"><%= f.object.body %></textarea>
   </div>
   <div class="col-md-12" id="append-editor">
@@ -212,43 +205,6 @@ $(document).ready(function(){
       tags: TAGS,
       tokenSeparators: [","]
   });
-  $('body').on('click', '#send_to_tumblr', function(event){
-    event.preventDefault();
-    $(this).text("Sending...").attr('disabled', 'disabled');
-    var authenticity_token = $('input[name="authenticity_token"]').val(),
-    url = $(this).attr('href'),
-    that = this,
-    saved_featured_image_id;
-    
-    function publish_to_tumblr(){
-      $.ajax({
-          url: url,
-          type: 'post',
-          data: {authenticity_token: authenticity_token},
-          success: function(data){
-            $(that).text("Send to tumblr").removeAttr('disabled');
-          }
-      });
-    }
-     
-    <% 
-      unless @content.featured_image_id.nil?
-    %>
-      saved_featured_image_id = <%= @content.featured_image_id %>;
-    <%
-      end
-    %>
-  if(_.isEmpty(saved_featured_image_id) && _.isEmpty($('#content_featured_image_id').val())){
-    $(this).text("Sending Random Library Image...").attr('disabled', 'disabled');
-    publish_to_tumblr();
-  }else{
-    if(parseInt(saved_featured_image_id) !== parseInt($('#content_featured_image_id').val())){
-      alert("Please, save before sending to tumblr.");
-      $(that).text("Send to tumblr").removeAttr('disabled');
-    }else{
-      publish_to_tumblr();
-    }
-  }
-  })
+  
 });
 </script>
