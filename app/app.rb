@@ -18,11 +18,16 @@ module PhotoCms
     #
     # set :cache, Padrino::Cache::Store::Memcache.new(::Memcached.new('127.0.0.1:11211', :exception_retry_limit => 1))
     # set :cache, Padrino::Cache::Store::Memcache.new(::Dalli::Client.new('127.0.0.1:11211', :exception_retry_limit => 1))
-    set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0)
+    #set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0)
     # set :cache, Padrino::Cache::Store::Memory.new(50)
     # set :cache, Padrino::Cache::Store::File.new(Padrino.root('tmp', app_name.to_s, 'cache')) # default choice
     #
-    #App.cache.flush 
+    if ENV['RACK_ENV'] == 'production' 
+        set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0, :password => 'senhadoredis')
+        App.cache.flush
+    else
+        set :cache, Padrino::Cache.new(:Redis, :host => '127.0.0.1', :port => 6379, :db => 0)
+    end
 
     ##
     # Application configuration options.
