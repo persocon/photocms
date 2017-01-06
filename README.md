@@ -1,7 +1,6 @@
-# Photo CMS
+# DEPRECATED PROJECT, NO LONGER MAINTAINED 
 
-[ ![Codeship Status for persocon/photo
-cms](https://www.codeship.io/projects/4eccfe90-fbd9-0131-d6f8-5a73486b8860/status)](https://www.codeship.io/projects/29263)
+# Photo CMS
 
 ### SETUP
 edit config/database.rb to desired **mysql** `user` and `password`  
